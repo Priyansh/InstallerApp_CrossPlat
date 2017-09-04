@@ -1,4 +1,4 @@
-﻿// WARNING
+// WARNING
 //
 // This file has been generated automatically by Visual Studio from the outlets and
 // actions declared in your storyboard file.
@@ -36,6 +36,10 @@ namespace InstallerApp_CrossPlat.iOS
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UITextField testText { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UITextField txtHeight { get; set; }
 
         [Outlet]
@@ -67,6 +71,11 @@ namespace InstallerApp_CrossPlat.iOS
             if (lblWeight != null) {
                 lblWeight.Dispose ();
                 lblWeight = null;
+            }
+
+            if (testText != null) {
+                testText.Dispose ();
+                testText = null;
             }
 
             if (txtHeight != null) {
