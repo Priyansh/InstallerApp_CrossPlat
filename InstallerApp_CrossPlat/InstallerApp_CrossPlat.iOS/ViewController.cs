@@ -1,5 +1,5 @@
 ﻿using System;
-
+using Foundation;
 using UIKit;
 
 namespace InstallerApp_CrossPlat.iOS
@@ -39,6 +39,12 @@ namespace InstallerApp_CrossPlat.iOS
 			base.DidReceiveMemoryWarning ();
 			// Release any cached data, images, etc that aren't in use.
 		}
-	}
+
+        public override void TouchesBegan(NSSet touches, UIEvent evt)
+        {
+            base.TouchesBegan(touches, evt);
+            this.View.EndEditing(true);
+        }
+    }
 }
 
