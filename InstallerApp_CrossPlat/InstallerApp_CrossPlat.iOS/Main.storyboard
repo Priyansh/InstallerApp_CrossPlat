@@ -46,7 +46,9 @@
                                 <state key="normal" title="Show Details">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections/>
+                                <connections>
+                                    <segue id="2720" destination="2366" kind="show"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="1638" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" placeholder="Enter Height">
                                 <rect key="frame" x="20" y="153" width="339" height="30"/>
@@ -135,6 +137,23 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="486" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2660" y="-147"/>
+        </scene>
+        <scene sceneID="2365">
+            <objects>
+                <viewController id="2366" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2363"/>
+                        <viewControllerLayoutGuide type="bottom" id="2364"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2367">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2368" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1761" y="-151"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
