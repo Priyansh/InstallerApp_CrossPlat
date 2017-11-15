@@ -115,12 +115,55 @@
     <None Include="Info.plist" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="JobScreenController.cs" />
+    <Compile Include="JobScreenController.designer.cs">
+      <DependentUpon>JobScreenController.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="ViewController.cs" />
     <Compile Include="ViewController.designer.cs">
       <DependentUpon>ViewController.cs</DependentUpon>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ToolBox32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ToolBox48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ToolBox64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ToolBox128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ToolBox256.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Memo256.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\door_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\MoneyBagUSDollar256.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\leftarrow_button64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\left-arrow-button32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\reload32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\fk48.png" />
   </ItemGroup>
   <Import Project="..\InstallerApp_CrossPlat\InstallerApp_CrossPlat.projitems" Label="Shared" Condition="Exists('..\InstallerApp_CrossPlat\InstallerApp_CrossPlat.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

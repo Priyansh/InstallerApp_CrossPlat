@@ -20,31 +20,47 @@ namespace InstallerApp_CrossPlat.iOS
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIButton btnShowDetails { get; set; }
+        UIKit.UIButton btnJobs { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UILabel lblBmi { get; set; }
+        UIKit.UIButton btnLogOut { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UILabel lblHeight { get; set; }
+        UIKit.UIButton btnMessages { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UILabel lblWeight { get; set; }
+        UIKit.UIButton btnPayments { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UITextField testText { get; set; }
+        UIKit.UIButton btnSettings { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UITextField txtHeight { get; set; }
+        UIKit.UILabel lblInstallerName { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UITextField txtWeight { get; set; }
+        UIKit.UILabel lblJobs { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel lblLogOut { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel lblMessages { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel lblPayments { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel lblSettings { get; set; }
 
         void ReleaseDesignerOutlets ()
         {
@@ -53,39 +69,59 @@ namespace InstallerApp_CrossPlat.iOS
                 btnCalculateBMI = null;
             }
 
-            if (btnShowDetails != null) {
-                btnShowDetails.Dispose ();
-                btnShowDetails = null;
+            if (btnJobs != null) {
+                btnJobs.Dispose ();
+                btnJobs = null;
             }
 
-            if (lblBmi != null) {
-                lblBmi.Dispose ();
-                lblBmi = null;
+            if (btnLogOut != null) {
+                btnLogOut.Dispose ();
+                btnLogOut = null;
             }
 
-            if (lblHeight != null) {
-                lblHeight.Dispose ();
-                lblHeight = null;
+            if (btnMessages != null) {
+                btnMessages.Dispose ();
+                btnMessages = null;
             }
 
-            if (lblWeight != null) {
-                lblWeight.Dispose ();
-                lblWeight = null;
+            if (btnPayments != null) {
+                btnPayments.Dispose ();
+                btnPayments = null;
             }
 
-            if (testText != null) {
-                testText.Dispose ();
-                testText = null;
+            if (btnSettings != null) {
+                btnSettings.Dispose ();
+                btnSettings = null;
             }
 
-            if (txtHeight != null) {
-                txtHeight.Dispose ();
-                txtHeight = null;
+            if (lblInstallerName != null) {
+                lblInstallerName.Dispose ();
+                lblInstallerName = null;
             }
 
-            if (txtWeight != null) {
-                txtWeight.Dispose ();
-                txtWeight = null;
+            if (lblJobs != null) {
+                lblJobs.Dispose ();
+                lblJobs = null;
+            }
+
+            if (lblLogOut != null) {
+                lblLogOut.Dispose ();
+                lblLogOut = null;
+            }
+
+            if (lblMessages != null) {
+                lblMessages.Dispose ();
+                lblMessages = null;
+            }
+
+            if (lblPayments != null) {
+                lblPayments.Dispose ();
+                lblPayments = null;
+            }
+
+            if (lblSettings != null) {
+                lblSettings.Dispose ();
+                lblSettings = null;
             }
         }
     }

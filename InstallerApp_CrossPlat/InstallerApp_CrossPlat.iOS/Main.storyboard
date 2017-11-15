@@ -7,7 +7,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" sceneMemberID="viewController" customClass="ViewController" storyboardIdentifier="ViewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,112 +16,158 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Height" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="469" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
-                                <rect key="frame" x="20" y="114" width="374" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="highlightedColor" colorSpace="calibratedRGB" red="0" green="0" blue="0" alpha="1"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="1161" translatesAutoresizingMaskIntoConstraints="NO" placeholder="Height in Meters" fixedFrame="YES">
-                                <rect key="frame" x="20" y="152" width="339" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1162" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
-                                <rect key="frame" x="20" y="198" width="57" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2102" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
+                                <rect key="frame" x="42" y="151" width="70" height="49"/>
+                                <state key="normal" backgroundImage="ToolBox256.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue id="5017" destination="3426" kind="showDetail"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2105" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
+                                <rect key="frame" x="237" y="151" width="67" height="49"/>
+                                <state key="normal" backgroundImage="Memo256.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Donovan Mitchell" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2106" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
+                                <rect key="frame" x="95" y="81" width="166" height="35"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                     <color key="highlightedColor" colorSpace="calibratedRGB" red="0" green="0" blue="0" alpha="1"/>
                                 </variation>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="1163" translatesAutoresizingMaskIntoConstraints="NO" placeholder="Weight in Kilograms" fixedFrame="YES">
-                                <rect key="frame" x="20" y="235" width="339" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1224" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
-                                <rect key="frame" x="119" y="527" width="120" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="Show Details">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue id="2720" destination="2366" kind="show"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="1638" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" placeholder="Enter Height">
-                                <rect key="frame" x="20" y="153" width="339" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1641" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
-                                <rect key="frame" x="20" y="199" width="374" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jobs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2115" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
+                                <rect key="frame" x="56" y="208" width="56" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="1642" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" placeholder="Enter Weight">
-                                <rect key="frame" x="20" y="235" width="339" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1824" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
-                                <rect key="frame" x="85" y="413" width="187" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="Calculate BMI">
-                                    <color key="titleColor" colorSpace="calibratedRGB" red="0" green="0.52549019607843139" blue="1" alpha="1"/>
-                                </state>
-                                <connections/>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21.5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1846" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
-                                <rect key="frame" x="89" y="469" width="179" height="29"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <color key="highlightedColor" colorSpace="calibratedRGB" red="1" green="0" blue="0" alpha="1"/>
-                                <color key="textColor" colorSpace="calibratedRGB" red="0.2196078431372549" green="0.62745098039215685" blue="1" alpha="1"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Messages" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2116" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
+                                <rect key="frame" x="227" y="208" width="99" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="2064" translatesAutoresizingMaskIntoConstraints="NO" placeholder="Enter dummy text" fixedFrame="YES">
-                                <rect key="frame" x="20" y="296" width="339" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2290" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
+                                <rect key="frame" x="42" y="263" width="70" height="49"/>
+                                <state key="normal" backgroundImage="MoneyBagUSDollar256.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payments" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2291" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
+                                <rect key="frame" x="42" y="320" width="90" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2292" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
+                                <rect key="frame" x="237" y="263" width="67" height="49"/>
+                                <state key="normal" backgroundImage="settings.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2293" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
+                                <rect key="frame" x="237" y="320" width="76" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <color key="highlightedColor" colorSpace="calibratedRGB" red="0" green="0" blue="0" alpha="1"/>
+                                </variation>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2294" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
+                                <rect key="frame" x="133" y="374" width="70" height="49"/>
+                                <state key="normal" backgroundImage="door_32.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LogOut" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2295" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
+                                <rect key="frame" x="133" y="424" width="90" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2302" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
+                                <rect key="frame" x="145" y="479" width="46" height="30"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="1161"/>
-                                <exclude reference="1162"/>
-                                <exclude reference="1163"/>
-                                <exclude reference="1224"/>
-                                <exclude reference="2064"/>
+                                <exclude reference="2102"/>
+                                <exclude reference="2105"/>
+                                <exclude reference="2106"/>
+                                <exclude reference="2115"/>
+                                <exclude reference="2116"/>
+                                <exclude reference="2290"/>
+                                <exclude reference="2291"/>
+                                <exclude reference="2292"/>
+                                <exclude reference="2293"/>
+                                <exclude reference="2294"/>
+                                <exclude reference="2295"/>
+                                <exclude reference="2302"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
-                                <include reference="1161"/>
-                                <include reference="1162"/>
-                                <include reference="1163"/>
-                                <include reference="1224"/>
-                                <include reference="2064"/>
+                                <include reference="2102"/>
+                                <include reference="2105"/>
+                                <include reference="2106"/>
+                                <include reference="2115"/>
+                                <include reference="2116"/>
+                                <include reference="2290"/>
+                                <include reference="2291"/>
+                                <include reference="2292"/>
+                                <include reference="2293"/>
+                                <include reference="2294"/>
+                                <include reference="2295"/>
+                                <include reference="2302"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="txtHeight" destination="1161" id="name-outlet-1161"/>
-                        <outlet property="btnShowDetails" destination="1224" id="name-outlet-1224"/>
-                        <outlet property="lblHeight" destination="469" id="name-outlet-469"/>
-                        <outlet property="txtWeight" destination="1642" id="name-outlet-1642"/>
-                        <outlet property="txtHeight" destination="1638" id="name-outlet-1638"/>
-                        <outlet property="lblWeight" destination="1641" id="name-outlet-1641"/>
-                        <outlet property="lblBmi" destination="1846" id="name-outlet-1846"/>
-                        <outlet property="btnCalculateBMI" destination="1824" id="name-outlet-1824"/>
-                        <outlet property="testText" destination="2064" id="name-outlet-2064"/>
+                        <outlet property="btnJobs" destination="2102" id="name-outlet-2102"/>
+                        <outlet property="lblInstallerName" destination="2106" id="name-outlet-2106"/>
+                        <outlet property="btnMessages" destination="2105" id="name-outlet-2105"/>
+                        <outlet property="lblJobs" destination="2115" id="name-outlet-2115"/>
+                        <outlet property="lblMessages" destination="2116" id="name-outlet-2116"/>
+                        <outlet property="btnCalculateBMI" destination="2302" id="name-outlet-2302"/>
+                        <outlet property="btnPayments" destination="2290" id="name-outlet-2290"/>
+                        <outlet property="lblPayments" destination="2291" id="name-outlet-2291"/>
+                        <outlet property="btnSettings" destination="2292" id="name-outlet-2292"/>
+                        <outlet property="lblSettings" destination="2293" id="name-outlet-2293"/>
+                        <outlet property="btnLogOut" destination="2294" id="name-outlet-2294"/>
+                        <outlet property="lblLogOut" destination="2295" id="name-outlet-2295"/>
                     </connections>
-                    <navigationItem title="Frendel Kitchens-Installer App" id="230" key="navigationItem"/>
+                    <navigationItem id="2092" key="navigationItem">
+                        <accessibility key="accessibilityConfiguration">
+                            <accessibilityTraits key="traits" button="YES" header="YES" image="YES" adjustable="YES"/>
+                        </accessibility>
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="2635">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2634" translatesAutoresizingMaskIntoConstraints="NO" key="customView">
+                                <rect key="frame" x="0.0" y="0.0" width="48" height="38"/>
+                                <state key="normal" backgroundImage="fk48.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </barButtonItem>
+                        <label key="titleView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Frendel Kitchens-Installer App" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2636" translatesAutoresizingMaskIntoConstraints="NO">
+                            <rect key="frame" x="70" y="12" width="246" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17" weight="semibold"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                            <variation key="heightClass=regular-widthClass=compact"/>
+                        </label>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2225" y="-148"/>
+            <point key="canvasLocation" x="-2384" y="-159"/>
         </scene>
         <scene sceneID="482">
             <objects>
@@ -131,33 +177,126 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue id="1222" destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController"/>
+                        <segue id="2264" destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="486" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2660" y="-147"/>
+            <point key="canvasLocation" x="-2834" y="-159"/>
         </scene>
-        <scene sceneID="2365">
+        <scene sceneID="3425">
             <objects>
-                <viewController id="2366" sceneMemberID="viewController">
+                <viewController id="3426" sceneMemberID="viewController" customClass="JobScreenController" storyboardIdentifier="JobScreenController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="2363"/>
-                        <viewControllerLayoutGuide type="bottom" id="2364"/>
+                        <viewControllerLayoutGuide type="top" id="3423"/>
+                        <viewControllerLayoutGuide type="bottom" id="3424"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="2367">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                    <view key="view" contentMode="scaleToFill" id="3427">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="3443" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" id="3444"/>
+                                    <barButtonItem id="3445" image="left-arrow-button32.png" width="40">
+                                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    </barButtonItem>
+                                    <barButtonItem id="3446"/>
+                                    <barButtonItem title="Jobs" id="3447" width="201">
+                                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    </barButtonItem>
+                                    <barButtonItem id="3448" systemItem="flexibleSpace"/>
+                                    <barButtonItem style="plain" id="3449"/>
+                                    <barButtonItem title="Item" id="3450" image="reload32.png">
+                                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    </barButtonItem>
+                                </items>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <color key="backgroundColor" colorSpace="calibratedRGB" red="0" green="0.52549019607843139" blue="1" alpha="1"/>
+                                </variation>
+                            </toolbar>
+                            <navigationBar contentMode="scaleToFill" id="3832" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
+                                <rect key="frame" x="0.0" y="20" width="374" height="44"/>
+                                <items>
+                                    <navigationItem id="3833" title="Jobs">
+                                        <accessibility key="accessibilityConfiguration">
+                                            <accessibilityTraits key="traits" button="YES" image="YES"/>
+                                        </accessibility>
+                                        <titleViews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jobs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4757" translatesAutoresizingMaskIntoConstraints="NO">
+                                                <rect key="frame" x="166" y="12" width="77" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5030" translatesAutoresizingMaskIntoConstraints="NO">
+                                                <rect key="frame" x="106" y="6" width="46" height="30"/>
+                                                <state key="normal" title="Button">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                            </button>
+                                        </titleViews>
+                                        <barButtonItem key="rightBarButtonItem" title="Item" id="5033" image="reload32.png" width="32">
+                                            <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </barButtonItem>
+                                        <barButtonItem key="leftBarButtonItem" title="Item" id="5195" image="left-arrow-button32.png">
+                                            <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <color key="backgroundColor" colorSpace="calibratedRGB" red="0" green="0.52549019607843139" blue="1" alpha="1"/>
+                                </variation>
+                                <variation key="heightClass=compact-widthClass=compact"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </textAttributes>
+                            </navigationBar>
+                        </subviews>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="3443"/>
+                                <exclude reference="3832"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="3443"/>
+                                <include reference="3832"/>
+                            </mask>
+                        </variation>
+                        <accessibility key="accessibilityConfiguration">
+                            <accessibilityTraits key="traits" button="YES" image="YES" selected="YES" header="YES"/>
+                        </accessibility>
                     </view>
+                    <connections>
+                        <outlet property="btnRefreshed" destination="5033" id="name-outlet-5033"/>
+                        <outlet property="btnBack" destination="5195" id="name-outlet-5195"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2368" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3428" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1761" y="-151"/>
+            <point key="canvasLocation" x="-1895" y="-158"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedScreenMetrics key="destination" type="retina47"/>
         <simulatedOrientationMetrics key="orientation"/>
     </simulatedMetricsContainer>
+    <resources>
+        <image name="ToolBox128.png" width="128" height="128"/>
+        <image name="ToolBox32.png" width="32" height="32"/>
+        <image name="ToolBox48.png" width="48" height="48"/>
+        <image name="ToolBox64.png" width="64" height="64"/>
+        <image name="ToolBox256.png" width="256" height="256"/>
+        <image name="Memo256.png" width="256" height="256"/>
+        <image name="door_32.png" width="32" height="32"/>
+        <image name="MoneyBagUSDollar256.png" width="256" height="256"/>
+        <image name="settings.png" width="170" height="170"/>
+        <image name="left-arrow-button32.png" width="32" height="32"/>
+        <image name="leftarrow_button64.png" width="64" height="64"/>
+        <image name="reload32.png" width="32" height="32"/>
+        <image name="fk48.png" width="48" height="48"/>
+    </resources>
 </document>
