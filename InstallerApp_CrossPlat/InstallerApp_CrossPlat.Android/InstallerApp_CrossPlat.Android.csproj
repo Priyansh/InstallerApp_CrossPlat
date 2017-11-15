@@ -184,6 +184,9 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\ToolBox256.png" />
   </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\leftarrowbutton32.png" />
+  </ItemGroup>
   <Import Project="..\InstallerApp_CrossPlat\InstallerApp_CrossPlat.projitems" Label="Shared" Condition="Exists('..\InstallerApp_CrossPlat\InstallerApp_CrossPlat.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
