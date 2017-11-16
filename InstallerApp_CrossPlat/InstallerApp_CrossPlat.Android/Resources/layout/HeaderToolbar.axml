@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    android:minHeight="?android:attr/actionBarSize"
+    android:background="?android:attr/colorPrimary"
+    android:minWidth="25px"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/HeaderToolbar"
+    android:theme="@style/MyTheme"
+    android:popupTheme="@android:style/ThemeOverlay.Material.Light">
+    <ImageButton
+        android:layout_height="wrap_content"
+        android:id="@+id/imgbtnBack"
+        android:visibility="visible"
+        android:layout_gravity="left"
+        android:layout_width="wrap_content"
+        android:src="@drawable/leftarrowbutton64"
+        android:background="@color/clrHeaderBg" />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imgViewIcon"
+        android:src="@android:drawable/ic_menu_gallery"
+        android:visibility="visible"
+        android:layout_gravity="center"
+        android:background="@color/clrHeaderBg" />
+    <TextView
+        android:text="Medium Text"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewGeneral"
+        android:visibility="visible"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:layout_gravity="center" />
+</Toolbar>

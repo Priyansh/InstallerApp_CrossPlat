@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+  <color name="clrHeaderBg">#AFDAE6</color>
+  <color name="clrWhite">#FFFFFF</color>
+  <color name="clrLightWhite">#FCFCFC</color>
+  <color name="clrSplashBackground">#AFDAE6</color>
+</resources>

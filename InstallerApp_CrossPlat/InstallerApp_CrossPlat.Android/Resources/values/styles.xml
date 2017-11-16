@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+  <style name="MyTheme" parent="@android:style/Theme.Material.Light.DarkActionBar">
+    <item name="android:windowNoTitle">true</item>
+    <!-- Using Toolbar, but not using Actionbar -->
+    <item name="android:windowActionBar">false</item>
+    <!-- Applying Default colorPrimary for Toolbar background-->
+    <item name="android:colorPrimary">#AFDAE6</item>
+    <!-- Applying colorPrimaryDarker for Statusbar -->
+    <item name="android:colorPrimaryDark">#1976D2</item>
+    <!-- Applying colorAccent is used as the default value for colorControlActivated
+         which is used to tint widgets-->
+    <!--<item name="andorid:colorAccent">#FF4081</item>-->
+    <!-- You can also set colorControlNormal, colorControlActivated
+         colorControlHighlight and colorSwitchThumbNormal.#90CAF9-->
+  </style>
+  <style name="MyTheme.Splash" parent="@android:style/Theme.Material.Light.NoActionBar">
+    <!--<item name="android:windowBackground">@drawable/splash_screen</item> -->
+    <item name="android:windowNoTitle">true</item>
+    <!--<item name="android:windowFullScreen">true</item>-->
+  </style> 
+</resources>
