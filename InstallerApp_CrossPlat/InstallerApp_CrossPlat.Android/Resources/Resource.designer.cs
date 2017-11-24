@@ -205,71 +205,98 @@ namespace InstallerApp_CrossPlat.Droid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f070000
-			public const int HeaderToolbar = 2131165184;
+			// aapt resource value: 0x7f080006
+			public const int HeaderToolbar = 2131230726;
 			
-			// aapt resource value: 0x7f070002
-			public const int imgViewIcon = 2131165186;
+			// aapt resource value: 0x7f080000
+			public const int Image = 2131230720;
 			
-			// aapt resource value: 0x7f070001
-			public const int imgbtnBack = 2131165185;
+			// aapt resource value: 0x7f080001
+			public const int Text = 2131230721;
 			
-			// aapt resource value: 0x7f070007
-			public const int imgbtnJobs = 2131165191;
+			// aapt resource value: 0x7f080008
+			public const int imgViewIcon = 2131230728;
 			
-			// aapt resource value: 0x7f070013
-			public const int imgbtnLogOut = 2131165203;
+			// aapt resource value: 0x7f080007
+			public const int imgbtnBack = 2131230727;
 			
-			// aapt resource value: 0x7f070008
-			public const int imgbtnMessages = 2131165192;
+			// aapt resource value: 0x7f08000f
+			public const int imgbtnJobs = 2131230735;
 			
-			// aapt resource value: 0x7f07000d
-			public const int imgbtnPayments = 2131165197;
+			// aapt resource value: 0x7f08001b
+			public const int imgbtnLogOut = 2131230747;
 			
-			// aapt resource value: 0x7f07000e
-			public const int imgbtnSettings = 2131165198;
+			// aapt resource value: 0x7f080010
+			public const int imgbtnMessages = 2131230736;
 			
-			// aapt resource value: 0x7f070004
-			public const int linearLayout1 = 2131165188;
+			// aapt resource value: 0x7f080015
+			public const int imgbtnPayments = 2131230741;
 			
-			// aapt resource value: 0x7f070006
-			public const int linearLayout2 = 2131165190;
+			// aapt resource value: 0x7f080016
+			public const int imgbtnSettings = 2131230742;
 			
-			// aapt resource value: 0x7f070009
-			public const int linearLayout3 = 2131165193;
+			// aapt resource value: 0x7f08000c
+			public const int linearLayout1 = 2131230732;
 			
-			// aapt resource value: 0x7f07000c
-			public const int linearLayout4 = 2131165196;
+			// aapt resource value: 0x7f08000e
+			public const int linearLayout2 = 2131230734;
 			
-			// aapt resource value: 0x7f07000f
-			public const int linearLayout5 = 2131165199;
+			// aapt resource value: 0x7f080011
+			public const int linearLayout3 = 2131230737;
 			
-			// aapt resource value: 0x7f070012
-			public const int linearLayout6 = 2131165202;
+			// aapt resource value: 0x7f080014
+			public const int linearLayout4 = 2131230740;
 			
-			// aapt resource value: 0x7f070014
-			public const int linearLayout7 = 2131165204;
+			// aapt resource value: 0x7f080017
+			public const int linearLayout5 = 2131230743;
 			
-			// aapt resource value: 0x7f07000a
-			public const int textView1 = 2131165194;
+			// aapt resource value: 0x7f08001a
+			public const int linearLayout6 = 2131230746;
 			
-			// aapt resource value: 0x7f07000b
-			public const int textView2 = 2131165195;
+			// aapt resource value: 0x7f08001c
+			public const int linearLayout7 = 2131230748;
 			
-			// aapt resource value: 0x7f070010
-			public const int textView3 = 2131165200;
+			// aapt resource value: 0x7f08000b
+			public const int lstInstallerInfo = 2131230731;
 			
-			// aapt resource value: 0x7f070011
-			public const int textView4 = 2131165201;
+			// aapt resource value: 0x7f08000a
+			public const int main_content = 2131230730;
 			
-			// aapt resource value: 0x7f070015
-			public const int textView5 = 2131165205;
+			// aapt resource value: 0x7f08001e
+			public const int menu_reload32 = 2131230750;
 			
-			// aapt resource value: 0x7f070003
-			public const int textViewGeneral = 2131165187;
+			// aapt resource value: 0x7f080012
+			public const int textView1 = 2131230738;
 			
-			// aapt resource value: 0x7f070005
-			public const int txtInstallerName = 2131165189;
+			// aapt resource value: 0x7f080013
+			public const int textView2 = 2131230739;
+			
+			// aapt resource value: 0x7f080018
+			public const int textView3 = 2131230744;
+			
+			// aapt resource value: 0x7f080019
+			public const int textView4 = 2131230745;
+			
+			// aapt resource value: 0x7f08001d
+			public const int textView5 = 2131230749;
+			
+			// aapt resource value: 0x7f080009
+			public const int textViewGeneral = 2131230729;
+			
+			// aapt resource value: 0x7f080003
+			public const int txtCompany = 2131230723;
+			
+			// aapt resource value: 0x7f08000d
+			public const int txtInstallerName = 2131230733;
+			
+			// aapt resource value: 0x7f080002
+			public const int txtJobNo = 2131230722;
+			
+			// aapt resource value: 0x7f080005
+			public const int txtLot = 2131230725;
+			
+			// aapt resource value: 0x7f080004
+			public const int txtProject = 2131230724;
 			
 			static Id()
 			{
@@ -285,10 +312,16 @@ namespace InstallerApp_CrossPlat.Droid
 		{
 			
 			// aapt resource value: 0x7f030000
-			public const int HeaderToolbar = 2130903040;
+			public const int CustomJobScreen = 2130903040;
 			
 			// aapt resource value: 0x7f030001
-			public const int Main = 2130903041;
+			public const int HeaderToolbar = 2130903041;
+			
+			// aapt resource value: 0x7f030002
+			public const int JobScreen = 2130903042;
+			
+			// aapt resource value: 0x7f030003
+			public const int Main = 2130903043;
 			
 			static Layout()
 			{
@@ -296,6 +329,22 @@ namespace InstallerApp_CrossPlat.Droid
 			}
 			
 			private Layout()
+			{
+			}
+		}
+		
+		public partial class Menu
+		{
+			
+			// aapt resource value: 0x7f070000
+			public const int JobMenu = 2131165184;
+			
+			static Menu()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Menu()
 			{
 			}
 		}

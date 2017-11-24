@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <include
+        android:id="@+id/HeaderToolbar"
+        layout="@layout/HeaderToolbar" />
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:id="@+id/main_content"
+        android:layout_below="@id/HeaderToolbar">
+        <ListView
+            android:id="@+id/lstInstallerInfo"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:cacheColorHint="#FFDAFF7F" />
+    </LinearLayout>
+</RelativeLayout>
