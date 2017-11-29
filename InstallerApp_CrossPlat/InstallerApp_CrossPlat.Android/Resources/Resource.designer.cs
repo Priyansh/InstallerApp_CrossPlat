@@ -211,8 +211,17 @@ namespace InstallerApp_CrossPlat.Droid
 			// aapt resource value: 0x7f080000
 			public const int Image = 2131230720;
 			
+			// aapt resource value: 0x7f08001e
+			public const int MainLinearLayout = 2131230750;
+			
 			// aapt resource value: 0x7f080001
 			public const int Text = 2131230721;
+			
+			// aapt resource value: 0x7f08001f
+			public const int content1 = 2131230751;
+			
+			// aapt resource value: 0x7f080027
+			public const int content2 = 2131230759;
 			
 			// aapt resource value: 0x7f080008
 			public const int imgViewIcon = 2131230728;
@@ -234,6 +243,9 @@ namespace InstallerApp_CrossPlat.Droid
 			
 			// aapt resource value: 0x7f080016
 			public const int imgbtnSettings = 2131230742;
+			
+			// aapt resource value: 0x7f080029
+			public const int imgbtnStartJob = 2131230761;
 			
 			// aapt resource value: 0x7f08000c
 			public const int linearLayout1 = 2131230732;
@@ -262,8 +274,11 @@ namespace InstallerApp_CrossPlat.Droid
 			// aapt resource value: 0x7f08000a
 			public const int main_content = 2131230730;
 			
-			// aapt resource value: 0x7f08001e
-			public const int menu_reload32 = 2131230750;
+			// aapt resource value: 0x7f08002a
+			public const int menu_reload32 = 2131230762;
+			
+			// aapt resource value: 0x7f080026
+			public const int tblMainLayout = 2131230758;
 			
 			// aapt resource value: 0x7f080012
 			public const int textView1 = 2131230738;
@@ -280,8 +295,26 @@ namespace InstallerApp_CrossPlat.Droid
 			// aapt resource value: 0x7f08001d
 			public const int textView5 = 2131230749;
 			
+			// aapt resource value: 0x7f080020
+			public const int textViewCompany = 2131230752;
+			
+			// aapt resource value: 0x7f080023
+			public const int textViewDelivered = 2131230755;
+			
 			// aapt resource value: 0x7f080009
 			public const int textViewGeneral = 2131230729;
+			
+			// aapt resource value: 0x7f080028
+			public const int textViewJob = 2131230760;
+			
+			// aapt resource value: 0x7f080024
+			public const int textViewJobStarted = 2131230756;
+			
+			// aapt resource value: 0x7f080022
+			public const int textViewLot = 2131230754;
+			
+			// aapt resource value: 0x7f080021
+			public const int textViewProject = 2131230753;
 			
 			// aapt resource value: 0x7f080003
 			public const int txtCompany = 2131230723;
@@ -297,6 +330,9 @@ namespace InstallerApp_CrossPlat.Droid
 			
 			// aapt resource value: 0x7f080004
 			public const int txtProject = 2131230724;
+			
+			// aapt resource value: 0x7f080025
+			public const int txtViewSelectRoom = 2131230757;
 			
 			static Id()
 			{
@@ -322,6 +358,9 @@ namespace InstallerApp_CrossPlat.Droid
 			
 			// aapt resource value: 0x7f030003
 			public const int Main = 2130903043;
+			
+			// aapt resource value: 0x7f030004
+			public const int StartJobScheduleStatus = 2130903044;
 			
 			static Layout()
 			{

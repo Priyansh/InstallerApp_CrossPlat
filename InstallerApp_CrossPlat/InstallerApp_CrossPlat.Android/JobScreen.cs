@@ -128,9 +128,9 @@ namespace InstallerApp_CrossPlat.Droid
             string[] str = new string[] { t.Company, t.Project, t.Lot, t.JobNum, t.MasterNum, t.ShippedDone, t.CSID.ToString(), t.InstallerJobStatus.ToString(), t.InstallerJobStart, t.InstallerJobComplete };
             Bundle b = new Bundle();
             b.PutStringArray("keyInstallerInfo", str);
-            //var intent = new Android.Content.Intent(this, typeof(StartJobScheduleStatus));
-            //intent.PutExtras(b);
-            //StartActivity(intent);
+            var intent = new Android.Content.Intent(this, typeof(StartJobScheduleStatus));
+            intent.PutExtras(b);
+            StartActivity(intent);
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)

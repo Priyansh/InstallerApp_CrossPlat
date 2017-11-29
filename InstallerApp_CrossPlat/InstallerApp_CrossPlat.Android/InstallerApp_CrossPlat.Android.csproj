@@ -54,6 +54,7 @@
     <Compile Include="MainActivity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
+    <Compile Include="StartJobScheduleStatus.cs" />
     <Compile Include="Web References\FrendelWebService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -67,6 +68,7 @@
     <AndroidResource Include="Resources\layout\HeaderToolbar.axml" />
     <AndroidResource Include="Resources\layout\JobScreen.axml" />
     <AndroidResource Include="Resources\layout\CustomJobScreen.axml" />
+    <AndroidResource Include="Resources\layout\StartJobScheduleStatus.axml" />
     <None Include="Web References\FrendelWebService\Address_ProjectList.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
