@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minWidth="45px"
+    android:minHeight="45px"
+    android:background="#ff80d8ff">
+  <ImageView
+      android:src="@android:drawable/ic_menu_gallery"
+      android:layout_width="fill_parent"
+      android:layout_height="500dp"
+      android:id="@+id/imageViewCustom"
+      android:adjustViewBounds = "true"
+      android:scaleType="centerCrop"
+      android:layout_below="@+id/titleImage"/>
+  <Button
+      android:id="@+id/btnCancel"
+      android:layout_width="125dp"
+      android:layout_height="35dp"
+      android:textSize="14dp"
+      android:text="Cancel"
+      android:typeface="sans"
+      android:background="#ff0986be"
+      android:layout_marginLeft="90dp"
+      android:layout_marginBottom="5dp"
+      android:layout_marginTop="5dp"
+      android:textColor="#ffffffff"
+      android:textStyle="bold"
+      android:gravity="center"/>
+  <!--<LinearLayout
+        android:id="@+id/linearLayoutBtns"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="15dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/imageViewCustom">
+    <Button
+          android:id="@+id/btnCancel"
+          android:layout_width="125dp"
+          android:layout_height="35dp"
+          android:textSize="14dp"
+          android:text="Cancel"
+          android:typeface="sans"
+          android:background="#ff0986be"
+          android:layout_marginLeft="20dp"
+          android:textColor="#ffffffff"
+          android:textStyle="bold"
+          android:gravity="center"
+          android:layout_marginBottom="5dp" />
+  </LinearLayout>-->
+</LinearLayout>

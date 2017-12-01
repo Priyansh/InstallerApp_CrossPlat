@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\..\packages\Xamarin.Build.Download.0.4.3\build\Xamarin.Build.Download.props" Condition="Exists('..\..\packages\Xamarin.Build.Download.0.4.3\build\Xamarin.Build.Download.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -16,6 +17,8 @@
     <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
     <TargetFrameworkVersion>v7.1</TargetFrameworkVersion>
     <AssemblyName>InstallerApp_CrossPlat.Android</AssemblyName>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -48,12 +51,18 @@
     <Reference Include="Mono.Android" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BitmapHelpers.cs" />
+    <Compile Include="Classes_Props\BitmapImagesList.cs" />
+    <Compile Include="Classes_Props\csFooterGeneralInfo.cs" />
     <Compile Include="Classes_Props\csHeaderGeneralInfo.cs" />
     <Compile Include="IndividualRoom.cs" />
     <Compile Include="IndividualRoomAdapter.cs" />
+    <Compile Include="Interfaces\IBitmapImageImages.cs" />
     <Compile Include="JobScreen.cs" />
     <Compile Include="JobScreenAdapter.cs" />
     <Compile Include="MainActivity.cs" />
+    <Compile Include="PhotoGallery.cs" />
+    <Compile Include="PhotoGalleryAdapter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="StartJobScheduleStatus.cs" />
@@ -64,6 +73,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Properties\AndroidManifest.xml" />
     <None Include="Assets\AboutAssets.txt" />
@@ -73,6 +83,8 @@
     <AndroidResource Include="Resources\layout\StartJobScheduleStatus.axml" />
     <AndroidResource Include="Resources\layout\IndividualRoom.axml" />
     <AndroidResource Include="Resources\layout\CustomIndividualRoom.axml" />
+    <AndroidResource Include="Resources\layout\PhotoGallery.axml" />
+    <AndroidResource Include="Resources\layout\CustomDialogBox.axml" />
     <None Include="Web References\FrendelWebService\Address_ProjectList.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
@@ -298,4 +310,12 @@
   </ItemGroup>
   <Import Project="..\InstallerApp_CrossPlat\InstallerApp_CrossPlat.projitems" Label="Shared" Condition="Exists('..\InstallerApp_CrossPlat\InstallerApp_CrossPlat.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\packages\Xamarin.Build.Download.0.4.3\build\Xamarin.Build.Download.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Xamarin.Build.Download.0.4.3\build\Xamarin.Build.Download.props'))" />
+    <Error Condition="!Exists('..\..\packages\Xamarin.Build.Download.0.4.3\build\Xamarin.Build.Download.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Xamarin.Build.Download.0.4.3\build\Xamarin.Build.Download.targets'))" />
+  </Target>
+  <Import Project="..\..\packages\Xamarin.Build.Download.0.4.3\build\Xamarin.Build.Download.targets" Condition="Exists('..\..\packages\Xamarin.Build.Download.0.4.3\build\Xamarin.Build.Download.targets')" />
 </Project>

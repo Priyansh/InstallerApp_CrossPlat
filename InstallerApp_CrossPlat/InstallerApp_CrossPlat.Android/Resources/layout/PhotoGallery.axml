@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+  <include
+      android:id="@+id/HeaderToolbar"
+      layout="@layout/HeaderToolbar" />
+
+  <LinearLayout
+       android:layout_width="fill_parent"
+       android:layout_height="fill_parent"
+       android:orientation="vertical"
+       android:id="@+id/content_photoGallery"
+       android:layout_below="@id/HeaderToolbar">
+    
+    <ListView
+       android:id="@+id/listInstallerInfo"
+       android:layout_width="match_parent"
+       android:layout_height="0dp"
+       android:layout_weight="0.2"
+       android:cacheColorHint="#FFDAFF7F" />
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:id="@+id/linearLayout2"
+        android:orientation="horizontal"
+        android:layout_height="50dp">
+      <ImageView
+          android:id="@+id/cameraDigital"
+          android:layout_height="40dp"
+          android:layout_width="40dp"
+          android:background="@drawable/cameradigital128"
+          android:layout_marginLeft="100dp"/>
+      <TextView
+          android:id="@+id/textViewRoomInfo"
+          android:text="Text1"
+          android:textAppearance="?android:attr/textAppearanceLarge"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:textStyle="bold"
+          android:paddingTop="4dp"
+          android:layout_marginLeft="15dp"/>
+      </LinearLayout>
+
+    <GridView xmlns:android="http://schemas.android.com/apk/res/android"
+          android:id="@+id/gridPhotoGallery"
+          android:paddingTop="15dp"
+          android:layout_width="match_parent"
+          android:layout_height="0dp"
+          android:layout_weight="0.8"
+          android:columnWidth="90dp"
+          android:numColumns="2"
+          android:verticalSpacing="10dp"
+          android:horizontalSpacing="10dp"
+          android:stretchMode="columnWidth"
+          android:gravity="center" />
+    <Toolbar
+        android:id="@+id/footerToolbar"
+        android:minHeight="?android:attr/actionBarSize"
+        android:background="?android:attr/colorPrimary"
+        android:theme="@style/MyTheme"
+        android:popupTheme="@android:style/Theme.Material.Light.DarkActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.1"
+        android:layout_alignParentBottom="true">
+        <ImageButton
+          android:id="@+id/footerImgBtnCamera"
+          android:layout_height="50dp"
+          android:layout_width="80dp"
+          android:background="@drawable/camera"
+          android:layout_marginLeft="80dp"/>
+        <TextView
+          android:id="@+id/textViewAddPhoto" 
+          android:text="Add Photo"
+          android:textAppearance="?android:attr/textAppearanceMedium"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:textStyle="bold"
+          android:textColor="@android:color/black"
+          android:paddingTop="4dp"
+          android:layout_marginLeft="0dp"/>
+    </Toolbar>
+
+  </LinearLayout>
+
+</RelativeLayout>
