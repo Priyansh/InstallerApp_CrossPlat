@@ -49,6 +49,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes_Props\csHeaderGeneralInfo.cs" />
+    <Compile Include="IndividualRoom.cs" />
+    <Compile Include="IndividualRoomAdapter.cs" />
     <Compile Include="JobScreen.cs" />
     <Compile Include="JobScreenAdapter.cs" />
     <Compile Include="MainActivity.cs" />
@@ -69,6 +71,8 @@
     <AndroidResource Include="Resources\layout\JobScreen.axml" />
     <AndroidResource Include="Resources\layout\CustomJobScreen.axml" />
     <AndroidResource Include="Resources\layout\StartJobScheduleStatus.axml" />
+    <AndroidResource Include="Resources\layout\IndividualRoom.axml" />
+    <AndroidResource Include="Resources\layout\CustomIndividualRoom.axml" />
     <None Include="Web References\FrendelWebService\Address_ProjectList.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
@@ -288,6 +292,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\menu\JobMenu.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\CameraDigital128.png" />
   </ItemGroup>
   <Import Project="..\InstallerApp_CrossPlat\InstallerApp_CrossPlat.projitems" Label="Shared" Condition="Exists('..\InstallerApp_CrossPlat\InstallerApp_CrossPlat.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

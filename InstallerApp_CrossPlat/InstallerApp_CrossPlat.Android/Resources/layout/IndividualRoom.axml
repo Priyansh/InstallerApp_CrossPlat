@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <include
+        android:id="@+id/HeaderToolbar"
+        layout="@layout/HeaderToolbar" />
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:id="@+id/content_installerinfo"
+        android:layout_below="@id/HeaderToolbar">
+        <ListView
+            android:id="@+id/lstInstallerInfo"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.2"
+            android:cacheColorHint="#FFDAFF7F" />
+        <TextView
+            android:text="Text1"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewRoomInfo"
+            android:textStyle="bold"
+            android:paddingTop="10dp"
+            android:gravity="center" />
+        <ListView
+            android:id="@+id/lstIndividualRoom"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.8"
+            android:cacheColorHint="#FFDAFF7F" />
+    </LinearLayout>
+</RelativeLayout>

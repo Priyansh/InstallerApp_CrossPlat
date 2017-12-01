@@ -123,9 +123,9 @@ namespace InstallerApp_CrossPlat.Droid
                     Bundle b = new Bundle();
                     b.PutStringArray("keyRoomInfo", strRooms);
                     b.PutStringArray("keyselectedInstaller", getStrings);
-                    //var intent = new Android.Content.Intent(this, typeof(IndividualRoom));
-                    //intent.PutExtras(b);
-                    //StartActivity(intent);
+                    var intent = new Android.Content.Intent(this, typeof(IndividualRoom));
+                    intent.PutExtras(b);
+                    StartActivity(intent);
                 };
                 tblRow.AddView(btn, column);
                 column++;

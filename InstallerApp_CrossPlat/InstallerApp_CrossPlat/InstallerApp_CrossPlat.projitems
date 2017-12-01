@@ -9,7 +9,9 @@
     <Import_RootNamespace>InstallerApp_CrossPlat</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)CommonClasses\IndividualRoomList.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CommonClasses\InstallerInfoList.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interfaces\IIndividualRoomInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interfaces\IInstallerInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MyClass.cs" />
   </ItemGroup>
