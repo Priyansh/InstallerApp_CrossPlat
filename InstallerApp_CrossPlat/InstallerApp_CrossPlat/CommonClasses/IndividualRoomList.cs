@@ -9,7 +9,7 @@ namespace InstallerApp_CrossPlat.Droid
     public class IndividualRoomList : IIndividualRoomInfo
     {
         private string _RSNo, _CSID, _Rooms, _Style, _Colour, _Hardware, _CounterTop;
-        private int _deliveryPhoto, _installationPhoto;
+        private int _deliveryPhoto, _installationPhoto, _partsCount;
 
         public string RSNo
         {
@@ -49,6 +49,12 @@ namespace InstallerApp_CrossPlat.Droid
         {
             get { return this._CounterTop; }
             set { this._CounterTop = value; }
+        }
+
+        public int PartsCount
+        {
+            get { return this._partsCount; }
+            set { this._partsCount = value; }
         }
 
         public int deliveryPhoto

@@ -4,9 +4,6 @@ using System.Linq;
 using System.Text;
 
 using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 
@@ -50,6 +47,7 @@ namespace InstallerApp_CrossPlat.Droid
                 view.FindViewById<TextView>(Resource.Id.txtStyleColor).Text = item.Style + " / " + item.Colour;
                 view.FindViewById<TextView>(Resource.Id.txtHardware).Text = item.Hardware;
                 view.FindViewById<TextView>(Resource.Id.txtCounterTop).Text = item.CounterTop;
+                view.FindViewById<TextView>(Resource.Id.txtPartsCount).Text = item.PartsCount.ToString();
                 view.FindViewById<ImageView>(Resource.Id.Image).SetBackgroundResource(Resource.Drawable.Barcode128);
             }
             else if (position == 1)

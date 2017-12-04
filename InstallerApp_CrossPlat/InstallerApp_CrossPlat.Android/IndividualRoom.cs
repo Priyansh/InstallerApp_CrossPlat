@@ -24,8 +24,7 @@ namespace InstallerApp_CrossPlat.Droid
         TextView textViewRoomInfo;
         ProgressDialog progressDialog;
         FrendelWebService.phonegap serviceInstaller = new FrendelWebService.phonegap();
-        int installationPhoto = 0;
-        int deliveryPhoto = 0;
+        int PartsCount, deliveryPhoto, installationPhoto = 0;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -76,6 +75,8 @@ namespace InstallerApp_CrossPlat.Droid
                 RunOnUiThread(() =>
                 {
                     serviceInstaller.Url = "http://ws.frendel.com/mobile/phonegap.asmx";
+                    var partsInfoList = serviceInstaller.InsKP_GetPartInfo(getSelectedInstaller[4].ToString(), getstringRooms[2].ToString());
+                    PartsCount = partsInfoList.Length;
                     var lstInstallerImages = serviceInstaller.insKP_getInstallerImages(getstringRooms[0]).ToList<byte[]>();
                     installationPhoto = lstInstallerImages.Count;
                     displayFetchedRoomInfo();
@@ -114,7 +115,8 @@ namespace InstallerApp_CrossPlat.Droid
                         Style = getstringRooms[3],
                         Colour = getstringRooms[4],
                         Hardware = getstringRooms[3],
-                        CounterTop = getstringRooms[5]
+                        CounterTop = getstringRooms[5],
+                        PartsCount = PartsCount
                     };
                     lstIndividualRoomInfoClass.Add(fillIndividualRoomProperties);
                 }
@@ -144,9 +146,9 @@ namespace InstallerApp_CrossPlat.Droid
                     Bundle b = new Bundle();
                     b.PutStringArray("keyRoomInfo", getstringRooms);
                     b.PutStringArray("keyselectedInstaller", getSelectedInstaller);
-                    //var intent = new Android.Content.Intent(this, typeof(PartsInfo));
-                    //intent.PutExtras(b);
-                    //StartActivity(intent);
+                    var intent = new Android.Content.Intent(this, typeof(PartsInfo));
+                    intent.PutExtras(b);
+                    StartActivity(intent);
                 }
                 else if (args.Position == 1)
                 {

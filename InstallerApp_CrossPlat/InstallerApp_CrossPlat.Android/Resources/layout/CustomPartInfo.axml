@@ -4,21 +4,13 @@
     android:layout_height="wrap_content"
     android:padding="8dp"
     android:background="#FFFFFF">
-    <ImageView
-        android:id="@+id/Image"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:padding="5dp"
-        android:layout_alignParentLeft="true" />
-    <TextView
-        android:id="@+id/txtImage"
+    <CheckBox
+        android:id="@+id/checkbox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="14dip"
-        android:textStyle="bold"
-        android:text="PARTS"
-        android:textColor="#000000"
-        android:paddingTop="75dip" />
+        android:text=""
+        android:padding="5dp"
+        android:layout_alignParentLeft="true" />
     <LinearLayout
         android:id="@+id/Text"
         android:orientation="vertical"
@@ -26,36 +18,28 @@
         android:layout_height="wrap_content"
         android:paddingLeft="10dip">
         <TextView
-            android:id="@+id/txtStyleColor"
+            android:id="@+id/txtCabinetName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="14dip"
+            android:textSize="15dip"
             android:textStyle="bold"
             android:textColor="#000000"
             android:paddingLeft="50dip" />
         <TextView
-            android:id="@+id/txtHardware"
+            android:id="@+id/txtSimple"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="14dip"
+            android:textSize="15dip"
             android:textStyle="bold"
             android:textColor="#000000"
+            android:text="Cabinet"
             android:paddingLeft="50dip" />
         <TextView
-            android:id="@+id/txtCounterTop"
+            android:id="@+id/txtLRFinish"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="14dip"
+            android:textSize="15dip"
             android:textStyle="bold"
-            android:textColor="#000000"
-            android:paddingLeft="50dip" />
-        <TextView
-            android:id="@+id/txtPartsOrdered"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="14dip"
-            android:textStyle="bold"
-            android:text="4 Parts Ordered"
             android:textColor="#000000"
             android:paddingLeft="50dip" />
     </LinearLayout>
@@ -66,14 +50,14 @@
         android:layout_height="wrap_content"
         android:layout_gravity="right">
         <TextView
-            android:id="@+id/txtPartsCount"
+            android:id="@+id/txtOrderParts"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20dip"
+            android:textSize="17dip"
             android:textStyle="bold"
-            android:text="0"
+            android:text="Order Parts &gt;"
             android:textColor="#000000"
-            android:paddingTop="55dip"
-            android:paddingLeft="320dip"/>
+            android:paddingTop="10dip"
+            android:paddingLeft="240dip" />
     </LinearLayout>
 </RelativeLayout>

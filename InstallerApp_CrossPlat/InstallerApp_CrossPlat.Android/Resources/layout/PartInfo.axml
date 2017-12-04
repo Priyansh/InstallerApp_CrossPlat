@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <include
+        android:id="@+id/HeaderToolbar"
+        layout="@layout/HeaderToolbar" />
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:id="@+id/content_photoGallery"
+        android:layout_below="@id/HeaderToolbar">
+        <ListView
+            android:id="@+id/listInstallerInfo"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.2"
+            android:cacheColorHint="#FFDAFF7F" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:id="@+id/linearLayout2"
+            android:orientation="horizontal"
+            android:layout_height="50dp">
+            <ImageView
+                android:id="@+id/cameraDigital"
+                android:layout_height="40dp"
+                android:layout_width="40dp"
+                android:background="@drawable/cameradigital128"
+                android:layout_marginLeft="100dp" />
+            <TextView
+                android:id="@+id/textViewRoomInfo"
+                android:text="Text1"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:paddingTop="4dp"
+                android:layout_marginLeft="15dp" />
+        </LinearLayout>
+        <ListView
+            android:id="@+id/listPartInfo"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.8"
+            android:cacheColorHint="#FFDAFF7F" />
+    </LinearLayout>
+</RelativeLayout>

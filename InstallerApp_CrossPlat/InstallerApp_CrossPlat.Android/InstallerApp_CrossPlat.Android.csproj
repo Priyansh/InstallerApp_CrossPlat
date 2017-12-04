@@ -61,6 +61,8 @@
     <Compile Include="JobScreen.cs" />
     <Compile Include="JobScreenAdapter.cs" />
     <Compile Include="MainActivity.cs" />
+    <Compile Include="PartsInfo.cs" />
+    <Compile Include="PartsInfoAdapter.cs" />
     <Compile Include="PhotoGallery.cs" />
     <Compile Include="PhotoGalleryAdapter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -85,6 +87,8 @@
     <AndroidResource Include="Resources\layout\CustomIndividualRoom.axml" />
     <AndroidResource Include="Resources\layout\PhotoGallery.axml" />
     <AndroidResource Include="Resources\layout\CustomDialogBox.axml" />
+    <AndroidResource Include="Resources\layout\CustomPartInfo.axml" />
+    <AndroidResource Include="Resources\layout\PartInfo.axml" />
     <None Include="Web References\FrendelWebService\Address_ProjectList.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>

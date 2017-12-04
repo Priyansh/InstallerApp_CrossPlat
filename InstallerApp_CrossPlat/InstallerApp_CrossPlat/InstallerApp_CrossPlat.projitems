@@ -11,8 +11,10 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)CommonClasses\IndividualRoomList.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CommonClasses\InstallerInfoList.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CommonClasses\PartsInfoList.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CommonInterfaces\IIndividualRoomInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CommonInterfaces\IInstallerInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CommonInterfaces\IPartsInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MyClass.cs" />
   </ItemGroup>
 </Project>
