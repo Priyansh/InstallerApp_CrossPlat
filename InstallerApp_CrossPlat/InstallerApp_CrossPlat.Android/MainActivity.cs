@@ -34,12 +34,6 @@ namespace InstallerApp_CrossPlat.Droid
                 StartActivity(intent);
                 Finish();
             };
-
-        }
-
-        private void ParseAndDisplay(object fetchInfo)
-        {
-
         }
 
     } //End MainActivity

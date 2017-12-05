@@ -28,19 +28,9 @@ namespace InstallerApp_CrossPlat.Droid
             SetContentView(Resource.Layout.JobScreen);
             if (lstInstallerInfoClass.Count <= 0)
             {
-                //Adding Loading bar 
-                /*dialog = new ProgressDialog(this);
-                dialog.SetProgressStyle(ProgressDialogStyle.Spinner);
-                dialog.SetMessage("Loading...");
-                dialog.SetCancelable(true);
-                dialog.SetCanceledOnTouchOutside(false);
-                dialog.Show();*/
-
                 dialog = ProgressDialog.Show(this, "Loading...", "Please Wait!!!", true);
                 dialog.SetProgressStyle(ProgressDialogStyle.Spinner);
-
-                //ActionBar.SetHomeButtonEnabled(true);
-                //ActionBar.SetDisplayHomeAsUpEnabled(true);
+                
                 var toolbar = FindViewById<Toolbar>(Resource.Id.HeaderToolbar);
                 SetActionBar(toolbar);
 
@@ -63,16 +53,6 @@ namespace InstallerApp_CrossPlat.Droid
                     dialog.Dismiss();
                 });
             })).Start();
-            /*Thread.Sleep(3000);
-            RunOnUiThread(() =>
-            {
-                PhonegapWebService.phonegap serviceInstaller = new PhonegapWebService.phonegap();
-                //serviceInstaller.Url = "http://192.168.3.76:53435/phonegap.asmx";
-                serviceInstaller.Url = "http://ws.frendel.com/mobile/phonegap.asmx";
-                //Display WebService Information
-                displayWebServiceInfo(serviceInstaller);
-                dialog.Dismiss();
-            }); */
         }
 
         public void displayHeaderInfo()
@@ -142,15 +122,6 @@ namespace InstallerApp_CrossPlat.Droid
         {            
             onRestart();
             return base.OnOptionsItemSelected(item);
-            //switch (item.ItemId)
-            //{
-            //    case Android.Resource.Id.Home:
-            //        Finish();
-            //        return true;
-
-            //    default:
-            //        return base.OnOptionsItemSelected(item);
-            //}
         }
         protected void onRestart()
         {
@@ -159,11 +130,5 @@ namespace InstallerApp_CrossPlat.Droid
             StartActivity(intent);
             Finish();
         }
-        //protected override void OnListItemClick(ListView lv, View v, int position, long id)
-        //{
-        //    lv.ChoiceMode = Android.Widget.ChoiceMode.Multiple;
-        //    var selectedItem = lstLot[position];
-        //    Android.Widget.Toast.MakeText(this, selectedItem, ToastLength.Short).Show();
-        //}
     }
 }

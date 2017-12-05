@@ -13,7 +13,7 @@ using Android.Widget;
 
 namespace InstallerApp_CrossPlat.Droid
 {
-    [Activity(Label = "", ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait)] //ConfigurationChanges = Android.Content.PM.ConfigChanges.Orientation | Android.Content.PM.ConfigChanges.ScreenSize,
+    [Activity(Label = "", ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait)]
     public class StartJobScheduleStatus : Activity
     {
         TextView textViewCompany, textViewProject, textViewLot, textViewDelivered, textViewJobStarted, txtViewSelectRoom;
@@ -43,8 +43,6 @@ namespace InstallerApp_CrossPlat.Droid
             textViewDelivered.Text = "Delivered on " + Convert.ToDateTime(getStrings[5]).ToString("MMM dd, yyyy");
 
             //Call WebService
-
-            //serviceInstaller.Url = "http://192.168.3.76:53435/phonegap.asmx";
             serviceInstaller.Url = "http://ws.frendel.com/mobile/phonegap.asmx";
 
             //Adding Header Information

@@ -39,18 +39,10 @@ namespace InstallerApp_CrossPlat.Droid
             displayHeaderInfo();
             textViewRoomInfo = FindViewById<TextView>(Resource.Id.textViewRoomInfo);
             textViewRoomInfo.Text = getstringRooms[2];
-            
-            //Adding Loading bar
-            /*progressDialog = new ProgressDialog(this);
-            progressDialog.SetProgressStyle(ProgressDialogStyle.Spinner);
-            progressDialog.SetMessage("Loading...");
-            progressDialog.SetCancelable(true);
-            progressDialog.SetCanceledOnTouchOutside(false);
-            progressDialog.Show();*/
-            
+            //Display ProgressBar
             progressDialog = ProgressDialog.Show(this, "Loading...", "Please wait!!", true);
             progressDialog.SetProgressStyle(ProgressDialogStyle.Spinner);
-
+            //Manage LongRunning Task
             ThreadPool.QueueUserWorkItem(q => longRunningMethod());
         }
 

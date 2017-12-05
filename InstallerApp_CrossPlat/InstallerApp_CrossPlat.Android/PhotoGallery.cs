@@ -57,7 +57,7 @@ namespace InstallerApp_CrossPlat.Droid
             textViewRoomInfo = FindViewById<TextView>(Resource.Id.textViewRoomInfo);
             textViewRoomInfo.Text = getstringRooms[2];
             ThreadPool.QueueUserWorkItem(q => longRunningMethod());
-            //longRunningMethod();
+            //Display information for footerItem
             footerIconClick();
         }
 
@@ -76,9 +76,6 @@ namespace InstallerApp_CrossPlat.Droid
 
         public void longRunningMethod()
         {
-            /*serviceInstaller.Url = "http://ws.frendel.com/mobile/phonegap.asmx";
-            displayWebServiceInfo(serviceInstaller);*/
-
             new Thread(new ThreadStart(async delegate
             {
                 await Task.Delay(50);
@@ -86,17 +83,8 @@ namespace InstallerApp_CrossPlat.Droid
                 {
                     serviceInstaller.Url = "http://ws.frendel.com/mobile/phonegap.asmx";
                     displayWebServiceInfo(serviceInstaller);
-                    //progressDialog.Dismiss();
                 });
             })).Start();
-
-            /*Thread.Sleep(3000);
-            RunOnUiThread(() =>
-            {
-                serviceInstaller.Url = "http://ws.frendel.com/mobile/phonegap.asmx";
-                displayWebServiceInfo(serviceInstaller);
-                progressDialog.Dismiss();
-            });*/
         }
 
         public void footerIconClick()
@@ -116,16 +104,6 @@ namespace InstallerApp_CrossPlat.Droid
                 file = new File(dir, System.String.Format("myPhoto_{0}.jpg", Guid.NewGuid()));
                 intent.PutExtra(MediaStore.ExtraOutput, Android.Net.Uri.FromFile(file));
                 StartActivityForResult(intent,0);
-                /*new Thread(new ThreadStart(async delegate
-                {
-                    await Task.Delay(50);
-                    ProgressDialog camProgressDialog = ProgressDialog.Show(this, "Loading...", "Please Wait!!!", true);
-                    camProgressDialog.SetProgressStyle(ProgressDialogStyle.Spinner);
-                    RunOnUiThread(() =>
-                    {
-                        camProgressDialog.Dismiss();
-                    });
-                })).Start(); */
             };
         }
 
@@ -225,14 +203,6 @@ namespace InstallerApp_CrossPlat.Droid
                 }
             };
         }
-
-        //When physical back button pressed
-        //public override void OnBackPressed()
-        //{
-        //    alertDialog = 0;
-        //    System.Console.WriteLine("AlertDialog : " + alertDialog);
-        //    base.OnBackPressed();
-        //}
 
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
         {
