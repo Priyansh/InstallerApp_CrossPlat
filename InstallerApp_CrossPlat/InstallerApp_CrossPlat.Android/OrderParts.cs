@@ -1,31 +1,40 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 
 using Android.App;
 using Android.Content;
 using Android.OS;
+using Android.Runtime;
+using Android.Views;
 using Android.Widget;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace InstallerApp_CrossPlat.Droid
 {
     [Activity(Label = "", ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait)]
-    public class PartsInfo : Activity
+    public class OrderParts : Activity
     {
         List<InstallerInfoList> lstInstallerInfoClass = new List<InstallerInfoList>();
-        List<PartsInfoList> lstPartsInfoClass = new List<PartsInfoList>();
-        ListView listViewInstallerInfo, listViewPartsInfo;
+        List<PartsIssueList> lstPartsIssueClass = new List<PartsIssueList>();
+        ListView listViewInstallerInfo, listViewPartIssues;
         string[] getstringRooms, getSelectedInstaller;
-        TextView textViewRoomInfo;
-        FrendelWebService.phonegap serviceInstaller = new FrendelWebService.phonegap();
+        int getintPartType;
+        string getstringOrderCabinet;
         ProgressDialog progressDialog;
+        FrendelWebService.phonegap serviceInstaller = new FrendelWebService.phonegap();
+        TextView textViewRoomInfo, textViewOrderCabinet;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.PartInfo);
-            getstringRooms = Intent.GetStringArrayExtra("keyRoomInfo");
-            getSelectedInstaller = Intent.GetStringArrayExtra("keyselectedInstaller");
 
+            SetContentView(Resource.Layout.OrderParts);
+            getstringRooms = Intent.GetStringArrayExtra("keyRoomInfo");
+            getSelectedInstaller = Intent.GetStringArrayExtra("keySelectedInstaller");
+            getintPartType = Intent.Extras.GetInt("keyOrderParts");
+            getstringOrderCabinet = Intent.Extras.GetString("keyOrderCabinet");
             //Adding Loading bar
             progressDialog = ProgressDialog.Show(this, "Loading...", "Please wait!!", true);
             progressDialog.SetProgressStyle(ProgressDialogStyle.Spinner);
@@ -36,16 +45,20 @@ namespace InstallerApp_CrossPlat.Droid
             //Display Header Information
             displayHeaderInfo();
             textViewRoomInfo = FindViewById<TextView>(Resource.Id.textViewRoomInfo);
+            textViewOrderCabinet = FindViewById<TextView>(Resource.Id.textViewOrderCabinet);
             textViewRoomInfo.Text = getstringRooms[2];
+            textViewOrderCabinet.Text = getstringOrderCabinet;
             ThreadPool.QueueUserWorkItem(q => longRunningMethod());
+
         }
+
         public void displayHeaderInfo()
         {
             //Adding Header Information
             csHeaderGeneralInfo headerGeneralInfo = new csHeaderGeneralInfo(this);
             headerGeneralInfo.imgbtnBack.Click += delegate
             {
-                var intent = new Android.Content.Intent(this, typeof(IndividualRoom)).SetFlags(ActivityFlags.ReorderToFront);
+                var intent = new Android.Content.Intent(this, typeof(PartsInfo)).SetFlags(ActivityFlags.ReorderToFront);
                 StartActivity(intent);
             };
             headerGeneralInfo.textViewGeneral.Text = "Job Number: " + getSelectedInstaller[3];
@@ -65,6 +78,7 @@ namespace InstallerApp_CrossPlat.Droid
                 });
             })).Start();
         }
+
         public void displayWebServiceInfo(FrendelWebService.phonegap serviceInstaller)
         {
             //Installer Info List
@@ -80,44 +94,27 @@ namespace InstallerApp_CrossPlat.Droid
             listViewInstallerInfo = FindViewById<ListView>(Resource.Id.listInstallerInfo);
             listViewInstallerInfo.Adapter = new JobScreenAdapter(this, lstInstallerInfoClass);
 
-            //Populate Parts Info based on FKNO and Room Name i.e. Kitchen / Main / Ensuit
-            var partsInfoList = serviceInstaller.InsKP_GetPartInfo(getSelectedInstaller[4].ToString(), getstringRooms[2].ToString());
-            for (int i = 0; i < partsInfoList.Length; i++)
+            new Thread(new ThreadStart(async delegate
             {
-                var fillPartsInfoProperties = new PartsInfoList
+                await Task.Delay(50);
+                RunOnUiThread(() =>
                 {
-                    CabinetName = partsInfoList[i].CabinetName,
-                    LFinish = partsInfoList[i].LFinish,
-                    RFinish = partsInfoList[i].RFinish,
-                    PartType = partsInfoList[i].PartType
-                };
-                lstPartsInfoClass.Add(fillPartsInfoProperties);
-            }
-            listViewPartsInfo = FindViewById<ListView>(Resource.Id.listPartInfo);
-            // populate the listview with data
-            listViewPartsInfo.Adapter = new PartsInfoAdapter(this, lstPartsInfoClass);
-            listViewPartsInfo.ItemClick += ListViewPartsInfo_ItemClick;
+                    var getPartsIssueList = serviceInstaller.InsKP_GetPartIssueList(getintPartType);
+                    for (int i = 0; i < getPartsIssueList.Length; i++)
+                    {
+                        var fillPartsIssueProperties = new PartsIssueList
+                        {
+                            PartIssueListID = getPartsIssueList[i].PartIssueListID,
+                            PartDescription = getPartsIssueList[i].PartDescription
+                        };
+                        lstPartsIssueClass.Add(fillPartsIssueProperties);
+                    }
 
-            //new Thread(new ThreadStart(async delegate
-            //{
-            //    await Task.Delay(50);
-            //    RunOnUiThread(() =>
-            //    {
-
-            //    });
-            //})).Start();
-        }
-
-        private void ListViewPartsInfo_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
-        {
-            Bundle b = new Bundle();
-            b.PutStringArray("keyRoomInfo", getstringRooms);
-            b.PutStringArray("keySelectedInstaller", getSelectedInstaller);
-            b.PutInt("keyOrderParts", lstPartsInfoClass[e.Position].PartType);
-            b.PutString("keyOrderCabinet", lstPartsInfoClass[e.Position].CabinetName);
-            var intent = new Android.Content.Intent(this, typeof(OrderParts));
-            intent.PutExtras(b);
-            StartActivity(intent);
+                    listViewPartIssues = FindViewById<ListView>(Resource.Id.listPartsIssue);
+                    listViewPartIssues.Adapter = new OrderPartsAdapter(this, lstPartsIssueClass);
+                });
+            })).Start();
+            
         }
     }
 }

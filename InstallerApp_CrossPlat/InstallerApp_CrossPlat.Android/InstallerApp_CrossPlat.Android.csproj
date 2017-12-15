@@ -61,6 +61,8 @@
     <Compile Include="JobScreen.cs" />
     <Compile Include="JobScreenAdapter.cs" />
     <Compile Include="MainActivity.cs" />
+    <Compile Include="OrderParts.cs" />
+    <Compile Include="OrderPartsAdapter.cs" />
     <Compile Include="PartsInfo.cs" />
     <Compile Include="PartsInfoAdapter.cs" />
     <Compile Include="PhotoGallery.cs" />
@@ -87,9 +89,20 @@
     <AndroidResource Include="Resources\layout\CustomIndividualRoom.axml" />
     <AndroidResource Include="Resources\layout\PhotoGallery.axml" />
     <AndroidResource Include="Resources\layout\CustomDialogBox.axml" />
-    <AndroidResource Include="Resources\layout\CustomPartInfo.axml" />
+    <AndroidResource Include="Resources\layout\CustomPartInfo.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
     <AndroidResource Include="Resources\layout\PartInfo.axml" />
+    <AndroidResource Include="Resources\layout\CustomOrderParts.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\OrderParts.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
     <None Include="Web References\FrendelWebService\Address_ProjectList.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\FrendelWebService\InsKP_GetPartIssueList.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\FrendelWebService\Ins_GetInstallerList.datasource">

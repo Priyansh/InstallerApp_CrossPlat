@@ -991,6 +991,7 @@
           <s:element minOccurs="0" maxOccurs="1" name="CabinetName" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="LFinish" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="RFinish" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PartType" type="s:int" />
         </s:sequence>
       </s:complexType>
       <s:complexType name="ArrayOfIns_GetPartsInfoList">
@@ -1002,6 +1003,31 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="InsKP_GetPartInfoResult" type="tns:ArrayOfIns_GetPartsInfoList" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsKP_GetPartIssueList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PartType" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="InsKP_GetPartIssueList">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="PartIssueListID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PartDescription" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfInsKP_GetPartIssueList">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="InsKP_GetPartIssueList" nillable="true" type="tns:InsKP_GetPartIssueList" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="InsKP_GetPartIssueListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InsKP_GetPartIssueListResult" type="tns:ArrayOfInsKP_GetPartIssueList" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -1335,6 +1361,12 @@
   <wsdl:message name="InsKP_GetPartInfoSoapOut">
     <wsdl:part name="parameters" element="tns:InsKP_GetPartInfoResponse" />
   </wsdl:message>
+  <wsdl:message name="InsKP_GetPartIssueListSoapIn">
+    <wsdl:part name="parameters" element="tns:InsKP_GetPartIssueList" />
+  </wsdl:message>
+  <wsdl:message name="InsKP_GetPartIssueListSoapOut">
+    <wsdl:part name="parameters" element="tns:InsKP_GetPartIssueListResponse" />
+  </wsdl:message>
   <wsdl:message name="InsKP_UpdateInstallerStatusSoapIn">
     <wsdl:part name="parameters" element="tns:InsKP_UpdateInstallerStatus" />
   </wsdl:message>
@@ -1537,6 +1569,10 @@
     <wsdl:operation name="InsKP_GetPartInfo">
       <wsdl:input message="tns:InsKP_GetPartInfoSoapIn" />
       <wsdl:output message="tns:InsKP_GetPartInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsKP_GetPartIssueList">
+      <wsdl:input message="tns:InsKP_GetPartIssueListSoapIn" />
+      <wsdl:output message="tns:InsKP_GetPartIssueListSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="InsKP_UpdateInstallerStatus">
       <wsdl:input message="tns:InsKP_UpdateInstallerStatusSoapIn" />
@@ -1941,6 +1977,15 @@
     </wsdl:operation>
     <wsdl:operation name="InsKP_GetPartInfo">
       <soap:operation soapAction="http://tempuri.org/InsKP_GetPartInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsKP_GetPartIssueList">
+      <soap:operation soapAction="http://tempuri.org/InsKP_GetPartIssueList" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -2376,6 +2421,15 @@
     </wsdl:operation>
     <wsdl:operation name="InsKP_GetPartInfo">
       <soap12:operation soapAction="http://tempuri.org/InsKP_GetPartInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsKP_GetPartIssueList">
+      <soap12:operation soapAction="http://tempuri.org/InsKP_GetPartIssueList" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

@@ -10,7 +10,8 @@
         android:layout_height="wrap_content"
         android:text=""
         android:padding="5dp"
-        android:layout_alignParentLeft="true" />
+        android:layout_alignParentLeft="true"
+        android:focusable="false" />
     <LinearLayout
         android:id="@+id/Text"
         android:orientation="vertical"

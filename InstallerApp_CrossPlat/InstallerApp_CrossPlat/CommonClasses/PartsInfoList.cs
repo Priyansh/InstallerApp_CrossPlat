@@ -8,6 +8,7 @@ namespace InstallerApp_CrossPlat.Droid
     public class PartsInfoList : IPartsInfo
     {
         private string _CabinetName, _LFinish, _RFinish;
+        private int _PartType;
         public string CabinetName
         {
             get { return this._CabinetName; }
@@ -22,6 +23,11 @@ namespace InstallerApp_CrossPlat.Droid
         {
             get { return this._RFinish; }
             set { this._RFinish = value; }
+        }
+        public int PartType
+        {
+            get { return this._PartType; }
+            set { this._PartType = value; }
         }
     }
 }
