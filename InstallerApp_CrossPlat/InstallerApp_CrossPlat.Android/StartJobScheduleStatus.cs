@@ -40,7 +40,9 @@ namespace InstallerApp_CrossPlat.Droid
             textViewCompany.Text = getStrings[0];
             textViewProject.Text = getStrings[1];
             textViewLot.Text = "Unit " + getStrings[2];
-            textViewDelivered.Text = "Delivered on " + Convert.ToDateTime(getStrings[5]).ToString("MMM dd, yyyy");
+
+            string shippedDone = string.IsNullOrEmpty(getStrings[5]) ? "" : Convert.ToDateTime(getStrings[5]).ToString("MMM dd, yyyy");
+            textViewDelivered.Text = "Delivered on " + shippedDone;
 
             //Call WebService
             serviceInstaller.Url = "http://ws.frendel.com/mobile/phonegap.asmx";
