@@ -15,7 +15,7 @@ namespace InstallerApp_CrossPlat.Droid
     [Activity(Label = "InstallerApp", Icon = "@drawable/FrendelLogo", MainLauncher = true)]
     public class Login : Activity
     {
-        EditText txtusername;
+        EditText txtUsername;
         EditText txtPassword;
         Button btnLogin;
         protected override void OnCreate(Bundle savedInstanceState)
@@ -25,16 +25,23 @@ namespace InstallerApp_CrossPlat.Droid
             // Create your application here
             SetContentView(Resource.Layout.Login);
             btnLogin = FindViewById<Button>(Resource.Id.btnlogin);
-            txtusername = FindViewById<EditText>(Resource.Id.txtusername);
+            txtUsername = FindViewById<EditText>(Resource.Id.txtusername);
             txtPassword = FindViewById<EditText>(Resource.Id.txtpwd);
             btnLogin.Click += BtnLogin_Click;
         }
 
         private void BtnLogin_Click(object sender, EventArgs e)
         {
-            var intent = new Android.Content.Intent(this, typeof(MainActivity));
-            StartActivity(intent);
-            Finish();
+            if (!(string.IsNullOrEmpty(txtUsername.Text) || string.IsNullOrEmpty(txtPassword.Text)))
+            {
+                var intent = new Android.Content.Intent(this, typeof(MainActivity));
+                StartActivity(intent);
+                Finish();
+            }
+            else
+            {
+
+            }
         }
     }
 }
