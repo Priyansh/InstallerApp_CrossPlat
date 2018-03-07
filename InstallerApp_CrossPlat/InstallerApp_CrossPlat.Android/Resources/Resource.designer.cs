@@ -214,8 +214,8 @@ namespace InstallerApp_CrossPlat.Droid
 			// aapt resource value: 0x7f080003
 			public const int Image = 2131230723;
 			
-			// aapt resource value: 0x7f08003e
-			public const int MainLinearLayout = 2131230782;
+			// aapt resource value: 0x7f080041
+			public const int MainLinearLayout = 2131230785;
 			
 			// aapt resource value: 0x7f080005
 			public const int Text = 2131230725;
@@ -226,38 +226,41 @@ namespace InstallerApp_CrossPlat.Droid
 			// aapt resource value: 0x7f080002
 			public const int btnCancel = 2131230722;
 			
-			// aapt resource value: 0x7f080039
-			public const int cameraDigital = 2131230777;
+			// aapt resource value: 0x7f080023
+			public const int btnlogin = 2131230755;
+			
+			// aapt resource value: 0x7f08003c
+			public const int cameraDigital = 2131230780;
 			
 			// aapt resource value: 0x7f080012
 			public const int checkbox = 2131230738;
 			
-			// aapt resource value: 0x7f08003f
-			public const int content1 = 2131230783;
+			// aapt resource value: 0x7f080042
+			public const int content1 = 2131230786;
 			
-			// aapt resource value: 0x7f080047
-			public const int content2 = 2131230791;
+			// aapt resource value: 0x7f08004a
+			public const int content2 = 2131230794;
 			
-			// aapt resource value: 0x7f080032
-			public const int content_OrderParts = 2131230770;
+			// aapt resource value: 0x7f080035
+			public const int content_OrderParts = 2131230773;
 			
-			// aapt resource value: 0x7f080036
-			public const int content_PartInfo = 2131230774;
+			// aapt resource value: 0x7f080039
+			public const int content_PartInfo = 2131230777;
 			
 			// aapt resource value: 0x7f08001b
 			public const int content_installerinfo = 2131230747;
 			
-			// aapt resource value: 0x7f080038
-			public const int content_photoGallery = 2131230776;
-			
-			// aapt resource value: 0x7f08003c
-			public const int footerImgBtnCamera = 2131230780;
-			
 			// aapt resource value: 0x7f08003b
-			public const int footerToolbar = 2131230779;
+			public const int content_photoGallery = 2131230779;
 			
-			// aapt resource value: 0x7f08003a
-			public const int gridPhotoGallery = 2131230778;
+			// aapt resource value: 0x7f08003f
+			public const int footerImgBtnCamera = 2131230783;
+			
+			// aapt resource value: 0x7f08003e
+			public const int footerToolbar = 2131230782;
+			
+			// aapt resource value: 0x7f08003d
+			public const int gridPhotoGallery = 2131230781;
 			
 			// aapt resource value: 0x7f080000
 			public const int imageViewCustom = 2131230720;
@@ -271,53 +274,53 @@ namespace InstallerApp_CrossPlat.Droid
 			// aapt resource value: 0x7f080018
 			public const int imgbtnBack = 2131230744;
 			
-			// aapt resource value: 0x7f080023
-			public const int imgbtnJobs = 2131230755;
+			// aapt resource value: 0x7f080027
+			public const int imgbtnJobs = 2131230759;
 			
-			// aapt resource value: 0x7f08002f
-			public const int imgbtnLogOut = 2131230767;
-			
-			// aapt resource value: 0x7f080024
-			public const int imgbtnMessages = 2131230756;
-			
-			// aapt resource value: 0x7f080029
-			public const int imgbtnPayments = 2131230761;
-			
-			// aapt resource value: 0x7f08002a
-			public const int imgbtnSettings = 2131230762;
-			
-			// aapt resource value: 0x7f080049
-			public const int imgbtnStartJob = 2131230793;
-			
-			// aapt resource value: 0x7f080020
-			public const int linearLayout1 = 2131230752;
-			
-			// aapt resource value: 0x7f080022
-			public const int linearLayout2 = 2131230754;
-			
-			// aapt resource value: 0x7f080025
-			public const int linearLayout3 = 2131230757;
+			// aapt resource value: 0x7f080032
+			public const int imgbtnLogOut = 2131230770;
 			
 			// aapt resource value: 0x7f080028
-			public const int linearLayout4 = 2131230760;
+			public const int imgbtnMessages = 2131230760;
+			
+			// aapt resource value: 0x7f08002c
+			public const int imgbtnPayments = 2131230764;
+			
+			// aapt resource value: 0x7f08002d
+			public const int imgbtnSettings = 2131230765;
+			
+			// aapt resource value: 0x7f08004c
+			public const int imgbtnStartJob = 2131230796;
+			
+			// aapt resource value: 0x7f080024
+			public const int linearLayout1 = 2131230756;
+			
+			// aapt resource value: 0x7f080026
+			public const int linearLayout2 = 2131230758;
+			
+			// aapt resource value: 0x7f080029
+			public const int linearLayout3 = 2131230761;
 			
 			// aapt resource value: 0x7f08002b
-			public const int linearLayout5 = 2131230763;
+			public const int linearLayout4 = 2131230763;
 			
 			// aapt resource value: 0x7f08002e
-			public const int linearLayout6 = 2131230766;
+			public const int linearLayout5 = 2131230766;
 			
-			// aapt resource value: 0x7f080030
-			public const int linearLayout7 = 2131230768;
+			// aapt resource value: 0x7f080031
+			public const int linearLayout6 = 2131230769;
 			
 			// aapt resource value: 0x7f080033
-			public const int listInstallerInfo = 2131230771;
+			public const int linearLayout7 = 2131230771;
 			
-			// aapt resource value: 0x7f080037
-			public const int listPartInfo = 2131230775;
+			// aapt resource value: 0x7f080036
+			public const int listInstallerInfo = 2131230774;
 			
-			// aapt resource value: 0x7f080035
-			public const int listPartsIssue = 2131230773;
+			// aapt resource value: 0x7f08003a
+			public const int listPartInfo = 2131230778;
+			
+			// aapt resource value: 0x7f080038
+			public const int listPartsIssue = 2131230776;
 			
 			// aapt resource value: 0x7f08001e
 			public const int lstIndividualRoom = 2131230750;
@@ -328,53 +331,53 @@ namespace InstallerApp_CrossPlat.Droid
 			// aapt resource value: 0x7f08001f
 			public const int main_content = 2131230751;
 			
-			// aapt resource value: 0x7f08004a
-			public const int menu_reload32 = 2131230794;
+			// aapt resource value: 0x7f08004d
+			public const int menu_reload32 = 2131230797;
 			
-			// aapt resource value: 0x7f080046
-			public const int tblMainLayout = 2131230790;
+			// aapt resource value: 0x7f080049
+			public const int tblMainLayout = 2131230793;
 			
-			// aapt resource value: 0x7f080026
-			public const int textView1 = 2131230758;
+			// aapt resource value: 0x7f080020
+			public const int textView1 = 2131230752;
 			
-			// aapt resource value: 0x7f080027
-			public const int textView2 = 2131230759;
+			// aapt resource value: 0x7f08002a
+			public const int textView2 = 2131230762;
 			
-			// aapt resource value: 0x7f08002c
-			public const int textView3 = 2131230764;
+			// aapt resource value: 0x7f08002f
+			public const int textView3 = 2131230767;
 			
-			// aapt resource value: 0x7f08002d
-			public const int textView4 = 2131230765;
+			// aapt resource value: 0x7f080030
+			public const int textView4 = 2131230768;
 			
-			// aapt resource value: 0x7f080031
-			public const int textView5 = 2131230769;
-			
-			// aapt resource value: 0x7f08003d
-			public const int textViewAddPhoto = 2131230781;
+			// aapt resource value: 0x7f080034
+			public const int textView5 = 2131230772;
 			
 			// aapt resource value: 0x7f080040
-			public const int textViewCompany = 2131230784;
+			public const int textViewAddPhoto = 2131230784;
 			
 			// aapt resource value: 0x7f080043
-			public const int textViewDelivered = 2131230787;
+			public const int textViewCompany = 2131230787;
+			
+			// aapt resource value: 0x7f080046
+			public const int textViewDelivered = 2131230790;
 			
 			// aapt resource value: 0x7f08001a
 			public const int textViewGeneral = 2131230746;
 			
-			// aapt resource value: 0x7f080048
-			public const int textViewJob = 2131230792;
+			// aapt resource value: 0x7f08004b
+			public const int textViewJob = 2131230795;
+			
+			// aapt resource value: 0x7f080047
+			public const int textViewJobStarted = 2131230791;
+			
+			// aapt resource value: 0x7f080045
+			public const int textViewLot = 2131230789;
+			
+			// aapt resource value: 0x7f080037
+			public const int textViewOrderCabinet = 2131230775;
 			
 			// aapt resource value: 0x7f080044
-			public const int textViewJobStarted = 2131230788;
-			
-			// aapt resource value: 0x7f080042
-			public const int textViewLot = 2131230786;
-			
-			// aapt resource value: 0x7f080034
-			public const int textViewOrderCabinet = 2131230772;
-			
-			// aapt resource value: 0x7f080041
-			public const int textViewProject = 2131230785;
+			public const int textViewProject = 2131230788;
 			
 			// aapt resource value: 0x7f08001d
 			public const int textViewRoomInfo = 2131230749;
@@ -397,8 +400,8 @@ namespace InstallerApp_CrossPlat.Droid
 			// aapt resource value: 0x7f080004
 			public const int txtImage = 2131230724;
 			
-			// aapt resource value: 0x7f080021
-			public const int txtInstallerName = 2131230753;
+			// aapt resource value: 0x7f080025
+			public const int txtInstallerName = 2131230757;
 			
 			// aapt resource value: 0x7f08000c
 			public const int txtJobNo = 2131230732;
@@ -430,8 +433,14 @@ namespace InstallerApp_CrossPlat.Droid
 			// aapt resource value: 0x7f080006
 			public const int txtStyleColor = 2131230726;
 			
-			// aapt resource value: 0x7f080045
-			public const int txtViewSelectRoom = 2131230789;
+			// aapt resource value: 0x7f080048
+			public const int txtViewSelectRoom = 2131230792;
+			
+			// aapt resource value: 0x7f080022
+			public const int txtpwd = 2131230754;
+			
+			// aapt resource value: 0x7f080021
+			public const int txtusername = 2131230753;
 			
 			static Id()
 			{
@@ -471,19 +480,22 @@ namespace InstallerApp_CrossPlat.Droid
 			public const int JobScreen = 2130903047;
 			
 			// aapt resource value: 0x7f030008
-			public const int Main = 2130903048;
+			public const int Login = 2130903048;
 			
 			// aapt resource value: 0x7f030009
-			public const int OrderParts = 2130903049;
+			public const int Main = 2130903049;
 			
 			// aapt resource value: 0x7f03000a
-			public const int PartInfo = 2130903050;
+			public const int OrderParts = 2130903050;
 			
 			// aapt resource value: 0x7f03000b
-			public const int PhotoGallery = 2130903051;
+			public const int PartInfo = 2130903051;
 			
 			// aapt resource value: 0x7f03000c
-			public const int StartJobScheduleStatus = 2130903052;
+			public const int PhotoGallery = 2130903052;
+			
+			// aapt resource value: 0x7f03000d
+			public const int StartJobScheduleStatus = 2130903053;
 			
 			static Layout()
 			{

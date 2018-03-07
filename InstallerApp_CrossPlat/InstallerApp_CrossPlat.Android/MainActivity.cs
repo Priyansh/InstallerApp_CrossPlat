@@ -10,7 +10,8 @@ using Android.Content.PM;
 
 namespace InstallerApp_CrossPlat.Droid
 {
-    [Activity(Label = "InstallerApp", Icon = "@drawable/FrendelLogo", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation, MainLauncher = true)]
+    //[Activity(Label = "InstallerApp", Icon = "@drawable/FrendelLogo", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation, MainLauncher = true)]
+    [Activity(Label = "", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : Activity
     {
         ImageButton imgbtnJobs;

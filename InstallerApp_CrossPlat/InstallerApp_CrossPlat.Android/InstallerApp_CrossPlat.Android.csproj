@@ -60,6 +60,7 @@
     <Compile Include="Interfaces\IBitmapImageImages.cs" />
     <Compile Include="JobScreen.cs" />
     <Compile Include="JobScreenAdapter.cs" />
+    <Compile Include="Login.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="OrderParts.cs" />
     <Compile Include="OrderPartsAdapter.cs" />
@@ -97,6 +98,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\OrderParts.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\Login.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
     <None Include="Web References\FrendelWebService\Address_ProjectList.datasource">
