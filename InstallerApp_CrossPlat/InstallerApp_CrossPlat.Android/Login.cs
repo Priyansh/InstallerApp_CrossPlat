@@ -17,7 +17,9 @@ namespace InstallerApp_CrossPlat.Droid
     {
         EditText txtUsername;
         EditText txtPassword;
+        TextView lblErrorMsg;
         Button btnLogin;
+        FrendelWebService.phonegap frendelWebService = new FrendelWebService.phonegap();
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -25,8 +27,9 @@ namespace InstallerApp_CrossPlat.Droid
             // Create your application here
             SetContentView(Resource.Layout.Login);
             btnLogin = FindViewById<Button>(Resource.Id.btnlogin);
-            txtUsername = FindViewById<EditText>(Resource.Id.txtusername);
-            txtPassword = FindViewById<EditText>(Resource.Id.txtpwd);
+            txtUsername = FindViewById<EditText>(Resource.Id.txtUsername);
+            txtPassword = FindViewById<EditText>(Resource.Id.txtPassword);
+            lblErrorMsg = FindViewById<TextView>(Resource.Id.lblErrorMsg);
             btnLogin.Click += BtnLogin_Click;
         }
 
@@ -34,9 +37,17 @@ namespace InstallerApp_CrossPlat.Droid
         {
             if (!(string.IsNullOrEmpty(txtUsername.Text) || string.IsNullOrEmpty(txtPassword.Text)))
             {
-                var intent = new Android.Content.Intent(this, typeof(MainActivity));
-                StartActivity(intent);
-                Finish();
+                int installerId = frendelWebService.InsKP_Login(txtUsername.Text, txtPassword.Text);
+                if(installerId == 0) {
+                    lblErrorMsg.Text = "Invalid UserName/Password";
+                    lblErrorMsg.SetTextColor(Android.Graphics.Color.Red);
+                }
+                else
+                {
+                    var intent = new Android.Content.Intent(this, typeof(MainActivity));
+                    StartActivity(intent);
+                    Finish();
+                }
             }
             else
             {

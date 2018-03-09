@@ -13,6 +13,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)CommonClasses\InstallerInfoList.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CommonClasses\PartsIssueList.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CommonClasses\PartsInfoList.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CommonClasses\PasswordEncryptDecrypt.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CommonInterfaces\IIndividualRoomInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CommonInterfaces\IInstallerInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CommonInterfaces\IPartsIssueInfo.cs" />

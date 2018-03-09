@@ -29,6 +29,14 @@
             android:hint="Password"
             android:inputType="textPassword"
             android:password="true" />
+        <TextView
+            android:id="@+id/lblErrorMsg"
+            android:text="Error"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:gravity="center_horizontal" />
         <Button
             android:text="Login"
             android:layout_width="match_parent"
