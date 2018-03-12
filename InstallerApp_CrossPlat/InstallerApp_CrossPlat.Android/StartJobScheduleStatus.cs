@@ -44,9 +44,6 @@ namespace InstallerApp_CrossPlat.Droid
             string shippedDone = string.IsNullOrEmpty(getStrings[5]) ? "" : Convert.ToDateTime(getStrings[5]).ToString("MMM dd, yyyy");
             textViewDelivered.Text = "Delivered on " + shippedDone;
 
-            //Call WebService
-            serviceInstaller.Url = "http://ws.frendel.com/mobile/phonegap.asmx";
-
             //Adding Header Information
             csHeaderGeneralInfo headerGeneralInfo = new csHeaderGeneralInfo(this);
             headerGeneralInfo.textViewGeneral.Text = "Job Number: " + getStrings[3];
