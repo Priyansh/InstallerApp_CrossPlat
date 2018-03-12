@@ -9,6 +9,8 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace InstallerApp_CrossPlat.Droid
 {
@@ -19,7 +21,8 @@ namespace InstallerApp_CrossPlat.Droid
         EditText txtPassword;
         TextView lblErrorMsg;
         Button btnLogin;
-        FrendelWebService.phonegap frendelWebService = new FrendelWebService.phonegap();
+        ProgressDialog dialog;
+        FrendelWebService.phonegap serviceInstaller = new FrendelWebService.phonegap();
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -37,21 +40,31 @@ namespace InstallerApp_CrossPlat.Droid
         {
             if (!(string.IsNullOrEmpty(txtUsername.Text) || string.IsNullOrEmpty(txtPassword.Text)))
             {
-                int installerId = frendelWebService.InsKP_Login(txtUsername.Text, txtPassword.Text);
-                if(installerId == 0) {
-                    lblErrorMsg.Text = "Invalid UserName/Password";
-                    lblErrorMsg.SetTextColor(Android.Graphics.Color.Red);
-                }
-                else
+                dialog = ProgressDialog.Show(this, "", "Authenticating...", true);
+                dialog.SetProgressStyle(ProgressDialogStyle.Spinner);
+                new Thread(new ThreadStart(async delegate
                 {
-                    var intent = new Android.Content.Intent(this, typeof(MainActivity));
-                    StartActivity(intent);
-                    Finish();
-                }
+                    await Task.Delay(20);
+                    RunOnUiThread(() =>
+                    {
+                        int installerId = serviceInstaller.InsKP_Login(txtUsername.Text, txtPassword.Text);
+                        dialog.Dismiss();
+                        if (installerId == 0)
+                        {
+                            lblErrorMsg.Text = "Invalid UserName/Password";
+                        }
+                        else
+                        {
+                            var intent = new Android.Content.Intent(this, typeof(MainActivity));
+                            StartActivity(intent);
+                            Finish();
+                        }
+                    });
+                })).Start();
             }
             else
             {
-
+                lblErrorMsg.Text = "Invalid UserName/Password";
             }
         }
     }

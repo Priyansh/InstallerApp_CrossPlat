@@ -226,8 +226,8 @@ namespace InstallerApp_CrossPlat.Droid
 			// aapt resource value: 0x7f080002
 			public const int btnCancel = 2131230722;
 			
-			// aapt resource value: 0x7f080024
-			public const int btnlogin = 2131230756;
+			// aapt resource value: 0x7f080023
+			public const int btnlogin = 2131230755;
 			
 			// aapt resource value: 0x7f08003d
 			public const int cameraDigital = 2131230781;
@@ -274,14 +274,14 @@ namespace InstallerApp_CrossPlat.Droid
 			// aapt resource value: 0x7f080018
 			public const int imgbtnBack = 2131230744;
 			
-			// aapt resource value: 0x7f080028
-			public const int imgbtnJobs = 2131230760;
+			// aapt resource value: 0x7f080027
+			public const int imgbtnJobs = 2131230759;
 			
 			// aapt resource value: 0x7f080033
 			public const int imgbtnLogOut = 2131230771;
 			
-			// aapt resource value: 0x7f080029
-			public const int imgbtnMessages = 2131230761;
+			// aapt resource value: 0x7f080028
+			public const int imgbtnMessages = 2131230760;
 			
 			// aapt resource value: 0x7f08002d
 			public const int imgbtnPayments = 2131230765;
@@ -292,17 +292,17 @@ namespace InstallerApp_CrossPlat.Droid
 			// aapt resource value: 0x7f08004d
 			public const int imgbtnStartJob = 2131230797;
 			
-			// aapt resource value: 0x7f080023
-			public const int lblErrorMsg = 2131230755;
+			// aapt resource value: 0x7f080020
+			public const int lblErrorMsg = 2131230752;
 			
-			// aapt resource value: 0x7f080025
-			public const int linearLayout1 = 2131230757;
+			// aapt resource value: 0x7f080024
+			public const int linearLayout1 = 2131230756;
 			
-			// aapt resource value: 0x7f080027
-			public const int linearLayout2 = 2131230759;
+			// aapt resource value: 0x7f080026
+			public const int linearLayout2 = 2131230758;
 			
-			// aapt resource value: 0x7f08002a
-			public const int linearLayout3 = 2131230762;
+			// aapt resource value: 0x7f080029
+			public const int linearLayout3 = 2131230761;
 			
 			// aapt resource value: 0x7f08002c
 			public const int linearLayout4 = 2131230764;
@@ -340,8 +340,8 @@ namespace InstallerApp_CrossPlat.Droid
 			// aapt resource value: 0x7f08004a
 			public const int tblMainLayout = 2131230794;
 			
-			// aapt resource value: 0x7f080020
-			public const int textView1 = 2131230752;
+			// aapt resource value: 0x7f08002a
+			public const int textView1 = 2131230762;
 			
 			// aapt resource value: 0x7f08002b
 			public const int textView2 = 2131230763;
@@ -403,8 +403,8 @@ namespace InstallerApp_CrossPlat.Droid
 			// aapt resource value: 0x7f080004
 			public const int txtImage = 2131230724;
 			
-			// aapt resource value: 0x7f080026
-			public const int txtInstallerName = 2131230758;
+			// aapt resource value: 0x7f080025
+			public const int txtInstallerName = 2131230757;
 			
 			// aapt resource value: 0x7f08000c
 			public const int txtJobNo = 2131230732;
@@ -427,6 +427,9 @@ namespace InstallerApp_CrossPlat.Droid
 			// aapt resource value: 0x7f080009
 			public const int txtPartsOrdered = 2131230729;
 			
+			// aapt resource value: 0x7f080022
+			public const int txtPassword = 2131230754;
+			
 			// aapt resource value: 0x7f08000e
 			public const int txtProject = 2131230734;
 			
@@ -436,14 +439,11 @@ namespace InstallerApp_CrossPlat.Droid
 			// aapt resource value: 0x7f080006
 			public const int txtStyleColor = 2131230726;
 			
+			// aapt resource value: 0x7f080021
+			public const int txtUsername = 2131230753;
+			
 			// aapt resource value: 0x7f080049
 			public const int txtViewSelectRoom = 2131230793;
-			
-			// aapt resource value: 0x7f080022
-			public const int txtpwd = 2131230754;
-			
-			// aapt resource value: 0x7f080021
-			public const int txtusername = 2131230753;
 			
 			static Id()
 			{

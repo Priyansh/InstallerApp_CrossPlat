@@ -8,39 +8,43 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:orientation="vertical"
-        android:gravity="center">
-        <TextView
-            android:text="LOGIN"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView1"
-            android:gravity="center_horizontal" />
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtusername"
-            android:hint="User Name"
-            android:inputType="textEmailAddress" />
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtpwd"
-            android:hint="Password"
-            android:inputType="textPassword"
-            android:password="true" />
+        android:gravity="center_vertical"
+        android:background="@color/clrSplashBackground">
+        <ImageView
+            android:src="@drawable/frendellogo"
+            android:layout_width="wrap_content"
+            android:layout_height="72dp"
+            android:layout_marginBottom="24dp"
+            android:layout_gravity="center_horizontal" />
         <TextView
             android:id="@+id/lblErrorMsg"
-            android:text="Error"
+            android:text=""
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:gravity="center_horizontal" />
+            android:gravity="center_horizontal"
+            android:textColor="@android:color/holo_red_dark" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtUsername"
+            android:hint="User Name"
+            android:inputType="textEmailAddress"
+            android:layout_margin="15dp" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtPassword"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:password="true"
+            android:layout_margin="15dp" />
         <Button
             android:text="Login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/btnlogin" />
+            android:id="@+id/btnlogin"
+            android:background="#088da5"
+            android:layout_margin="15dp" />
     </LinearLayout>
 </RelativeLayout>
