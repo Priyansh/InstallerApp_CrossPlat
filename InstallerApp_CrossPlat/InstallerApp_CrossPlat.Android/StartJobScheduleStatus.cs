@@ -80,7 +80,7 @@ namespace InstallerApp_CrossPlat.Droid
 
             TableRow.LayoutParams tbllayoutPara = new TableRow.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.WrapContent);
             TableRow tblRow = new TableRow(this);
-            int leftMargin = 5;
+            int leftMargin = 30;
             int TopMargin = 5;
             int rightMargin = 5;
             int bottomMargin = 5;
@@ -110,8 +110,20 @@ namespace InstallerApp_CrossPlat.Droid
                 Button btn = new Button(this);
                 btn.Id = i;
                 btn.Text = serviceListRoomsInfo[i].Rooms;
-                btn.SetMinimumWidth(200);
-                btn.SetMinimumHeight(180);
+
+                var metrics = Resources.DisplayMetrics;
+                var widthInDp = ConvertPixelsToDp(metrics.WidthPixels);
+                var heightInDp = ConvertPixelsToDp(metrics.HeightPixels);
+                if(widthInDp == 360 && heightInDp == 640) //Samsung J3
+                {
+                    btn.SetMinimumWidth(200);
+                    btn.SetMinimumHeight(180);
+                }
+                else // Bigger Devices
+                {
+                    btn.SetMinimumWidth(230);
+                    btn.SetMinimumHeight(350);
+                }
                 btn.LayoutParameters = tbllayoutPara;
                 btn.Click += delegate
                 {
@@ -128,6 +140,12 @@ namespace InstallerApp_CrossPlat.Droid
                 column++;
             }
             tblMainLayout.AddView(tblRow);
+        }
+
+        private int ConvertPixelsToDp(float pixelValue)
+        {
+            var dp = (int)((pixelValue) / Resources.DisplayMetrics.Density);
+            return dp;
         }
 
         public void funStartingJob(int jobStatus)
