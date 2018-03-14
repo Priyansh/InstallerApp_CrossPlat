@@ -59,6 +59,7 @@ namespace InstallerApp_CrossPlat.Droid
                 await Task.Delay(50);
                 RunOnUiThread(() =>
                 {
+                    serviceInstaller.Url = "http://ws.frendel.com/mobile/phonegap.asmx";
                     displayWebServiceInfo(serviceInstaller);
                     progressDialog.Dismiss();
                 });

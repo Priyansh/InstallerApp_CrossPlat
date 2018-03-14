@@ -44,6 +44,9 @@ namespace InstallerApp_CrossPlat.Droid
             string shippedDone = string.IsNullOrEmpty(getStrings[5]) ? "" : Convert.ToDateTime(getStrings[5]).ToString("MMM dd, yyyy");
             textViewDelivered.Text = "Delivered on " + shippedDone;
 
+            //Call WebService
+            serviceInstaller.Url = "http://ws.frendel.com/mobile/phonegap.asmx";
+
             //Adding Header Information
             csHeaderGeneralInfo headerGeneralInfo = new csHeaderGeneralInfo(this);
             headerGeneralInfo.textViewGeneral.Text = "Job Number: " + getStrings[3];
@@ -163,6 +166,7 @@ namespace InstallerApp_CrossPlat.Droid
                 serviceInstaller.InsKP_UpdateInstallerStatus(int.Parse(getStrings[6]), 1);
             }
             var updateInstallerJobStatus = serviceInstaller.InsKP_GetInstallerByCSID(int.Parse(getStrings[6]));
+            int count = updateInstallerJobStatus.Length;
             textViewJobStarted.Text = "Job Started On " + Convert.ToDateTime(updateInstallerJobStatus[0].InstallerJobStart).ToString("MMM dd, yyyy");
             //Once Job Status Updated , then update getStrings' existing JobStatus with updated JobStatus
             getStrings[7] = updateInstallerJobStatus[0].InstallerJobStatus.ToString();
