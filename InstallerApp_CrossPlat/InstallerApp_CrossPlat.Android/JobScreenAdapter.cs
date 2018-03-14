@@ -53,8 +53,18 @@ namespace InstallerApp_CrossPlat.Droid
                 view.FindViewById<TextView>(Resource.Id.txtLot).Text = "Unit " + item.Lot;
 
                 //Set StatusImages according to Status Change
-                if (item.InstallerJobStatus == 0 || String.IsNullOrEmpty(item.InstallerJobStatus.ToString())) { view.FindViewById<ImageView>(Resource.Id.Image).SetBackgroundResource(Resource.Drawable.imgSchedule); }
-                else if (item.InstallerJobStatus == 1) { view.FindViewById<ImageView>(Resource.Id.Image).SetBackgroundResource(Resource.Drawable.imgProgress); }
+                if (item.InstallerJobStatus == 0 || String.IsNullOrEmpty(item.InstallerJobStatus.ToString()))
+                {
+                    view.FindViewById<ImageView>(Resource.Id.Image).SetBackgroundResource(Resource.Drawable.imgSchedule);
+                    view.FindViewById<TextView>(Resource.Id.txtJobStatus).Text = "Scheduled";
+                    view.FindViewById<TextView>(Resource.Id.txtJobStatus).SetTextColor(Android.Graphics.Color.Red);
+                }
+                else if (item.InstallerJobStatus == 1)
+                {
+                    view.FindViewById<ImageView>(Resource.Id.Image).SetBackgroundResource(Resource.Drawable.imgProgress);
+                    view.FindViewById<TextView>(Resource.Id.txtJobStatus).Text = "InProgress";
+                    view.FindViewById<TextView>(Resource.Id.txtJobStatus).SetTextColor(Android.Graphics.Color.Green);
+                }
             }
             return view;
         }
