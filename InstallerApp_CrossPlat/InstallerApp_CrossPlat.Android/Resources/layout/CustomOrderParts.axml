@@ -4,11 +4,14 @@
     android:layout_height="wrap_content"
     android:padding="8dp"
     android:background="#FFFFFF">
-    <ImageView
-        android:id="@+id/imgOrderPart"
-        android:layout_height="40dp"
-        android:layout_width="40dp"
-        android:background="@drawable/cameradigital128" />
+  <CheckBox
+      android:id="@+id/checkbox"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text=""
+      android:padding="5dp"
+      android:layout_alignParentLeft="true"
+      android:focusable="false" />
     <LinearLayout
         android:id="@+id/Text"
         android:orientation="vertical"
