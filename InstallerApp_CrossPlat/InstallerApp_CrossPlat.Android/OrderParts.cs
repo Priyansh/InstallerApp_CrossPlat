@@ -20,12 +20,12 @@ namespace InstallerApp_CrossPlat.Droid
         List<InstallerInfoList> lstInstallerInfoClass = new List<InstallerInfoList>();
         List<PartsIssueList> lstPartsIssueClass = new List<PartsIssueList>();
         ListView listViewInstallerInfo, listViewPartIssues;
-        string[] getstringRooms, getSelectedInstaller;
-        int getintPartType;
-        string getstringOrderCabinet;
+        string[] getstringRooms, getSelectedInstaller, getSelectedPartsInfo;
         ProgressDialog progressDialog;
         FrendelWebService.phonegap serviceInstaller = new FrendelWebService.phonegap();
         TextView textViewRoomInfo, textViewOrderCabinet;
+        Button btnAddOrder;
+        CheckBox cbOrderParts;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -33,8 +33,8 @@ namespace InstallerApp_CrossPlat.Droid
             SetContentView(Resource.Layout.OrderParts);
             getstringRooms = Intent.GetStringArrayExtra("keyRoomInfo");
             getSelectedInstaller = Intent.GetStringArrayExtra("keySelectedInstaller");
-            getintPartType = Intent.Extras.GetInt("keyOrderParts");
-            getstringOrderCabinet = Intent.Extras.GetString("keyOrderCabinet");
+            getSelectedPartsInfo = Intent.GetStringArrayExtra("keyPartsInfo");
+
             //Adding Loading bar
             progressDialog = ProgressDialog.Show(this, "Loading...", "Please wait!!", true);
             progressDialog.SetProgressStyle(ProgressDialogStyle.Spinner);
@@ -47,8 +47,28 @@ namespace InstallerApp_CrossPlat.Droid
             textViewRoomInfo = FindViewById<TextView>(Resource.Id.textViewRoomInfo);
             textViewOrderCabinet = FindViewById<TextView>(Resource.Id.textViewOrderCabinet);
             textViewRoomInfo.Text = getstringRooms[2];
-            textViewOrderCabinet.Text = getstringOrderCabinet;
+            textViewOrderCabinet.Text = getSelectedPartsInfo[0];
+            btnAddOrder = FindViewById<Button>(Resource.Id.btnAddOrder);
+            btnAddOrder.Click += BtnAddOrder_Click;
+            cbOrderParts = FindViewById<CheckBox>(Resource.Id.cbOrderParts);
             ThreadPool.QueueUserWorkItem(q => longRunningMethod());
+
+        }
+
+        private void BtnAddOrder_Click(object sender, EventArgs e)
+        {
+            //TODO Insert Records in [InsKP_PartsOrder]
+            new Thread(new ThreadStart(async delegate
+            {
+                await Task.Delay(50);
+                RunOnUiThread(() =>
+                {
+                    int partsOrderID = serviceInstaller.InsKP_PartsOrder(int.Parse(getSelectedPartsInfo[3]), int.Parse(getSelectedPartsInfo[4]), int.Parse(getSelectedPartsInfo[5]));
+                    //TODO Bind cbOrderParts First and get selected value from checkbox
+
+                    //TODO Insert Records in [InsKP_PartsOrderIssue]
+                });
+            })).Start();
 
         }
 
@@ -99,7 +119,7 @@ namespace InstallerApp_CrossPlat.Droid
                 await Task.Delay(50);
                 RunOnUiThread(() =>
                 {
-                    var getPartsIssueList = serviceInstaller.InsKP_GetPartIssueList(getintPartType);
+                    var getPartsIssueList = serviceInstaller.InsKP_GetPartIssueList(int.Parse(getSelectedPartsInfo[3]));
                     for (int i = 0; i < getPartsIssueList.Length; i++)
                     {
                         var fillPartsIssueProperties = new PartsIssueList

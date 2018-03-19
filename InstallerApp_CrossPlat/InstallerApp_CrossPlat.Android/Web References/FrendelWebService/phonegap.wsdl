@@ -992,6 +992,8 @@
           <s:element minOccurs="0" maxOccurs="1" name="LFinish" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="RFinish" type="s:string" />
           <s:element minOccurs="1" maxOccurs="1" name="PartType" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="LabelNo" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CSID" type="s:int" />
         </s:sequence>
       </s:complexType>
       <s:complexType name="ArrayOfIns_GetPartsInfoList">
@@ -1093,6 +1095,22 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="insKP_getInstallerImagesResult" type="tns:ArrayOfBase64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsKP_PartsOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PartTypeID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="LabelNo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CSID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsKP_PartsOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsKP_PartsOrderResult" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -1406,6 +1424,12 @@
   <wsdl:message name="insKP_getInstallerImagesSoapOut">
     <wsdl:part name="parameters" element="tns:insKP_getInstallerImagesResponse" />
   </wsdl:message>
+  <wsdl:message name="InsKP_PartsOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:InsKP_PartsOrder" />
+  </wsdl:message>
+  <wsdl:message name="InsKP_PartsOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:InsKP_PartsOrderResponse" />
+  </wsdl:message>
   <wsdl:message name="ServerTimeSoapIn">
     <wsdl:part name="parameters" element="tns:ServerTime" />
   </wsdl:message>
@@ -1610,6 +1634,10 @@
     <wsdl:operation name="insKP_getInstallerImages">
       <wsdl:input message="tns:insKP_getInstallerImagesSoapIn" />
       <wsdl:output message="tns:insKP_getInstallerImagesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsKP_PartsOrder">
+      <wsdl:input message="tns:InsKP_PartsOrderSoapIn" />
+      <wsdl:output message="tns:InsKP_PartsOrderSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="ServerTime">
       <wsdl:input message="tns:ServerTimeSoapIn" />
@@ -2047,6 +2075,15 @@
     </wsdl:operation>
     <wsdl:operation name="insKP_getInstallerImages">
       <soap:operation soapAction="http://tempuri.org/insKP_getInstallerImages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsKP_PartsOrder">
+      <soap:operation soapAction="http://tempuri.org/InsKP_PartsOrder" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -2500,6 +2537,15 @@
     </wsdl:operation>
     <wsdl:operation name="insKP_getInstallerImages">
       <soap12:operation soapAction="http://tempuri.org/insKP_getInstallerImages" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsKP_PartsOrder">
+      <soap12:operation soapAction="http://tempuri.org/InsKP_PartsOrder" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

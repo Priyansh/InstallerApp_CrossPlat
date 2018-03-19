@@ -125,6 +125,8 @@ namespace InstallerApp_CrossPlat.Droid.FrendelWebService {
         
         private System.Threading.SendOrPostCallback insKP_getInstallerImagesOperationCompleted;
         
+        private System.Threading.SendOrPostCallback InsKP_PartsOrderOperationCompleted;
+        
         private System.Threading.SendOrPostCallback ServerTimeOperationCompleted;
         
         private System.Threading.SendOrPostCallback ServerTimeJsonOperationCompleted;
@@ -310,6 +312,9 @@ namespace InstallerApp_CrossPlat.Droid.FrendelWebService {
         
         /// <remarks/>
         public event insKP_getInstallerImagesCompletedEventHandler insKP_getInstallerImagesCompleted;
+        
+        /// <remarks/>
+        public event InsKP_PartsOrderCompletedEventHandler InsKP_PartsOrderCompleted;
         
         /// <remarks/>
         public event ServerTimeCompletedEventHandler ServerTimeCompleted;
@@ -1741,6 +1746,39 @@ namespace InstallerApp_CrossPlat.Droid.FrendelWebService {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/InsKP_PartsOrder", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int InsKP_PartsOrder(int PartTypeID, int LabelNo, int CSID) {
+            object[] results = this.Invoke("InsKP_PartsOrder", new object[] {
+                        PartTypeID,
+                        LabelNo,
+                        CSID});
+            return ((int)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void InsKP_PartsOrderAsync(int PartTypeID, int LabelNo, int CSID) {
+            this.InsKP_PartsOrderAsync(PartTypeID, LabelNo, CSID, null);
+        }
+        
+        /// <remarks/>
+        public void InsKP_PartsOrderAsync(int PartTypeID, int LabelNo, int CSID, object userState) {
+            if ((this.InsKP_PartsOrderOperationCompleted == null)) {
+                this.InsKP_PartsOrderOperationCompleted = new System.Threading.SendOrPostCallback(this.OnInsKP_PartsOrderOperationCompleted);
+            }
+            this.InvokeAsync("InsKP_PartsOrder", new object[] {
+                        PartTypeID,
+                        LabelNo,
+                        CSID}, this.InsKP_PartsOrderOperationCompleted, userState);
+        }
+        
+        private void OnInsKP_PartsOrderOperationCompleted(object arg) {
+            if ((this.InsKP_PartsOrderCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.InsKP_PartsOrderCompleted(this, new InsKP_PartsOrderCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ServerTime", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public System.DateTime ServerTime() {
             object[] results = this.Invoke("ServerTime", new object[0]);
@@ -1895,6 +1933,10 @@ namespace InstallerApp_CrossPlat.Droid.FrendelWebService {
         
         private int partTypeField;
         
+        private int labelNoField;
+        
+        private int cSIDField;
+        
         /// <remarks/>
         public string CabinetName {
             get {
@@ -1932,6 +1974,26 @@ namespace InstallerApp_CrossPlat.Droid.FrendelWebService {
             }
             set {
                 this.partTypeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int LabelNo {
+            get {
+                return this.labelNoField;
+            }
+            set {
+                this.labelNoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int CSID {
+            get {
+                return this.cSIDField;
+            }
+            set {
+                this.cSIDField = value;
             }
         }
     }
@@ -6177,6 +6239,32 @@ namespace InstallerApp_CrossPlat.Droid.FrendelWebService {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((byte[][])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    public delegate void InsKP_PartsOrderCompletedEventHandler(object sender, InsKP_PartsOrderCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class InsKP_PartsOrderCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal InsKP_PartsOrderCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
             }
         }
     }

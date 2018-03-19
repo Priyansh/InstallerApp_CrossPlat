@@ -8,7 +8,7 @@ namespace InstallerApp_CrossPlat.Droid
     public class PartsInfoList : IPartsInfo
     {
         private string _CabinetName, _LFinish, _RFinish;
-        private int _PartType;
+        private int _PartType, _LabelNo, _CSID;
         public string CabinetName
         {
             get { return this._CabinetName; }
@@ -28,6 +28,18 @@ namespace InstallerApp_CrossPlat.Droid
         {
             get { return this._PartType; }
             set { this._PartType = value; }
+        }
+
+        public int LabelNo
+        {
+            get { return this._LabelNo; }
+            set { this._LabelNo = value; }
+        }
+
+        public int CSID
+        {
+            get { return this._CSID; }
+            set { this._CSID = value; }
         }
     }
 }

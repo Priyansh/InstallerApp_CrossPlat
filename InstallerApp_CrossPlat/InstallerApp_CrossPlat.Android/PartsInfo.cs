@@ -89,7 +89,9 @@ namespace InstallerApp_CrossPlat.Droid
                     CabinetName = partsInfoList[i].CabinetName,
                     LFinish = partsInfoList[i].LFinish,
                     RFinish = partsInfoList[i].RFinish,
-                    PartType = partsInfoList[i].PartType
+                    PartType = partsInfoList[i].PartType,
+                    LabelNo = partsInfoList[i].LabelNo,
+                    CSID = partsInfoList[i].CSID
                 };
                 lstPartsInfoClass.Add(fillPartsInfoProperties);
             }
@@ -113,8 +115,12 @@ namespace InstallerApp_CrossPlat.Droid
             Bundle b = new Bundle();
             b.PutStringArray("keyRoomInfo", getstringRooms);
             b.PutStringArray("keySelectedInstaller", getSelectedInstaller);
-            b.PutInt("keyOrderParts", lstPartsInfoClass[e.Position].PartType);
-            b.PutString("keyOrderCabinet", lstPartsInfoClass[e.Position].CabinetName);
+
+            //TODO make key-pair for PartInfo and remove exisiting code
+            var t = lstPartsInfoClass[e.Position];
+            string[] str = new string[] { t.CabinetName, t.LFinish, t.RFinish, t.PartType.ToString(), t.LabelNo.ToString(), t.CSID.ToString() };
+            b.PutStringArray("keyPartsInfo", str);
+
             var intent = new Android.Content.Intent(this, typeof(OrderParts));
             intent.PutExtras(b);
             StartActivity(intent);
