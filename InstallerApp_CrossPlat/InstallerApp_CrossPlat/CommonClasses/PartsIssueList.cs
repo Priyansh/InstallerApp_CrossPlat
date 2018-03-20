@@ -20,5 +20,6 @@ namespace InstallerApp_CrossPlat.Droid
             get { return this._PartDescription; }
             set { this._PartDescription = value; }
         }
+        public bool IsCbSelected {  get; set;  }
     }
 }

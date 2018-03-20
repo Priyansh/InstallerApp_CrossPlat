@@ -48,11 +48,37 @@ namespace InstallerApp_CrossPlat.Droid
             {
                 view = context.LayoutInflater.Inflate(Resource.Layout.CustomOrderParts, null);
             }
+            CheckBox cbOrderParts = view.FindViewById<CheckBox>(Resource.Id.cbOrderParts);
+            cbOrderParts.Id = PartsIssue.PartIssueListID;
+            cbOrderParts.Checked = PartsIssue.IsCbSelected;
             view.FindViewById<TextView>(Resource.Id.txtOrderPartName).Text = PartsIssue.PartDescription;
 
+            cbOrderParts.CheckedChange += CbOrderParts_CheckedChange;
             return view;
         }
 
+        private void CbOrderParts_CheckedChange(object sender, CompoundButton.CheckedChangeEventArgs e)
+        {
+            var obj = sender as CheckBox;
+            var row = obj?.Parent as View;
+            var parent = row?.Parent as ListView;
+
+            if (parent == null)
+                return;
+
+            var position = parent.GetPositionForView(row);
+
+            var item = PartsIssueList[position];
+            item.IsCbSelected = e.IsChecked;
+        }
+
+        public List<int> GetCheckedItems()
+        {
+            return PartsIssueList
+                    .Where(a => a.IsCbSelected)
+                    .Select(b => b.PartIssueListID)
+                    .ToList();
+        }
     }
     
 }

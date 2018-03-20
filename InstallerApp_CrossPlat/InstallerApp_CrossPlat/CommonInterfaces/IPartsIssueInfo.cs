@@ -8,5 +8,6 @@ namespace InstallerApp_CrossPlat.Droid
     public interface IPartsIssueInfo
     {
         string PartDescription { get; set; }
+        bool IsCbSelected { get; set; }
     }
 }

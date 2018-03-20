@@ -1114,6 +1114,21 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="InsKP_PartsOrderIssue">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PartOrderID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="PartIssueListID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsKP_PartsOrderIssueResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsKP_PartsOrderIssueResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="ServerTime">
         <s:complexType />
       </s:element>
@@ -1430,6 +1445,12 @@
   <wsdl:message name="InsKP_PartsOrderSoapOut">
     <wsdl:part name="parameters" element="tns:InsKP_PartsOrderResponse" />
   </wsdl:message>
+  <wsdl:message name="InsKP_PartsOrderIssueSoapIn">
+    <wsdl:part name="parameters" element="tns:InsKP_PartsOrderIssue" />
+  </wsdl:message>
+  <wsdl:message name="InsKP_PartsOrderIssueSoapOut">
+    <wsdl:part name="parameters" element="tns:InsKP_PartsOrderIssueResponse" />
+  </wsdl:message>
   <wsdl:message name="ServerTimeSoapIn">
     <wsdl:part name="parameters" element="tns:ServerTime" />
   </wsdl:message>
@@ -1638,6 +1659,10 @@
     <wsdl:operation name="InsKP_PartsOrder">
       <wsdl:input message="tns:InsKP_PartsOrderSoapIn" />
       <wsdl:output message="tns:InsKP_PartsOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsKP_PartsOrderIssue">
+      <wsdl:input message="tns:InsKP_PartsOrderIssueSoapIn" />
+      <wsdl:output message="tns:InsKP_PartsOrderIssueSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="ServerTime">
       <wsdl:input message="tns:ServerTimeSoapIn" />
@@ -2084,6 +2109,15 @@
     </wsdl:operation>
     <wsdl:operation name="InsKP_PartsOrder">
       <soap:operation soapAction="http://tempuri.org/InsKP_PartsOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsKP_PartsOrderIssue">
+      <soap:operation soapAction="http://tempuri.org/InsKP_PartsOrderIssue" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -2546,6 +2580,15 @@
     </wsdl:operation>
     <wsdl:operation name="InsKP_PartsOrder">
       <soap12:operation soapAction="http://tempuri.org/InsKP_PartsOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsKP_PartsOrderIssue">
+      <soap12:operation soapAction="http://tempuri.org/InsKP_PartsOrderIssue" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

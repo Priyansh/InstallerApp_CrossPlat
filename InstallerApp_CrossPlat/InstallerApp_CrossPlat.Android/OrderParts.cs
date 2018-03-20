@@ -26,6 +26,7 @@ namespace InstallerApp_CrossPlat.Droid
         TextView textViewRoomInfo, textViewOrderCabinet;
         Button btnAddOrder;
         CheckBox cbOrderParts;
+        private OrderPartsAdapter orderPartsAdapter;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -48,28 +49,43 @@ namespace InstallerApp_CrossPlat.Droid
             textViewOrderCabinet = FindViewById<TextView>(Resource.Id.textViewOrderCabinet);
             textViewRoomInfo.Text = getstringRooms[2];
             textViewOrderCabinet.Text = getSelectedPartsInfo[0];
+            cbOrderParts = FindViewById<CheckBox>(Resource.Id.cbOrderParts);
             btnAddOrder = FindViewById<Button>(Resource.Id.btnAddOrder);
             btnAddOrder.Click += BtnAddOrder_Click;
-            cbOrderParts = FindViewById<CheckBox>(Resource.Id.cbOrderParts);
             ThreadPool.QueueUserWorkItem(q => longRunningMethod());
-
         }
 
         private void BtnAddOrder_Click(object sender, EventArgs e)
         {
-            //TODO Insert Records in [InsKP_PartsOrder]
-            new Thread(new ThreadStart(async delegate
+            if (cbOrderParts.Checked == false){ }
+            else
             {
-                await Task.Delay(50);
-                RunOnUiThread(() =>
+                progressDialog = ProgressDialog.Show(this, "Loading...", "Please wait!!", true);
+                progressDialog.SetProgressStyle(ProgressDialogStyle.Spinner);
+                progressDialog.SetCanceledOnTouchOutside(true);
+                new Thread(new ThreadStart(async delegate
                 {
-                    int partsOrderID = serviceInstaller.InsKP_PartsOrder(int.Parse(getSelectedPartsInfo[3]), int.Parse(getSelectedPartsInfo[4]), int.Parse(getSelectedPartsInfo[5]));
-                    //TODO Bind cbOrderParts First and get selected value from checkbox
+                    await Task.Delay(50);
+                    RunOnUiThread(() =>
+                    {
+                        int partsOrderID = serviceInstaller.InsKP_PartsOrder(int.Parse(getSelectedPartsInfo[3]), int.Parse(getSelectedPartsInfo[4]), int.Parse(getSelectedPartsInfo[5]));
+                        var checkedItems = orderPartsAdapter.GetCheckedItems();
 
-                    //TODO Insert Records in [InsKP_PartsOrderIssue]
-                });
-            })).Start();
-
+                        foreach (var reasonId in checkedItems)
+                        {
+                            var successStatus = serviceInstaller.InsKP_PartsOrderIssue(partsOrderID, reasonId);
+                            if (successStatus == 0)
+                            {
+                                progressDialog.Dismiss();
+                                return;
+                            }
+                        }
+                        progressDialog.Dismiss();
+                        var intent = new Android.Content.Intent(this, typeof(PartsInfo)).SetFlags(ActivityFlags.ReorderToFront);
+                        StartActivity(intent);
+                    });
+                })).Start();
+            }
         }
 
         public void displayHeaderInfo()
@@ -131,7 +147,8 @@ namespace InstallerApp_CrossPlat.Droid
                     }
 
                     listViewPartIssues = FindViewById<ListView>(Resource.Id.listPartsIssue);
-                    listViewPartIssues.Adapter = new OrderPartsAdapter(this, lstPartsIssueClass);
+                    orderPartsAdapter = new OrderPartsAdapter(this, lstPartsIssueClass);
+                    listViewPartIssues.Adapter = orderPartsAdapter;
                 });
             })).Start();
             
