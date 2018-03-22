@@ -16,6 +16,7 @@ namespace InstallerApp_CrossPlat.Droid
     {
         List<PartsIssueList> PartsIssueList;
         Activity context;
+        CheckBox cbOrderParts;
 
         public OrderPartsAdapter(Activity context, List<PartsIssueList> PartsIssueList) : base()
         {
@@ -48,10 +49,19 @@ namespace InstallerApp_CrossPlat.Droid
             {
                 view = context.LayoutInflater.Inflate(Resource.Layout.CustomOrderParts, null);
             }
-            CheckBox cbOrderParts = view.FindViewById<CheckBox>(Resource.Id.cbOrderParts);
+            cbOrderParts = view.FindViewById<CheckBox>(Resource.Id.cbOrderParts);
             cbOrderParts.Id = PartsIssue.PartIssueListID;
             cbOrderParts.Checked = PartsIssue.IsCbSelected;
+            cbOrderParts.Enabled = PartsIssue.IsCbEnabled;
             view.FindViewById<TextView>(Resource.Id.txtOrderPartName).Text = PartsIssue.PartDescription;
+            if (cbOrderParts.Checked)
+            {
+                PartsIssue.IsCbSelected = false;
+                view.FindViewById<TextView>(Resource.Id.txtOrderPartStatus).Text = "PartProcessed";
+                view.FindViewById<TextView>(Resource.Id.txtOrderPartStatus).SetTextColor(Android.Graphics.Color.Red);
+            }
+            else
+                view.FindViewById<TextView>(Resource.Id.txtOrderPartStatus).SetTextColor(Android.Graphics.Color.Green);
 
             cbOrderParts.CheckedChange += CbOrderParts_CheckedChange;
             return view;
@@ -78,6 +88,11 @@ namespace InstallerApp_CrossPlat.Droid
                     .Where(a => a.IsCbSelected)
                     .Select(b => b.PartIssueListID)
                     .ToList();
+        }
+
+        public bool GetAnyEnabledCb()
+        {
+            return PartsIssueList.Exists((cb => cb.IsCbEnabled == true));
         }
     }
     

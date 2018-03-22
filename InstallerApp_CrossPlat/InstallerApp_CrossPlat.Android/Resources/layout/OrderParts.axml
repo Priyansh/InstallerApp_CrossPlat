@@ -53,11 +53,11 @@
             android:layout_height="0dp"
             android:layout_weight="0.8"
             android:cacheColorHint="#FFDAFF7F" />
-      <Button android:text="Add Order"
-              android:id="@+id/btnAddOrder"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:background="#088da5"
-              android:layout_margin="15dp"/>
+        <Button android:text="Add Order"
+                android:id="@+id/btnAddOrder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#088da5"
+                android:layout_margin="15dp"/>
     </LinearLayout>
 </RelativeLayout>

@@ -27,6 +27,7 @@ namespace InstallerApp_CrossPlat.Droid
         Button btnAddOrder;
         CheckBox cbOrderParts;
         private OrderPartsAdapter orderPartsAdapter;
+        int partsOrderID, insertRequest = 0;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -57,35 +58,34 @@ namespace InstallerApp_CrossPlat.Droid
 
         private void BtnAddOrder_Click(object sender, EventArgs e)
         {
-            if (cbOrderParts.Checked == false){ }
-            else
+            progressDialog = ProgressDialog.Show(this, "Loading...", "Please wait!!", true);
+            progressDialog.SetProgressStyle(ProgressDialogStyle.Spinner);
+            progressDialog.SetCanceledOnTouchOutside(true);
+            new Thread(new ThreadStart(async delegate
             {
-                progressDialog = ProgressDialog.Show(this, "Loading...", "Please wait!!", true);
-                progressDialog.SetProgressStyle(ProgressDialogStyle.Spinner);
-                progressDialog.SetCanceledOnTouchOutside(true);
-                new Thread(new ThreadStart(async delegate
+                await Task.Delay(50);
+                RunOnUiThread(() =>
                 {
-                    await Task.Delay(50);
-                    RunOnUiThread(() =>
+                    var checkedItems = orderPartsAdapter.GetCheckedItems();
+                    bool cbEnabled = orderPartsAdapter.GetAnyEnabledCb();
+                    if (checkedItems.Count > 0 && cbEnabled)
                     {
-                        int partsOrderID = serviceInstaller.InsKP_PartsOrder(int.Parse(getSelectedPartsInfo[3]), int.Parse(getSelectedPartsInfo[4]), int.Parse(getSelectedPartsInfo[5]));
-                        var checkedItems = orderPartsAdapter.GetCheckedItems();
-
                         foreach (var reasonId in checkedItems)
                         {
-                            var successStatus = serviceInstaller.InsKP_PartsOrderIssue(partsOrderID, reasonId);
-                            if (successStatus == 0)
+                            insertRequest = 1; //If insertRequest = 1 , record will insert and fetch
+                            var lstPartOrderIssueID = serviceInstaller.InsKP_PartsOrderIssue(partsOrderID, reasonId, insertRequest);
+                            if (lstPartOrderIssueID.Length == 0)
                             {
                                 progressDialog.Dismiss();
                                 return;
                             }
                         }
-                        progressDialog.Dismiss();
                         var intent = new Android.Content.Intent(this, typeof(PartsInfo)).SetFlags(ActivityFlags.ReorderToFront);
                         StartActivity(intent);
-                    });
-                })).Start();
-            }
+                    }
+                    progressDialog.Dismiss();
+                });
+            })).Start();
         }
 
         public void displayHeaderInfo()
@@ -135,14 +135,22 @@ namespace InstallerApp_CrossPlat.Droid
                 await Task.Delay(50);
                 RunOnUiThread(() =>
                 {
-                    var getPartsIssueList = serviceInstaller.InsKP_GetPartIssueList(int.Parse(getSelectedPartsInfo[3]));
+                    partsOrderID = serviceInstaller.InsKP_PartsOrder(int.Parse(getSelectedPartsInfo[3]), int.Parse(getSelectedPartsInfo[4]), int.Parse(getSelectedPartsInfo[5]));
+
+                    var getPartsIssueList = serviceInstaller.InsKP_GetPartIssueList(int.Parse(getSelectedPartsInfo[3]), 
+                                                                                    int.Parse(getSelectedPartsInfo[4]), 
+                                                                                    int.Parse(getSelectedPartsInfo[5]), partsOrderID);
+
                     for (int i = 0; i < getPartsIssueList.Length; i++)
                     {
                         var fillPartsIssueProperties = new PartsIssueList
                         {
                             PartIssueListID = getPartsIssueList[i].PartIssueListID,
-                            PartDescription = getPartsIssueList[i].PartDescription
+                            PartDescription = getPartsIssueList[i].PartDescription,
+                            IsCbSelected = getPartsIssueList[i].IsCbSelected,
+                            IsCbEnabled = getPartsIssueList[i].IsCbEnabled
                         };
+
                         lstPartsIssueClass.Add(fillPartsIssueProperties);
                     }
 
@@ -151,7 +159,7 @@ namespace InstallerApp_CrossPlat.Droid
                     listViewPartIssues.Adapter = orderPartsAdapter;
                 });
             })).Start();
-            
+
         }
     }
 }

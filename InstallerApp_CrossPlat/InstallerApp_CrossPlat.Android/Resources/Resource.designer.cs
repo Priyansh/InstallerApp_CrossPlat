@@ -238,9 +238,6 @@ namespace InstallerApp_CrossPlat.Droid
 			// aapt resource value: 0x7f080011
 			public const int cbOrderParts = 2131230737;
 			
-			// aapt resource value: 0x7f080013
-			public const int checkbox = 2131230739;
-			
 			// aapt resource value: 0x7f080045
 			public const int content1 = 2131230789;
 			
@@ -423,6 +420,9 @@ namespace InstallerApp_CrossPlat.Droid
 			
 			// aapt resource value: 0x7f080012
 			public const int txtOrderPartName = 2131230738;
+			
+			// aapt resource value: 0x7f080013
+			public const int txtOrderPartStatus = 2131230739;
 			
 			// aapt resource value: 0x7f080017
 			public const int txtOrderParts = 2131230743;

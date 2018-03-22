@@ -21,5 +21,7 @@ namespace InstallerApp_CrossPlat.Droid
             set { this._PartDescription = value; }
         }
         public bool IsCbSelected {  get; set;  }
+
+        public bool IsCbEnabled { get; set; }
     }
 }

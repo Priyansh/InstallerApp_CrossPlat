@@ -1012,6 +1012,9 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="1" maxOccurs="1" name="PartType" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="LabelID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CSID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="PartOrderID" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -1019,6 +1022,8 @@
         <s:sequence>
           <s:element minOccurs="1" maxOccurs="1" name="PartIssueListID" type="s:int" />
           <s:element minOccurs="0" maxOccurs="1" name="PartDescription" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsCbSelected" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsCbEnabled" type="s:boolean" />
         </s:sequence>
       </s:complexType>
       <s:complexType name="ArrayOfInsKP_GetPartIssueList">
@@ -1119,13 +1124,19 @@
           <s:sequence>
             <s:element minOccurs="1" maxOccurs="1" name="PartOrderID" type="s:int" />
             <s:element minOccurs="1" maxOccurs="1" name="PartIssueListID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="InsertRequest" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
       <s:element name="InsKP_PartsOrderIssueResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="InsKP_PartsOrderIssueResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="InsKP_PartsOrderIssueResult" type="tns:ArrayOfInt" />
           </s:sequence>
         </s:complexType>
       </s:element>

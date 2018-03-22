@@ -1599,24 +1599,30 @@ namespace InstallerApp_CrossPlat.Droid.FrendelWebService {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/InsKP_GetPartIssueList", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public InsKP_GetPartIssueList[] InsKP_GetPartIssueList(int PartType) {
+        public InsKP_GetPartIssueList[] InsKP_GetPartIssueList(int PartType, int LabelID, int CSID, int PartOrderID) {
             object[] results = this.Invoke("InsKP_GetPartIssueList", new object[] {
-                        PartType});
+                        PartType,
+                        LabelID,
+                        CSID,
+                        PartOrderID});
             return ((InsKP_GetPartIssueList[])(results[0]));
         }
         
         /// <remarks/>
-        public void InsKP_GetPartIssueListAsync(int PartType) {
-            this.InsKP_GetPartIssueListAsync(PartType, null);
+        public void InsKP_GetPartIssueListAsync(int PartType, int LabelID, int CSID, int PartOrderID) {
+            this.InsKP_GetPartIssueListAsync(PartType, LabelID, CSID, PartOrderID, null);
         }
         
         /// <remarks/>
-        public void InsKP_GetPartIssueListAsync(int PartType, object userState) {
+        public void InsKP_GetPartIssueListAsync(int PartType, int LabelID, int CSID, int PartOrderID, object userState) {
             if ((this.InsKP_GetPartIssueListOperationCompleted == null)) {
                 this.InsKP_GetPartIssueListOperationCompleted = new System.Threading.SendOrPostCallback(this.OnInsKP_GetPartIssueListOperationCompleted);
             }
             this.InvokeAsync("InsKP_GetPartIssueList", new object[] {
-                        PartType}, this.InsKP_GetPartIssueListOperationCompleted, userState);
+                        PartType,
+                        LabelID,
+                        CSID,
+                        PartOrderID}, this.InsKP_GetPartIssueListOperationCompleted, userState);
         }
         
         private void OnInsKP_GetPartIssueListOperationCompleted(object arg) {
@@ -1785,26 +1791,28 @@ namespace InstallerApp_CrossPlat.Droid.FrendelWebService {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/InsKP_PartsOrderIssue", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public int InsKP_PartsOrderIssue(int PartOrderID, int PartIssueListID) {
+        public int[] InsKP_PartsOrderIssue(int PartOrderID, int PartIssueListID, int InsertRequest) {
             object[] results = this.Invoke("InsKP_PartsOrderIssue", new object[] {
                         PartOrderID,
-                        PartIssueListID});
-            return ((int)(results[0]));
+                        PartIssueListID,
+                        InsertRequest});
+            return ((int[])(results[0]));
         }
         
         /// <remarks/>
-        public void InsKP_PartsOrderIssueAsync(int PartOrderID, int PartIssueListID) {
-            this.InsKP_PartsOrderIssueAsync(PartOrderID, PartIssueListID, null);
+        public void InsKP_PartsOrderIssueAsync(int PartOrderID, int PartIssueListID, int InsertRequest) {
+            this.InsKP_PartsOrderIssueAsync(PartOrderID, PartIssueListID, InsertRequest, null);
         }
         
         /// <remarks/>
-        public void InsKP_PartsOrderIssueAsync(int PartOrderID, int PartIssueListID, object userState) {
+        public void InsKP_PartsOrderIssueAsync(int PartOrderID, int PartIssueListID, int InsertRequest, object userState) {
             if ((this.InsKP_PartsOrderIssueOperationCompleted == null)) {
                 this.InsKP_PartsOrderIssueOperationCompleted = new System.Threading.SendOrPostCallback(this.OnInsKP_PartsOrderIssueOperationCompleted);
             }
             this.InvokeAsync("InsKP_PartsOrderIssue", new object[] {
                         PartOrderID,
-                        PartIssueListID}, this.InsKP_PartsOrderIssueOperationCompleted, userState);
+                        PartIssueListID,
+                        InsertRequest}, this.InsKP_PartsOrderIssueOperationCompleted, userState);
         }
         
         private void OnInsKP_PartsOrderIssueOperationCompleted(object arg) {
@@ -1932,6 +1940,10 @@ namespace InstallerApp_CrossPlat.Droid.FrendelWebService {
         
         private string partDescriptionField;
         
+        private bool isCbSelectedField;
+        
+        private bool isCbEnabledField;
+        
         /// <remarks/>
         public int PartIssueListID {
             get {
@@ -1949,6 +1961,26 @@ namespace InstallerApp_CrossPlat.Droid.FrendelWebService {
             }
             set {
                 this.partDescriptionField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool IsCbSelected {
+            get {
+                return this.isCbSelectedField;
+            }
+            set {
+                this.isCbSelectedField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool IsCbEnabled {
+            get {
+                return this.isCbEnabledField;
+            }
+            set {
+                this.isCbEnabledField = value;
             }
         }
     }
@@ -6323,10 +6355,10 @@ namespace InstallerApp_CrossPlat.Droid.FrendelWebService {
         }
         
         /// <remarks/>
-        public int Result {
+        public int[] Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((int)(this.results[0]));
+                return ((int[])(this.results[0]));
             }
         }
     }

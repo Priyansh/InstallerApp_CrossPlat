@@ -99,15 +99,6 @@ namespace InstallerApp_CrossPlat.Droid
             // populate the listview with data
             listViewPartsInfo.Adapter = new PartsInfoAdapter(this, lstPartsInfoClass);
             listViewPartsInfo.ItemClick += ListViewPartsInfo_ItemClick;
-
-            //new Thread(new ThreadStart(async delegate
-            //{
-            //    await Task.Delay(50);
-            //    RunOnUiThread(() =>
-            //    {
-
-            //    });
-            //})).Start();
         }
 
         private void ListViewPartsInfo_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
@@ -116,7 +107,6 @@ namespace InstallerApp_CrossPlat.Droid
             b.PutStringArray("keyRoomInfo", getstringRooms);
             b.PutStringArray("keySelectedInstaller", getSelectedInstaller);
 
-            //TODO make key-pair for PartInfo and remove exisiting code
             var t = lstPartsInfoClass[e.Position];
             string[] str = new string[] { t.CabinetName, t.LFinish, t.RFinish, t.PartType.ToString(), t.LabelNo.ToString(), t.CSID.ToString() };
             b.PutStringArray("keyPartsInfo", str);
