@@ -2,47 +2,46 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
-    <include
-        android:id="@+id/HeaderToolbar"
-        layout="@layout/HeaderToolbar" />
+  <include
+      android:id="@+id/HeaderToolbar"
+      layout="@layout/HeaderToolbar" />
+  <LinearLayout
+      android:layout_width="fill_parent"
+      android:layout_height="fill_parent"
+      android:orientation="vertical"
+      android:id="@+id/content_PartInfo"
+      android:layout_below="@id/HeaderToolbar">
+    <ListView
+        android:id="@+id/listInstallerInfo"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.2"
+        android:cacheColorHint="#FFDAFF7F" />
     <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:orientation="vertical"
-        android:id="@+id/content_PartInfo"
-        android:layout_below="@id/HeaderToolbar">
-        <ListView
-            android:id="@+id/listInstallerInfo"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.2"
-            android:cacheColorHint="#FFDAFF7F" />
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:id="@+id/linearLayout2"
-            android:orientation="horizontal"
-            android:layout_height="50dp">
-            <TextView
-                android:id="@+id/textViewRoomInfo"
-                android:text="RoomName"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:paddingTop="4dp"
-                android:gravity="center" />
-        </LinearLayout>
-        <ListView
-            android:id="@+id/listPartInfo"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.8"
-            android:cacheColorHint="#FFDAFF7F" />
-        <Button android:text="Submit Order"
-              android:id="@+id/btnSubmitOrder"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:background="#088da5"
-              android:layout_margin="15dp"/>
+        android:layout_width="match_parent"
+        android:id="@+id/linearLayout2"
+        android:orientation="horizontal"
+        android:layout_height="50dp">
+      <TextView
+          android:id="@+id/textViewRoomInfo"
+          android:text="RoomName"
+          android:textAppearance="?android:attr/textAppearanceLarge"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:textStyle="bold"
+          android:paddingTop="4dp"
+          android:gravity="center" />
     </LinearLayout>
+    <ListView
+        android:id="@+id/listPartInfo"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.8"/>
+    <Button android:text="Submit Order"
+          android:id="@+id/btnSubmitOrder"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:background="#088da5"
+          android:layout_margin="15dp"/>
+  </LinearLayout>
 </RelativeLayout>
