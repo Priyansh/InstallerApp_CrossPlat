@@ -1012,8 +1012,6 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="1" maxOccurs="1" name="PartType" type="s:int" />
-            <s:element minOccurs="1" maxOccurs="1" name="LabelID" type="s:int" />
-            <s:element minOccurs="1" maxOccurs="1" name="CSID" type="s:int" />
             <s:element minOccurs="1" maxOccurs="1" name="PartOrderID" type="s:int" />
           </s:sequence>
         </s:complexType>

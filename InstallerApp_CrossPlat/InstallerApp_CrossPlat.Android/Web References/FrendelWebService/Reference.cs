@@ -1599,29 +1599,25 @@ namespace InstallerApp_CrossPlat.Droid.FrendelWebService {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/InsKP_GetPartIssueList", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public InsKP_GetPartIssueList[] InsKP_GetPartIssueList(int PartType, int LabelID, int CSID, int PartOrderID) {
+        public InsKP_GetPartIssueList[] InsKP_GetPartIssueList(int PartType, int PartOrderID) {
             object[] results = this.Invoke("InsKP_GetPartIssueList", new object[] {
                         PartType,
-                        LabelID,
-                        CSID,
                         PartOrderID});
             return ((InsKP_GetPartIssueList[])(results[0]));
         }
         
         /// <remarks/>
-        public void InsKP_GetPartIssueListAsync(int PartType, int LabelID, int CSID, int PartOrderID) {
-            this.InsKP_GetPartIssueListAsync(PartType, LabelID, CSID, PartOrderID, null);
+        public void InsKP_GetPartIssueListAsync(int PartType, int PartOrderID) {
+            this.InsKP_GetPartIssueListAsync(PartType, PartOrderID, null);
         }
         
         /// <remarks/>
-        public void InsKP_GetPartIssueListAsync(int PartType, int LabelID, int CSID, int PartOrderID, object userState) {
+        public void InsKP_GetPartIssueListAsync(int PartType, int PartOrderID, object userState) {
             if ((this.InsKP_GetPartIssueListOperationCompleted == null)) {
                 this.InsKP_GetPartIssueListOperationCompleted = new System.Threading.SendOrPostCallback(this.OnInsKP_GetPartIssueListOperationCompleted);
             }
             this.InvokeAsync("InsKP_GetPartIssueList", new object[] {
                         PartType,
-                        LabelID,
-                        CSID,
                         PartOrderID}, this.InsKP_GetPartIssueListOperationCompleted, userState);
         }
         

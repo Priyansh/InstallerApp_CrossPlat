@@ -25,7 +25,6 @@ namespace InstallerApp_CrossPlat.Droid
         FrendelWebService.phonegap serviceInstaller = new FrendelWebService.phonegap();
         TextView textViewRoomInfo, textViewOrderCabinet;
         Button btnAddOrder;
-        CheckBox cbOrderParts;
         private OrderPartsAdapter orderPartsAdapter;
         int partsOrderID, insertRequest = 0;
         protected override void OnCreate(Bundle savedInstanceState)
@@ -50,7 +49,6 @@ namespace InstallerApp_CrossPlat.Droid
             textViewOrderCabinet = FindViewById<TextView>(Resource.Id.textViewOrderCabinet);
             textViewRoomInfo.Text = getstringRooms[2];
             textViewOrderCabinet.Text = getSelectedPartsInfo[0];
-            cbOrderParts = FindViewById<CheckBox>(Resource.Id.cbOrderParts);
             btnAddOrder = FindViewById<Button>(Resource.Id.btnAddOrder);
             btnAddOrder.Click += BtnAddOrder_Click;
             ThreadPool.QueueUserWorkItem(q => longRunningMethod());
@@ -130,36 +128,26 @@ namespace InstallerApp_CrossPlat.Droid
             listViewInstallerInfo = FindViewById<ListView>(Resource.Id.listInstallerInfo);
             listViewInstallerInfo.Adapter = new JobScreenAdapter(this, lstInstallerInfoClass);
 
-            new Thread(new ThreadStart(async delegate
+            partsOrderID = serviceInstaller.InsKP_PartsOrder(int.Parse(getSelectedPartsInfo[3]), int.Parse(getSelectedPartsInfo[4]), int.Parse(getSelectedPartsInfo[5]));
+
+            var getPartsIssueList = serviceInstaller.InsKP_GetPartIssueList(int.Parse(getSelectedPartsInfo[3]), partsOrderID);
+
+            for (int i = 0; i < getPartsIssueList.Length; i++)
             {
-                await Task.Delay(50);
-                RunOnUiThread(() =>
+                var fillPartsIssueProperties = new PartsIssueList
                 {
-                    partsOrderID = serviceInstaller.InsKP_PartsOrder(int.Parse(getSelectedPartsInfo[3]), int.Parse(getSelectedPartsInfo[4]), int.Parse(getSelectedPartsInfo[5]));
+                    PartIssueListID = getPartsIssueList[i].PartIssueListID,
+                    PartDescription = getPartsIssueList[i].PartDescription,
+                    IsCbSelected = getPartsIssueList[i].IsCbSelected,
+                    IsCbEnabled = getPartsIssueList[i].IsCbEnabled
+                };
 
-                    var getPartsIssueList = serviceInstaller.InsKP_GetPartIssueList(int.Parse(getSelectedPartsInfo[3]), 
-                                                                                    int.Parse(getSelectedPartsInfo[4]), 
-                                                                                    int.Parse(getSelectedPartsInfo[5]), partsOrderID);
+                lstPartsIssueClass.Add(fillPartsIssueProperties);
+            }
 
-                    for (int i = 0; i < getPartsIssueList.Length; i++)
-                    {
-                        var fillPartsIssueProperties = new PartsIssueList
-                        {
-                            PartIssueListID = getPartsIssueList[i].PartIssueListID,
-                            PartDescription = getPartsIssueList[i].PartDescription,
-                            IsCbSelected = getPartsIssueList[i].IsCbSelected,
-                            IsCbEnabled = getPartsIssueList[i].IsCbEnabled
-                        };
-
-                        lstPartsIssueClass.Add(fillPartsIssueProperties);
-                    }
-
-                    listViewPartIssues = FindViewById<ListView>(Resource.Id.listPartsIssue);
-                    orderPartsAdapter = new OrderPartsAdapter(this, lstPartsIssueClass);
-                    listViewPartIssues.Adapter = orderPartsAdapter;
-                });
-            })).Start();
-
+            listViewPartIssues = FindViewById<ListView>(Resource.Id.listPartsIssue);
+            orderPartsAdapter = new OrderPartsAdapter(this, lstPartsIssueClass);
+            listViewPartIssues.Adapter = orderPartsAdapter;
         }
     }
 }
