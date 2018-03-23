@@ -57,6 +57,7 @@ namespace InstallerApp_CrossPlat.Droid
             if (cbOrderParts.Checked)
             {
                 PartsIssue.IsCbSelected = false;
+                cbOrderParts.SetBackgroundColor(Android.Graphics.Color.Red);
                 view.FindViewById<TextView>(Resource.Id.txtOrderPartStatus).Text = "PartProcessed";
                 view.FindViewById<TextView>(Resource.Id.txtOrderPartStatus).SetTextColor(Android.Graphics.Color.Red);
             }

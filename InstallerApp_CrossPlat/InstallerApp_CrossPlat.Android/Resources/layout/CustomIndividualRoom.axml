@@ -55,7 +55,7 @@
             android:layout_height="wrap_content"
             android:textSize="14dip"
             android:textStyle="bold"
-            android:text="4 Parts Ordered"
+            android:text="Parts Ordered"
             android:textColor="#000000"
             android:paddingLeft="50dip" />
     </LinearLayout>
@@ -74,6 +74,6 @@
             android:text="0"
             android:textColor="#000000"
             android:paddingTop="55dip"
-            android:paddingLeft="320dip"/>
+            android:paddingLeft="320dip" />
     </LinearLayout>
 </RelativeLayout>
