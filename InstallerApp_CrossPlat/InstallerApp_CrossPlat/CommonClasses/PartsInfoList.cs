@@ -41,5 +41,7 @@ namespace InstallerApp_CrossPlat.Droid
             get { return this._CSID; }
             set { this._CSID = value; }
         }
+
+        public int OrderPartsStatus { get; set; }
     }
 }

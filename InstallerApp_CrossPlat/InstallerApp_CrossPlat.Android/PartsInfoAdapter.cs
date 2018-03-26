@@ -44,6 +44,17 @@ namespace InstallerApp_CrossPlat.Droid
 
             view.FindViewById<TextView>(Resource.Id.txtCabinetName).Text = item.CabinetName;
             view.FindViewById<TextView>(Resource.Id.txtLRFinish).Text = "Left : " + item.LFinish + "           Right : " + item.RFinish;
+
+            if(item.OrderPartsStatus != 0)
+            {
+                view.FindViewById<TextView>(Resource.Id.txtOrderParts).Text = "Order Parts:" + item.OrderPartsStatus.ToString();
+                view.FindViewById<TextView>(Resource.Id.txtOrderParts).SetTextColor(Android.Graphics.Color.LightGreen);
+            }
+            else
+            {
+                view.FindViewById<TextView>(Resource.Id.txtOrderParts).Text = "Order Parts >";
+                view.FindViewById<TextView>(Resource.Id.txtOrderParts).SetTextColor(Android.Graphics.Color.Brown);
+            }
             return view;
         }
 

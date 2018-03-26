@@ -82,8 +82,10 @@ namespace InstallerApp_CrossPlat.Droid
 
             //Populate Parts Info based on FKNO and Room Name i.e. Kitchen / Main / Ensuit
             var partsInfoList = serviceInstaller.InsKP_GetPartInfo(getSelectedInstaller[4].ToString(), getstringRooms[2].ToString());
+
             for (int i = 0; i < partsInfoList.Length; i++)
             {
+                var countOrderPartIssues = serviceInstaller.InsKP_GetPartOrderIssuesCount(partsInfoList[i].PartType, partsInfoList[i].LabelNo, partsInfoList[i].CSID);
                 var fillPartsInfoProperties = new PartsInfoList
                 {
                     CabinetName = partsInfoList[i].CabinetName,
@@ -91,7 +93,8 @@ namespace InstallerApp_CrossPlat.Droid
                     RFinish = partsInfoList[i].RFinish,
                     PartType = partsInfoList[i].PartType,
                     LabelNo = partsInfoList[i].LabelNo,
-                    CSID = partsInfoList[i].CSID
+                    CSID = partsInfoList[i].CSID,
+                    OrderPartsStatus = countOrderPartIssues
                 };
                 lstPartsInfoClass.Add(fillPartsInfoProperties);
             }

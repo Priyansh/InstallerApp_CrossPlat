@@ -129,6 +129,8 @@ namespace InstallerApp_CrossPlat.Droid.FrendelWebService {
         
         private System.Threading.SendOrPostCallback InsKP_PartsOrderIssueOperationCompleted;
         
+        private System.Threading.SendOrPostCallback InsKP_GetPartOrderIssuesCountOperationCompleted;
+        
         private System.Threading.SendOrPostCallback ServerTimeOperationCompleted;
         
         private System.Threading.SendOrPostCallback ServerTimeJsonOperationCompleted;
@@ -320,6 +322,9 @@ namespace InstallerApp_CrossPlat.Droid.FrendelWebService {
         
         /// <remarks/>
         public event InsKP_PartsOrderIssueCompletedEventHandler InsKP_PartsOrderIssueCompleted;
+        
+        /// <remarks/>
+        public event InsKP_GetPartOrderIssuesCountCompletedEventHandler InsKP_GetPartOrderIssuesCountCompleted;
         
         /// <remarks/>
         public event ServerTimeCompletedEventHandler ServerTimeCompleted;
@@ -1815,6 +1820,39 @@ namespace InstallerApp_CrossPlat.Droid.FrendelWebService {
             if ((this.InsKP_PartsOrderIssueCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.InsKP_PartsOrderIssueCompleted(this, new InsKP_PartsOrderIssueCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/InsKP_GetPartOrderIssuesCount", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int InsKP_GetPartOrderIssuesCount(int PartTypeID, int LabelNo, int CSID) {
+            object[] results = this.Invoke("InsKP_GetPartOrderIssuesCount", new object[] {
+                        PartTypeID,
+                        LabelNo,
+                        CSID});
+            return ((int)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void InsKP_GetPartOrderIssuesCountAsync(int PartTypeID, int LabelNo, int CSID) {
+            this.InsKP_GetPartOrderIssuesCountAsync(PartTypeID, LabelNo, CSID, null);
+        }
+        
+        /// <remarks/>
+        public void InsKP_GetPartOrderIssuesCountAsync(int PartTypeID, int LabelNo, int CSID, object userState) {
+            if ((this.InsKP_GetPartOrderIssuesCountOperationCompleted == null)) {
+                this.InsKP_GetPartOrderIssuesCountOperationCompleted = new System.Threading.SendOrPostCallback(this.OnInsKP_GetPartOrderIssuesCountOperationCompleted);
+            }
+            this.InvokeAsync("InsKP_GetPartOrderIssuesCount", new object[] {
+                        PartTypeID,
+                        LabelNo,
+                        CSID}, this.InsKP_GetPartOrderIssuesCountOperationCompleted, userState);
+        }
+        
+        private void OnInsKP_GetPartOrderIssuesCountOperationCompleted(object arg) {
+            if ((this.InsKP_GetPartOrderIssuesCountCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.InsKP_GetPartOrderIssuesCountCompleted(this, new InsKP_GetPartOrderIssuesCountCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -6355,6 +6393,32 @@ namespace InstallerApp_CrossPlat.Droid.FrendelWebService {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((int[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    public delegate void InsKP_GetPartOrderIssuesCountCompletedEventHandler(object sender, InsKP_GetPartOrderIssuesCountCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class InsKP_GetPartOrderIssuesCountCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal InsKP_GetPartOrderIssuesCountCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
             }
         }
     }
