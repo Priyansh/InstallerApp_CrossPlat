@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+  <item android:state_pressed="true">
+    <shape>
+      <gradient
+        android:startColor="@color/clrLightWhite"
+        android:endColor="@color/clrLightWhite"
+        android:angle="270" />
+    </shape>
+  </item>
+  <item android:state_selected="true" android:drawable="@color/clrSplashBackground" />
+  <item android:state_activated="true" android:drawable="@color/clrSplashBackground" />
+  <item android:drawable="@color/clrLightWhite" />
+</selector>

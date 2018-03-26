@@ -15,6 +15,7 @@
             android:id="@+id/lstInstallerInfo"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:cacheColorHint="#FFDAFF7F" />
+            android:cacheColorHint="#FFDAFF7F" 
+            android:choiceMode="singleChoice"/>
     </LinearLayout>
 </RelativeLayout>

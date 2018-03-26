@@ -31,6 +31,7 @@
             android:layout_width="fill_parent"
             android:layout_height="0dp"
             android:layout_weight="0.8"
-            android:cacheColorHint="#FFDAFF7F" />
+            android:cacheColorHint="#FFDAFF7F"
+            android:choiceMode="singleChoice"/>
     </LinearLayout>
 </RelativeLayout>

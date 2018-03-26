@@ -136,64 +136,67 @@ namespace InstallerApp_CrossPlat.Droid
 			public const int leftarrowbutton64 = 2130837525;
 			
 			// aapt resource value: 0x7f020016
-			public const int Memo128 = 2130837526;
+			public const int listItemSelector = 2130837526;
 			
 			// aapt resource value: 0x7f020017
-			public const int Memo256 = 2130837527;
+			public const int Memo128 = 2130837527;
 			
 			// aapt resource value: 0x7f020018
-			public const int Memo32 = 2130837528;
+			public const int Memo256 = 2130837528;
 			
 			// aapt resource value: 0x7f020019
-			public const int Memo48 = 2130837529;
+			public const int Memo32 = 2130837529;
 			
 			// aapt resource value: 0x7f02001a
-			public const int Memo64 = 2130837530;
+			public const int Memo48 = 2130837530;
 			
 			// aapt resource value: 0x7f02001b
-			public const int MoneyBagUSDollar256 = 2130837531;
+			public const int Memo64 = 2130837531;
 			
 			// aapt resource value: 0x7f02001c
-			public const int reload32 = 2130837532;
+			public const int MoneyBagUSDollar256 = 2130837532;
 			
 			// aapt resource value: 0x7f02001d
-			public const int reload64 = 2130837533;
+			public const int reload32 = 2130837533;
 			
 			// aapt resource value: 0x7f02001e
-			public const int settings = 2130837534;
+			public const int reload64 = 2130837534;
 			
 			// aapt resource value: 0x7f02001f
-			public const int socialshare32 = 2130837535;
+			public const int settings = 2130837535;
 			
 			// aapt resource value: 0x7f020020
-			public const int socialshare48 = 2130837536;
+			public const int socialshare32 = 2130837536;
 			
 			// aapt resource value: 0x7f020021
-			public const int socialshare64 = 2130837537;
+			public const int socialshare48 = 2130837537;
 			
 			// aapt resource value: 0x7f020022
-			public const int socialshare96 = 2130837538;
+			public const int socialshare64 = 2130837538;
 			
 			// aapt resource value: 0x7f020023
-			public const int StartJobButton = 2130837539;
+			public const int socialshare96 = 2130837539;
 			
 			// aapt resource value: 0x7f020024
-			public const int StartJobPressed = 2130837540;
+			public const int StartJobButton = 2130837540;
 			
 			// aapt resource value: 0x7f020025
-			public const int ToolBox128 = 2130837541;
+			public const int StartJobPressed = 2130837541;
 			
 			// aapt resource value: 0x7f020026
-			public const int ToolBox256 = 2130837542;
+			public const int ToolBox128 = 2130837542;
 			
 			// aapt resource value: 0x7f020027
-			public const int ToolBox32 = 2130837543;
+			public const int ToolBox256 = 2130837543;
 			
 			// aapt resource value: 0x7f020028
-			public const int ToolBox48 = 2130837544;
+			public const int ToolBox32 = 2130837544;
 			
 			// aapt resource value: 0x7f020029
-			public const int ToolBox64 = 2130837545;
+			public const int ToolBox48 = 2130837545;
+			
+			// aapt resource value: 0x7f02002a
+			public const int ToolBox64 = 2130837546;
 			
 			static Drawable()
 			{
