@@ -8,7 +8,7 @@
         android:angle="270" />
     </shape>
   </item>
-  <item android:state_selected="true" android:drawable="@color/clrSplashBackground" />
-  <item android:state_activated="true" android:drawable="@color/clrSplashBackground" />
+  <item android:state_selected="true" android:drawable="@color/BrownTan" />
+  <item android:state_activated="true" android:drawable="@color/BrownTan" />
   <item android:drawable="@color/clrLightWhite" />
 </selector>

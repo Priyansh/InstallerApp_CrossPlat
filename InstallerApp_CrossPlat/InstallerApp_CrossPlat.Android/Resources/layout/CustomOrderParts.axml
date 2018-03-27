@@ -4,39 +4,38 @@
     android:layout_height="wrap_content"
     android:padding="8dp"
     android:background="#FFFFFF">
-  <CheckBox
-      android:id="@+id/cbOrderParts"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:text=""
-      android:layout_alignParentLeft="true"
-      android:focusable="false" />
-  <LinearLayout
-      android:id="@+id/Text"
-      android:orientation="horizontal"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:paddingLeft="40dip">
-    
-    <TextView
-        android:id="@+id/txtOrderPartName"
+    <CheckBox
+        android:id="@+id/cbOrderParts"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="15dip"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:textColor="#000000"/>
-    <View
-      android:layout_height="0dp"
-      android:layout_width="0dp"
-      android:layout_weight="1" />
-    <TextView
-        android:id="@+id/txtOrderPartStatus"
+        android:text=""
+        android:layout_alignParentLeft="true"
+        android:focusable="false" />
+    <LinearLayout
+        android:id="@+id/Text"
+        android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="PartReady"
-        android:textSize="12dip"
-        android:gravity="right"
-        android:textColor="#000000"/>
-  </LinearLayout>
+        android:paddingLeft="40dip">
+        <TextView
+            android:id="@+id/txtOrderPartName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15dip"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textColor="#000000" />
+        <View
+            android:layout_height="0dp"
+            android:layout_width="0dp"
+            android:layout_weight="1" />
+        <TextView
+            android:id="@+id/txtOrderPartStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="IssueReady"
+            android:textSize="12dip"
+            android:gravity="right"
+            android:textColor="#000000" />
+    </LinearLayout>
 </RelativeLayout>

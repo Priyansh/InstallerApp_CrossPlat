@@ -71,26 +71,26 @@
                     android:layout_marginLeft="20dp"
                     android:paddingTop="10dp"
                     android:visibility="gone" />
-              <TextView
-                  android:id="@+id/txtViewSelectRoom"
-                  android:layout_span="3"
-                  android:textAppearance="?android:attr/textAppearanceMedium"
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
-                  android:text="Select a Room for more options"
-                  android:layout_gravity="center"
-                  android:layout_marginLeft="20dp"
-                  android:paddingTop="10dp"
-                  android:visibility="gone"/>
-              <TableLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/tblMainLayout"
-                android:paddingTop="10dp"
-                android:visibility="gone">
-                <TableRow></TableRow>
-              </TableLayout>
-              
+                <TextView
+                    android:id="@+id/txtViewSelectRoom"
+                    android:layout_span="3"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Select a Room for more options"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:paddingTop="10dp"
+                    android:visibility="gone" />
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/tblMainLayout"
+                    android:paddingTop="10dp"
+                    android:visibility="gone">
+                    <TableRow>
+                    </TableRow>
+                </TableLayout>
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/content2"
@@ -114,7 +114,15 @@
                     android:layout_width="wrap_content"
                     android:background="@color/clrLightWhite" />
             </LinearLayout>
-            
         </LinearLayout>
     </ScrollView>
+  <Button
+        android:text="Set Job Completed"
+        android:id="@+id/btnJobCompleted"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#088da5"
+        android:visibility="gone"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="15dp" />
 </RelativeLayout>

@@ -20,6 +20,7 @@ namespace InstallerApp_CrossPlat.Droid
         ImageButton imgbtnStartJob;
         TableLayout tblMainLayout;
         LinearLayout content2;
+        Button btnJobCompleted;
         FrendelWebService.phonegap serviceInstaller = new FrendelWebService.phonegap();
         string[] getStrings;
         
@@ -36,6 +37,7 @@ namespace InstallerApp_CrossPlat.Droid
             tblMainLayout = FindViewById<TableLayout>(Resource.Id.tblMainLayout);
             content2 = FindViewById<LinearLayout>(Resource.Id.content2);
             txtViewSelectRoom = FindViewById<TextView>(Resource.Id.txtViewSelectRoom);
+            btnJobCompleted = FindViewById<Button>(Resource.Id.btnJobCompleted);
 
             textViewCompany.Text = getStrings[0];
             textViewProject.Text = getStrings[1];
@@ -154,12 +156,13 @@ namespace InstallerApp_CrossPlat.Droid
         public void funStartingJob(int jobStatus)
         {
             imgbtnStartJob.SetImageResource(Resource.Drawable.StartJobPressed);
-            content2.Visibility = Android.Views.ViewStates.Gone;
+            content2.Visibility = ViewStates.Gone;
 
             //Visible Dynamic TableLayout
-            textViewJobStarted.Visibility = Android.Views.ViewStates.Visible;
-            tblMainLayout.Visibility = Android.Views.ViewStates.Visible;
+            textViewJobStarted.Visibility = ViewStates.Visible;
+            tblMainLayout.Visibility = ViewStates.Visible;
             txtViewSelectRoom.Visibility = ViewStates.Visible;
+            btnJobCompleted.Visibility = ViewStates.Visible;
             //Job Status 0: Scheduled 1: Started 2: Completed
             // When User click on Job Start button, Update job status and job start in Purcharser table
             if (jobStatus == 0) { 
