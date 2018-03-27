@@ -134,7 +134,7 @@ namespace InstallerApp_CrossPlat.Droid
                     string[] strRooms = new string[] {serviceListRoomsInfo[k].RSNo, serviceListRoomsInfo[k].CSID, serviceListRoomsInfo[k].Rooms, serviceListRoomsInfo[k].Style, serviceListRoomsInfo[k].Colour, serviceListRoomsInfo[k].Hardware, serviceListRoomsInfo[k].CounterTop };
                     Bundle b = new Bundle();
                     b.PutStringArray("keyRoomInfo", strRooms);
-                    b.PutStringArray("keyselectedInstaller", getStrings);
+                    b.PutStringArray("keySelectedInstaller", getStrings);
                     var intent = new Android.Content.Intent(this, typeof(IndividualRoom));
                     intent.PutExtras(b);
                     StartActivity(intent);

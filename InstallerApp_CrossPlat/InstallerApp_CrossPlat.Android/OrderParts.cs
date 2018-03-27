@@ -78,7 +78,11 @@ namespace InstallerApp_CrossPlat.Droid
                                 return;
                             }
                         }
-                        var intent = new Android.Content.Intent(this, typeof(PartsInfo)).SetFlags(ActivityFlags.ReorderToFront);
+                        Bundle b = new Bundle();
+                        b.PutStringArray("keyRoomInfo", getstringRooms);
+                        b.PutStringArray("keySelectedInstaller", getSelectedInstaller);
+                        var intent = new Android.Content.Intent(this, typeof(PartsInfo));
+                        intent.PutExtras(b);
                         StartActivity(intent);
                     }
                     progressDialog.Dismiss();

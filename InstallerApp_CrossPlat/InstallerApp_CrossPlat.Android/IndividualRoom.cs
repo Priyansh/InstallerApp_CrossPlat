@@ -31,7 +31,7 @@ namespace InstallerApp_CrossPlat.Droid
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.IndividualRoom);
             getstringRooms = Intent.GetStringArrayExtra("keyRoomInfo");
-            getSelectedInstaller = Intent.GetStringArrayExtra("keyselectedInstaller");
+            getSelectedInstaller = Intent.GetStringArrayExtra("keySelectedInstaller");
 
             var toolbar = FindViewById<Toolbar>(Resource.Id.HeaderToolbar);
             SetActionBar(toolbar);
@@ -137,7 +137,7 @@ namespace InstallerApp_CrossPlat.Droid
                 {
                     Bundle b = new Bundle();
                     b.PutStringArray("keyRoomInfo", getstringRooms);
-                    b.PutStringArray("keyselectedInstaller", getSelectedInstaller);
+                    b.PutStringArray("keySelectedInstaller", getSelectedInstaller);
                     var intent = new Android.Content.Intent(this, typeof(PartsInfo));
                     intent.PutExtras(b);
                     StartActivity(intent);
@@ -146,7 +146,7 @@ namespace InstallerApp_CrossPlat.Droid
                 {
                     Bundle b = new Bundle();
                     b.PutStringArray("keyRoomInfo", getstringRooms);
-                    b.PutStringArray("keyselectedInstaller", getSelectedInstaller);
+                    b.PutStringArray("keySelectedInstaller", getSelectedInstaller);
                     var intent = new Android.Content.Intent(this, typeof(PhotoGallery));
                     intent.PutExtras(b);
                     StartActivity(intent);

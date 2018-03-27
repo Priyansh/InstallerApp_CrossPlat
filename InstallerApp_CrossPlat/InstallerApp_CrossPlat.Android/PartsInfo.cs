@@ -24,7 +24,7 @@ namespace InstallerApp_CrossPlat.Droid
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.PartInfo);
             getstringRooms = Intent.GetStringArrayExtra("keyRoomInfo");
-            getSelectedInstaller = Intent.GetStringArrayExtra("keyselectedInstaller");
+            getSelectedInstaller = Intent.GetStringArrayExtra("keySelectedInstaller");
 
             //Adding Loading bar
             progressDialog = ProgressDialog.Show(this, "Loading...", "Please wait!!", true);

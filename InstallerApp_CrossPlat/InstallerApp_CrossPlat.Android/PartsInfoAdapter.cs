@@ -48,12 +48,12 @@ namespace InstallerApp_CrossPlat.Droid
             if(item.OrderPartsStatus != 0)
             {
                 view.FindViewById<TextView>(Resource.Id.txtOrderParts).Text = "Order Parts:" + item.OrderPartsStatus.ToString();
-                view.FindViewById<TextView>(Resource.Id.txtOrderParts).SetTextColor(Android.Graphics.Color.LightGreen);
+                view.FindViewById<TextView>(Resource.Id.txtOrderParts).SetTextColor(Android.Graphics.Color.Red);
             }
             else
             {
                 view.FindViewById<TextView>(Resource.Id.txtOrderParts).Text = "Order Parts >";
-                view.FindViewById<TextView>(Resource.Id.txtOrderParts).SetTextColor(Android.Graphics.Color.Brown);
+                view.FindViewById<TextView>(Resource.Id.txtOrderParts).SetTextColor(Android.Graphics.Color.LightGreen);
             }
             return view;
         }
