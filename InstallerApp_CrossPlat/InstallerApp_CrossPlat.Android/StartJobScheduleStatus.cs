@@ -103,15 +103,15 @@ namespace InstallerApp_CrossPlat.Droid
                         column = 0;
                     }
                 }
-                else if (surfaceOrientation == SurfaceOrientation.Rotation270 || surfaceOrientation == SurfaceOrientation.Rotation90)
-                {
-                    if (i % 5 == 0 && i != 0)
-                    {
-                        tblMainLayout.AddView(tblRow);
-                        tblRow = new TableRow(this);
-                        column = 0;
-                    }
-                }
+                //else if (surfaceOrientation == SurfaceOrientation.Rotation270 || surfaceOrientation == SurfaceOrientation.Rotation90)
+                //{
+                //    if (i % 5 == 0 && i != 0)
+                //    {
+                //        tblMainLayout.AddView(tblRow);
+                //        tblRow = new TableRow(this);
+                //        column = 0;
+                //    }
+                //}
                 Button btn = new Button(this);
                 btn.Id = i;
                 btn.Text = serviceListRoomsInfo[i].Rooms;
@@ -121,13 +121,17 @@ namespace InstallerApp_CrossPlat.Droid
                 var heightInDp = ConvertPixelsToDp(metrics.HeightPixels);
                 if(widthInDp == 360 && heightInDp == 640) //Samsung J3
                 {
-                    btn.SetMinimumWidth(200);
-                    btn.SetMinimumHeight(180);
+                    btn.SetMinWidth(200);
+                    btn.SetMinHeight(180);
+                    btn.SetMaxWidth(200);
+                    btn.SetMaxHeight(180);
                 }
                 else // Bigger Devices
                 {
-                    btn.SetMinimumWidth(230);
-                    btn.SetMinimumHeight(350);
+                    btn.SetMinWidth(400);
+                    btn.SetMinHeight(350);
+                    btn.SetMaxWidth(400);
+                    btn.SetMaxHeight(350);
                 }
                 btn.LayoutParameters = tbllayoutPara;
                 btn.Click += delegate
