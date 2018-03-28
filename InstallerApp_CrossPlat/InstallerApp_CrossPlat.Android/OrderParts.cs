@@ -56,9 +56,6 @@ namespace InstallerApp_CrossPlat.Droid
 
         private void BtnAddOrder_Click(object sender, EventArgs e)
         {
-            progressDialog = ProgressDialog.Show(this, "Loading...", "Please wait!!", true);
-            progressDialog.SetProgressStyle(ProgressDialogStyle.Spinner);
-            progressDialog.SetCanceledOnTouchOutside(true);
             new Thread(new ThreadStart(async delegate
             {
                 await Task.Delay(50);
@@ -68,24 +65,32 @@ namespace InstallerApp_CrossPlat.Droid
                     bool cbEnabled = orderPartsAdapter.GetAnyEnabledCb();
                     if (checkedItems.Count > 0 && cbEnabled)
                     {
-                        foreach (var reasonId in checkedItems)
-                        {
-                            insertRequest = 1; //If insertRequest = 1 , record will insert and fetch
-                            var lstPartOrderIssueID = serviceInstaller.InsKP_PartsOrderIssue(partsOrderID, reasonId, insertRequest);
-                            if (lstPartOrderIssueID.Length == 0)
+                        Android.App.AlertDialog.Builder alert = new Android.App.AlertDialog.Builder(this);
+                        alert.SetTitle("Parts Issues!!");
+                        alert.SetMessage("Want to add part Issue?");
+                        alert.SetPositiveButton("Yes", (senderAlert, args) => {
+                            foreach (var reasonId in checkedItems)
                             {
-                                progressDialog.Dismiss();
-                                return;
+                                insertRequest = 1; //If insertRequest = 1 , record will insert and fetch
+                                var lstPartOrderIssueID = serviceInstaller.InsKP_PartsOrderIssue(partsOrderID, reasonId, insertRequest);
+                                if (lstPartOrderIssueID.Length == 0)
+                                    return;
                             }
-                        }
-                        Bundle b = new Bundle();
-                        b.PutStringArray("keyRoomInfo", getstringRooms);
-                        b.PutStringArray("keySelectedInstaller", getSelectedInstaller);
-                        var intent = new Android.Content.Intent(this, typeof(PartsInfo));
-                        intent.PutExtras(b);
-                        StartActivity(intent);
+                            Bundle b = new Bundle();
+                            b.PutStringArray("keyRoomInfo", getstringRooms);
+                            b.PutStringArray("keySelectedInstaller", getSelectedInstaller);
+                            var intent = new Android.Content.Intent(this, typeof(PartsInfo));
+                            intent.PutExtras(b);
+                            StartActivity(intent);
+                            Toast.MakeText(ApplicationContext, "Issue Added Successfully", ToastLength.Long).Show();
+                        });
+
+                        alert.SetNegativeButton("Cancel", (senderAlert, args) => {
+
+                        });
+                        Dialog dialog = alert.Create();
+                        dialog.Show();
                     }
-                    progressDialog.Dismiss();
                 });
             })).Start();
         }

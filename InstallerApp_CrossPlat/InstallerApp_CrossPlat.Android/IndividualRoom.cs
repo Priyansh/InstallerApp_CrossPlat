@@ -52,7 +52,10 @@ namespace InstallerApp_CrossPlat.Droid
             csHeaderGeneralInfo headerGeneralInfo = new csHeaderGeneralInfo(this);
             headerGeneralInfo.imgbtnBack.Click += delegate
             {
-                var intent = new Android.Content.Intent(this, typeof(StartJobScheduleStatus)).SetFlags(ActivityFlags.ReorderToFront);
+                Bundle b = new Bundle();
+                b.PutStringArray("keySelectedInstaller", getSelectedInstaller);
+                var intent = new Android.Content.Intent(this, typeof(StartJobScheduleStatus));
+                intent.PutExtras(b);
                 StartActivity(intent);
             };
             headerGeneralInfo.textViewGeneral.Text = "Job Number: " + getSelectedInstaller[3];

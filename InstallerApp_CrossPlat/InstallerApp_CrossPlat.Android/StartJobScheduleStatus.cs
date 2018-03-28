@@ -10,6 +10,8 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace InstallerApp_CrossPlat.Droid
 {
@@ -23,12 +25,12 @@ namespace InstallerApp_CrossPlat.Droid
         Button btnJobCompleted;
         FrendelWebService.phonegap serviceInstaller = new FrendelWebService.phonegap();
         string[] getStrings;
-        
+        ProgressDialog progressDialog;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.StartJobScheduleStatus);
-            getStrings = Intent.GetStringArrayExtra("keyInstallerInfo");
+            getStrings = Intent.GetStringArrayExtra("keySelectedInstaller");
             textViewCompany = FindViewById<TextView>(Resource.Id.textViewCompany);
             textViewProject = FindViewById<TextView>(Resource.Id.textViewProject);
             textViewLot = FindViewById<TextView>(Resource.Id.textViewLot);
@@ -46,15 +48,12 @@ namespace InstallerApp_CrossPlat.Droid
             string shippedDone = string.IsNullOrEmpty(getStrings[5]) ? "" : Convert.ToDateTime(getStrings[5]).ToString("MMM dd, yyyy");
             textViewDelivered.Text = "Delivered on " + shippedDone;
 
-            //Call WebService
-            serviceInstaller.Url = "http://ws.frendel.com/mobile/phonegap.asmx";
-
             //Adding Header Information
             csHeaderGeneralInfo headerGeneralInfo = new csHeaderGeneralInfo(this);
             headerGeneralInfo.textViewGeneral.Text = "Job Number: " + getStrings[3];
             headerGeneralInfo.imgbtnBack.Click += delegate
             {
-                var intent = new Android.Content.Intent(this, typeof(JobScreen)).SetFlags(ActivityFlags.ReorderToFront);
+                var intent = new Android.Content.Intent(this, typeof(JobScreen));
                 StartActivity(intent);
             };
 
@@ -116,6 +115,12 @@ namespace InstallerApp_CrossPlat.Droid
                 btn.Id = i;
                 btn.Text = serviceListRoomsInfo[i].Rooms;
 
+                //Check any room has missing pictures, if no pictures, then 'hasRoomImage = true'
+                var lstInstallerImages = serviceInstaller.insKP_getInstallerImages(serviceListRoomsInfo[i].RSNo).ToList<byte[]>();
+                int countRoomImage = lstInstallerImages.Count;
+                if (countRoomImage == 0)
+                    btnJobCompleted.Enabled = false;
+
                 var metrics = Resources.DisplayMetrics;
                 var widthInDp = ConvertPixelsToDp(metrics.WidthPixels);
                 var heightInDp = ConvertPixelsToDp(metrics.HeightPixels);
@@ -159,27 +164,58 @@ namespace InstallerApp_CrossPlat.Droid
 
         public void funStartingJob(int jobStatus)
         {
-            imgbtnStartJob.SetImageResource(Resource.Drawable.StartJobPressed);
-            content2.Visibility = ViewStates.Gone;
+            //Display ProgressBar
+            progressDialog = ProgressDialog.Show(this, "Loading...", "Please wait!!", true);
+            progressDialog.SetProgressStyle(ProgressDialogStyle.Spinner);
+            new Thread(new ThreadStart(async delegate
+            {
+                await Task.Delay(50);
+                RunOnUiThread(() =>
+                {
+                    //Call WebService
+                    serviceInstaller.Url = "http://ws.frendel.com/mobile/phonegap.asmx";
+                    imgbtnStartJob.SetImageResource(Resource.Drawable.StartJobPressed);
+                    content2.Visibility = ViewStates.Gone;
 
-            //Visible Dynamic TableLayout
-            textViewJobStarted.Visibility = ViewStates.Visible;
-            tblMainLayout.Visibility = ViewStates.Visible;
-            txtViewSelectRoom.Visibility = ViewStates.Visible;
-            btnJobCompleted.Visibility = ViewStates.Visible;
-            //Job Status 0: Scheduled 1: Started 2: Completed
-            // When User click on Job Start button, Update job status and job start in Purcharser table
-            if (jobStatus == 0) { 
-                serviceInstaller.InsKP_UpdateInstallerStatus(int.Parse(getStrings[6]), 1);
-            }
-            var updateInstallerJobStatus = serviceInstaller.InsKP_GetInstallerByCSID(int.Parse(getStrings[6]));
-            int count = updateInstallerJobStatus.Length;
-            textViewJobStarted.Text = "Job Started On " + Convert.ToDateTime(updateInstallerJobStatus[0].InstallerJobStart).ToString("MMM dd, yyyy");
-            //Once Job Status Updated , then update getStrings' existing JobStatus with updated JobStatus
-            getStrings[7] = updateInstallerJobStatus[0].InstallerJobStatus.ToString();
-            //Display Table Layout
-            var serviceListRoomsInfo = serviceInstaller.InsKP_GetRoomInfo(int.Parse(getStrings[6]));
-            displayTableLayout();
+                    //Visible Dynamic TableLayout
+                    textViewJobStarted.Visibility = ViewStates.Visible;
+                    tblMainLayout.Visibility = ViewStates.Visible;
+                    txtViewSelectRoom.Visibility = ViewStates.Visible;
+                    btnJobCompleted.Visibility = ViewStates.Visible;
+                    btnJobCompleted.Click += BtnJobCompleted_Click;
+                    //Job Status 0: Scheduled 1: Started 2: Completed
+                    // When User click on Job Start button, Update job status and job start in Purcharser table
+                    if (jobStatus == 0)
+                    {
+                        serviceInstaller.InsKP_UpdateInstallerStatus(int.Parse(getStrings[6]), 1);
+                    }
+                    var updateInstallerJobStatus = serviceInstaller.InsKP_GetInstallerByCSID(int.Parse(getStrings[6]));
+                    textViewJobStarted.Text = "Job Started On " + Convert.ToDateTime(updateInstallerJobStatus[0].InstallerJobStart).ToString("MMM dd, yyyy");
+                    //Once Job Status Updated , then update getStrings' existing JobStatus with updated JobStatus
+                    getStrings[7] = updateInstallerJobStatus[0].InstallerJobStatus.ToString();
+                    //Display Table Layout
+                    displayTableLayout();
+                    progressDialog.Dismiss();
+                });
+            })).Start();
+        }
+
+        private void BtnJobCompleted_Click(object sender, EventArgs e)
+        {
+            Android.App.AlertDialog.Builder alert = new Android.App.AlertDialog.Builder(this);
+            alert.SetTitle("JobSchedule!!");
+            alert.SetMessage("Want to complete job?");
+            alert.SetPositiveButton("Yes", (senderAlert, args) => {
+                serviceInstaller.InsKP_UpdateInstallerStatus(int.Parse(getStrings[6]), 2);
+                Toast.MakeText(ApplicationContext, "Job Completed Successfully", ToastLength.Long).Show();
+            });
+
+            alert.SetNegativeButton("Cancel", (senderAlert, args) => {
+                
+            });
+
+            Dialog dialog = alert.Create();
+            dialog.Show();
         }
 
         //TableLayout should perform differently when orientation changed

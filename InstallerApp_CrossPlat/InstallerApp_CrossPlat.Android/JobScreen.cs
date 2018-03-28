@@ -75,20 +75,23 @@ namespace InstallerApp_CrossPlat.Droid
                 var serviceListInstallerInfo = serviceInstaller.InsKP_GetInstaller();
                 for (int i = 0; i < serviceListInstallerInfo.Length; i++)
                 {
-                    var fillInstallerProperties = new InstallerInfoList
+                    if(serviceListInstallerInfo[i].InstallerJobStatus != 2)
                     {
-                        Company = serviceListInstallerInfo[i].Company,
-                        Project = serviceListInstallerInfo[i].Project,
-                        CSID = serviceListInstallerInfo[i].CSID,
-                        Lot = serviceListInstallerInfo[i].Lot,
-                        JobNum = serviceListInstallerInfo[i].MasterNum.ToString().Substring(6),
-                        MasterNum = serviceListInstallerInfo[i].MasterNum,
-                        ShippedDone = serviceListInstallerInfo[i].ShippedDone,
-                        InstallerJobStatus = serviceListInstallerInfo[i].InstallerJobStatus,
-                        InstallerJobStart = serviceListInstallerInfo[i].InstallerJobStart,
-                        InstallerJobComplete = serviceListInstallerInfo[i].InstallerJobComplete
-                    };
-                    lstInstallerInfoClass.Add(fillInstallerProperties);
+                        var fillInstallerProperties = new InstallerInfoList
+                        {
+                            Company = serviceListInstallerInfo[i].Company,
+                            Project = serviceListInstallerInfo[i].Project,
+                            CSID = serviceListInstallerInfo[i].CSID,
+                            Lot = serviceListInstallerInfo[i].Lot,
+                            JobNum = serviceListInstallerInfo[i].MasterNum.ToString().Substring(6),
+                            MasterNum = serviceListInstallerInfo[i].MasterNum,
+                            ShippedDone = serviceListInstallerInfo[i].ShippedDone,
+                            InstallerJobStatus = serviceListInstallerInfo[i].InstallerJobStatus,
+                            InstallerJobStart = serviceListInstallerInfo[i].InstallerJobStart,
+                            InstallerJobComplete = serviceListInstallerInfo[i].InstallerJobComplete
+                        };
+                        lstInstallerInfoClass.Add(fillInstallerProperties);
+                    }
                 }
                 listView = FindViewById<ListView>(Resource.Id.lstInstallerInfo);
                 // populate the listview with data
@@ -107,7 +110,7 @@ namespace InstallerApp_CrossPlat.Droid
             var t = lstInstallerInfoClass[e.Position];
             string[] str = new string[] { t.Company, t.Project, t.Lot, t.JobNum, t.MasterNum, t.ShippedDone, t.CSID.ToString(), t.InstallerJobStatus.ToString(), t.InstallerJobStart, t.InstallerJobComplete };
             Bundle b = new Bundle();
-            b.PutStringArray("keyInstallerInfo", str);
+            b.PutStringArray("keySelectedInstaller", str);
             var intent = new Android.Content.Intent(this, typeof(StartJobScheduleStatus));
             intent.PutExtras(b);
             StartActivity(intent);
