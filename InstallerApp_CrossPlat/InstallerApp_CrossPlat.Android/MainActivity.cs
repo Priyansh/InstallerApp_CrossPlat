@@ -7,6 +7,10 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 using Android.Content.PM;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace InstallerApp_CrossPlat.Droid
 {
@@ -15,11 +19,15 @@ namespace InstallerApp_CrossPlat.Droid
     public class MainActivity : Activity
     {
         ImageButton imgbtnJobs;
+        public byte[] GetFile { get; private set; }
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
+            //TODO Call REST API
+            getAllInstallers("http://192.168.3.135:9810/api/installers");
+            
             var toolbar = FindViewById<Toolbar>(Resource.Id.HeaderToolbar);
             SetActionBar(toolbar);
             ActionBar.Title = "";
@@ -35,6 +43,23 @@ namespace InstallerApp_CrossPlat.Droid
                 StartActivity(intent);
                 Finish();
             };
+        }
+
+        public async Task<bool> getAllInstallers(string url)
+        {
+            try
+            {
+                var httpClient = new HttpClient();
+                var response = await httpClient.GetStringAsync(url);
+                List<InstallerInfoList> lst = JsonConvert.DeserializeObject<List<InstallerInfoList>>(response);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("File Download Error :" + ex.ToString());
+                return false;
+            }
+
+            return true;
         }
 
     } //End MainActivity
