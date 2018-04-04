@@ -19,6 +19,7 @@ namespace InstallerApp_CrossPlat.Droid
         TextView textViewRoomInfo;
         FrendelWebService.phonegap serviceInstaller = new FrendelWebService.phonegap();
         ProgressDialog progressDialog;
+        Button btnSubmitOrder;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -37,8 +38,26 @@ namespace InstallerApp_CrossPlat.Droid
             displayHeaderInfo();
             textViewRoomInfo = FindViewById<TextView>(Resource.Id.textViewRoomInfo);
             textViewRoomInfo.Text = getstringRooms[2];
+            btnSubmitOrder = FindViewById<Button>(Resource.Id.btnSubmitOrder);
+            btnSubmitOrder.Click += BtnSubmitOrder_Click;
             ThreadPool.QueueUserWorkItem(q => longRunningMethod());
         }
+
+        private void BtnSubmitOrder_Click(object sender, System.EventArgs e)
+        {
+            Intent email = new Intent(Intent.ActionSend);
+
+            email.PutExtra(Intent.ExtraEmail, new string[] { "kevinl@frendel.com", "priyanshs@frendel.com" });
+
+            email.PutExtra(Intent.ExtraSubject, "");
+
+            email.PutExtra(Intent.ExtraText, "");
+
+            email.SetType("message/rfc822");
+
+            StartActivity(email);
+        }
+
         public void displayHeaderInfo()
         {
             //Adding Header Information
