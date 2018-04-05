@@ -21,11 +21,13 @@ namespace InstallerApp_CrossPlat.Droid
         ListView listView;
         ProgressDialog dialog;
         FrendelWebService.phonegap serviceInstaller = new FrendelWebService.phonegap();
+        int installerId;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
             SetContentView(Resource.Layout.JobScreen);
+            
             if (lstInstallerInfoClass.Count <= 0)
             {
                 dialog = ProgressDialog.Show(this, "Loading...", "Please Wait!!!", true);
@@ -62,6 +64,7 @@ namespace InstallerApp_CrossPlat.Droid
             headerGeneralInfo.imgbtnBack.Click += delegate
             {
                 var intent = new Android.Content.Intent(this, typeof(MainActivity));
+                intent.PutExtra("getInstallerId", installerId.ToString());
                 StartActivity(intent);
             };
             headerGeneralInfo.textViewGeneral.Text = "Jobs";
@@ -72,7 +75,8 @@ namespace InstallerApp_CrossPlat.Droid
         {
             try
             {
-                var serviceListInstallerInfo = serviceInstaller.InsKP_GetInstaller();
+                installerId = int.Parse(Intent.GetStringExtra("getInstallerId"));
+                var serviceListInstallerInfo = serviceInstaller.InsKP_GetInstaller(installerId);
                 for (int i = 0; i < serviceListInstallerInfo.Length; i++)
                 {
                     if(serviceListInstallerInfo[i].InstallerJobStatus != 2)
@@ -112,6 +116,7 @@ namespace InstallerApp_CrossPlat.Droid
             Bundle b = new Bundle();
             b.PutStringArray("keySelectedInstaller", str);
             var intent = new Android.Content.Intent(this, typeof(StartJobScheduleStatus));
+            intent.PutExtra("getInstallerId", installerId.ToString());
             intent.PutExtras(b);
             StartActivity(intent);
         }
@@ -130,6 +135,7 @@ namespace InstallerApp_CrossPlat.Droid
         {
             base.OnRestart();
             var intent = new Android.Content.Intent(this, typeof(JobScreen));
+            intent.PutExtra("getInstallerId", installerId.ToString());
             StartActivity(intent);
             Finish();
         }

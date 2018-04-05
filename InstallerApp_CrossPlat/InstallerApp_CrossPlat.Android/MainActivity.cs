@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using System.Net.Http.Headers;
 
 namespace InstallerApp_CrossPlat.Droid
 {
@@ -20,13 +21,14 @@ namespace InstallerApp_CrossPlat.Droid
     {
         ImageButton imgbtnJobs;
         public byte[] GetFile { get; private set; }
+        int installerId;
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
             //TODO Call REST API
-            getAllInstallers("http://192.168.3.135:9810/api/installers");
+            getAllInstallers("http://192.168.3.135:3000");
             
             var toolbar = FindViewById<Toolbar>(Resource.Id.HeaderToolbar);
             SetActionBar(toolbar);
@@ -40,6 +42,8 @@ namespace InstallerApp_CrossPlat.Droid
             imgbtnJobs = FindViewById<ImageButton>(Resource.Id.imgbtnJobs);
             imgbtnJobs.Click += delegate {
                 var intent = new Android.Content.Intent(this, typeof(JobScreen));
+                installerId = int.Parse(Intent.GetStringExtra("getInstallerId"));
+                intent.PutExtra("getInstallerId", installerId.ToString());
                 StartActivity(intent);
                 Finish();
             };
@@ -50,12 +54,23 @@ namespace InstallerApp_CrossPlat.Droid
             try
             {
                 var httpClient = new HttpClient();
+                httpClient.BaseAddress = new Uri(url);
+                httpClient.DefaultRequestHeaders.Clear();
+                httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                HttpResponseMessage resMsg = await httpClient.GetAsync("api/installers");
+                //Checking the response is successful or not which is sent using HttpClient
+                if (resMsg.IsSuccessStatusCode)
+                {
+                    //Storing the response details recieved from web api
+                    var resp = resMsg.Content.ReadAsStringAsync().Result;
+                    List<InstallerInfoList> lst = JsonConvert.DeserializeObject<List<InstallerInfoList>>(resp);
+                }
                 var response = await httpClient.GetStringAsync(url);
-                List<InstallerInfoList> lst = JsonConvert.DeserializeObject<List<InstallerInfoList>>(response);
+                //List<InstallerInfoList> lst = JsonConvert.DeserializeObject<List<InstallerInfoList>>(response);
             }
             catch (Exception ex)
             {
-                Console.WriteLine("File Download Error :" + ex.ToString());
+                Console.WriteLine("Error :" + ex.ToString());
                 return false;
             }
 

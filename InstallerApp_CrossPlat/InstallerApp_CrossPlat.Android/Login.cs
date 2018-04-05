@@ -56,6 +56,7 @@ namespace InstallerApp_CrossPlat.Droid
                         else
                         {
                             var intent = new Android.Content.Intent(this, typeof(MainActivity));
+                            intent.PutExtra("getInstallerId", installerId.ToString());
                             StartActivity(intent);
                             Finish();
                         }

@@ -1488,22 +1488,24 @@ namespace InstallerApp_CrossPlat.Droid.FrendelWebService {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/InsKP_GetInstaller", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public Ins_GetInstallerList[] InsKP_GetInstaller() {
-            object[] results = this.Invoke("InsKP_GetInstaller", new object[0]);
+        public Ins_GetInstallerList[] InsKP_GetInstaller(int installerId) {
+            object[] results = this.Invoke("InsKP_GetInstaller", new object[] {
+                        installerId});
             return ((Ins_GetInstallerList[])(results[0]));
         }
         
         /// <remarks/>
-        public void InsKP_GetInstallerAsync() {
-            this.InsKP_GetInstallerAsync(null);
+        public void InsKP_GetInstallerAsync(int installerId) {
+            this.InsKP_GetInstallerAsync(installerId, null);
         }
         
         /// <remarks/>
-        public void InsKP_GetInstallerAsync(object userState) {
+        public void InsKP_GetInstallerAsync(int installerId, object userState) {
             if ((this.InsKP_GetInstallerOperationCompleted == null)) {
                 this.InsKP_GetInstallerOperationCompleted = new System.Threading.SendOrPostCallback(this.OnInsKP_GetInstallerOperationCompleted);
             }
-            this.InvokeAsync("InsKP_GetInstaller", new object[0], this.InsKP_GetInstallerOperationCompleted, userState);
+            this.InvokeAsync("InsKP_GetInstaller", new object[] {
+                        installerId}, this.InsKP_GetInstallerOperationCompleted, userState);
         }
         
         private void OnInsKP_GetInstallerOperationCompleted(object arg) {
@@ -1515,24 +1517,26 @@ namespace InstallerApp_CrossPlat.Droid.FrendelWebService {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/InsKP_GetInstallerByCSID", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public Ins_GetInstallerList[] InsKP_GetInstallerByCSID(int CSID) {
+        public Ins_GetInstallerList[] InsKP_GetInstallerByCSID(int CSID, int installerId) {
             object[] results = this.Invoke("InsKP_GetInstallerByCSID", new object[] {
-                        CSID});
+                        CSID,
+                        installerId});
             return ((Ins_GetInstallerList[])(results[0]));
         }
         
         /// <remarks/>
-        public void InsKP_GetInstallerByCSIDAsync(int CSID) {
-            this.InsKP_GetInstallerByCSIDAsync(CSID, null);
+        public void InsKP_GetInstallerByCSIDAsync(int CSID, int installerId) {
+            this.InsKP_GetInstallerByCSIDAsync(CSID, installerId, null);
         }
         
         /// <remarks/>
-        public void InsKP_GetInstallerByCSIDAsync(int CSID, object userState) {
+        public void InsKP_GetInstallerByCSIDAsync(int CSID, int installerId, object userState) {
             if ((this.InsKP_GetInstallerByCSIDOperationCompleted == null)) {
                 this.InsKP_GetInstallerByCSIDOperationCompleted = new System.Threading.SendOrPostCallback(this.OnInsKP_GetInstallerByCSIDOperationCompleted);
             }
             this.InvokeAsync("InsKP_GetInstallerByCSID", new object[] {
-                        CSID}, this.InsKP_GetInstallerByCSIDOperationCompleted, userState);
+                        CSID,
+                        installerId}, this.InsKP_GetInstallerByCSIDOperationCompleted, userState);
         }
         
         private void OnInsKP_GetInstallerByCSIDOperationCompleted(object arg) {

@@ -24,7 +24,7 @@ namespace InstallerApp_CrossPlat.Droid
         TextView textViewRoomInfo;
         ProgressDialog progressDialog;
         FrendelWebService.phonegap serviceInstaller = new FrendelWebService.phonegap();
-        int PartsCount, deliveryPhoto, installationPhoto = 0;
+        int PartsCount, deliveryPhoto, installationPhoto = 0, installerId;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -32,6 +32,7 @@ namespace InstallerApp_CrossPlat.Droid
             SetContentView(Resource.Layout.IndividualRoom);
             getstringRooms = Intent.GetStringArrayExtra("keyRoomInfo");
             getSelectedInstaller = Intent.GetStringArrayExtra("keySelectedInstaller");
+            installerId = int.Parse(Intent.GetStringExtra("getInstallerId"));
 
             var toolbar = FindViewById<Toolbar>(Resource.Id.HeaderToolbar);
             SetActionBar(toolbar);
@@ -55,6 +56,7 @@ namespace InstallerApp_CrossPlat.Droid
                 Bundle b = new Bundle();
                 b.PutStringArray("keySelectedInstaller", getSelectedInstaller);
                 var intent = new Android.Content.Intent(this, typeof(StartJobScheduleStatus));
+                intent.PutExtra("getInstallerId", installerId.ToString());
                 intent.PutExtras(b);
                 StartActivity(intent);
             };

@@ -26,11 +26,13 @@ namespace InstallerApp_CrossPlat.Droid
         FrendelWebService.phonegap serviceInstaller = new FrendelWebService.phonegap();
         string[] getStrings;
         ProgressDialog progressDialog;
+        int installerId;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.StartJobScheduleStatus);
             getStrings = Intent.GetStringArrayExtra("keySelectedInstaller");
+            installerId = int.Parse(Intent.GetStringExtra("getInstallerId"));
             textViewCompany = FindViewById<TextView>(Resource.Id.textViewCompany);
             textViewProject = FindViewById<TextView>(Resource.Id.textViewProject);
             textViewLot = FindViewById<TextView>(Resource.Id.textViewLot);
@@ -54,6 +56,7 @@ namespace InstallerApp_CrossPlat.Droid
             headerGeneralInfo.imgbtnBack.Click += delegate
             {
                 var intent = new Android.Content.Intent(this, typeof(JobScreen));
+                intent.PutExtra("getInstallerId", installerId.ToString());
                 StartActivity(intent);
             };
 
@@ -147,6 +150,7 @@ namespace InstallerApp_CrossPlat.Droid
                     b.PutStringArray("keyRoomInfo", strRooms);
                     b.PutStringArray("keySelectedInstaller", getStrings);
                     var intent = new Android.Content.Intent(this, typeof(IndividualRoom));
+                    intent.PutExtra("getInstallerId", installerId.ToString());
                     intent.PutExtras(b);
                     StartActivity(intent);
                 };
@@ -189,7 +193,7 @@ namespace InstallerApp_CrossPlat.Droid
                     {
                         serviceInstaller.InsKP_UpdateInstallerStatus(int.Parse(getStrings[6]), 1);
                     }
-                    var updateInstallerJobStatus = serviceInstaller.InsKP_GetInstallerByCSID(int.Parse(getStrings[6]));
+                    var updateInstallerJobStatus = serviceInstaller.InsKP_GetInstallerByCSID(int.Parse(getStrings[6]), installerId);
                     textViewJobStarted.Text = "Job Started On " + Convert.ToDateTime(updateInstallerJobStatus[0].InstallerJobStart).ToString("MMM dd, yyyy");
                     //Once Job Status Updated , then update getStrings' existing JobStatus with updated JobStatus
                     getStrings[7] = updateInstallerJobStatus[0].InstallerJobStatus.ToString();

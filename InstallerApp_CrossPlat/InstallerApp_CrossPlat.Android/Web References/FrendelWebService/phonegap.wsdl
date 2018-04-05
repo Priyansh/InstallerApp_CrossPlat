@@ -904,7 +904,11 @@
         </s:complexType>
       </s:element>
       <s:element name="InsKP_GetInstaller">
-        <s:complexType />
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="installerId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
       </s:element>
       <s:complexType name="Ins_GetInstallerList">
         <s:sequence>
@@ -938,6 +942,7 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="1" maxOccurs="1" name="CSID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="installerId" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
