@@ -28,7 +28,7 @@ namespace InstallerApp_CrossPlat.Droid
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
             //TODO Call REST API
-            getAllInstallers("http://192.168.3.135:3000");
+            getAllInstallers("http://192.168.3.135:9810/");
             
             var toolbar = FindViewById<Toolbar>(Resource.Id.HeaderToolbar);
             SetActionBar(toolbar);
@@ -57,13 +57,13 @@ namespace InstallerApp_CrossPlat.Droid
                 httpClient.BaseAddress = new Uri(url);
                 httpClient.DefaultRequestHeaders.Clear();
                 httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                HttpResponseMessage resMsg = await httpClient.GetAsync("api/installers");
+                HttpResponseMessage resMsg = await httpClient.GetAsync("api/installers?installerID=47");
                 //Checking the response is successful or not which is sent using HttpClient
                 if (resMsg.IsSuccessStatusCode)
                 {
                     //Storing the response details recieved from web api
                     var resp = resMsg.Content.ReadAsStringAsync().Result;
-                    List<InstallerInfoList> lst = JsonConvert.DeserializeObject<List<InstallerInfoList>>(resp);
+                    List<InstallerInfoList> lst = await Task.Run(() => JsonConvert.DeserializeObject<List<InstallerInfoList>>(resp));
                 }
                 var response = await httpClient.GetStringAsync(url);
                 //List<InstallerInfoList> lst = JsonConvert.DeserializeObject<List<InstallerInfoList>>(response);
