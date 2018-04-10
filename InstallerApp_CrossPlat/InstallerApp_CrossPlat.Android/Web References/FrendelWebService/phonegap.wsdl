@@ -1077,6 +1077,7 @@
             <s:element minOccurs="0" maxOccurs="1" name="CSID" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="installerImage" type="s:base64Binary" />
             <s:element minOccurs="0" maxOccurs="1" name="RoomNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RoomName" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>

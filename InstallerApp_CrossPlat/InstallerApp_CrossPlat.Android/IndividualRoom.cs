@@ -153,6 +153,7 @@ namespace InstallerApp_CrossPlat.Droid
                     b.PutStringArray("keyRoomInfo", getstringRooms);
                     b.PutStringArray("keySelectedInstaller", getSelectedInstaller);
                     var intent = new Android.Content.Intent(this, typeof(PhotoGallery));
+                    intent.PutExtra("getInstallerId", installerId.ToString());
                     intent.PutExtras(b);
                     StartActivity(intent);
                 }

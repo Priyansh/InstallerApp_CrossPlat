@@ -1701,28 +1701,30 @@ namespace InstallerApp_CrossPlat.Droid.FrendelWebService {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/insKP_InsertInstallerImages", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public byte[][] insKP_InsertInstallerImages(string CSID, [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")] byte[] installerImage, string RoomNo) {
+        public byte[][] insKP_InsertInstallerImages(string CSID, [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")] byte[] installerImage, string RoomNo, string RoomName) {
             object[] results = this.Invoke("insKP_InsertInstallerImages", new object[] {
                         CSID,
                         installerImage,
-                        RoomNo});
+                        RoomNo,
+                        RoomName});
             return ((byte[][])(results[0]));
         }
         
         /// <remarks/>
-        public void insKP_InsertInstallerImagesAsync(string CSID, byte[] installerImage, string RoomNo) {
-            this.insKP_InsertInstallerImagesAsync(CSID, installerImage, RoomNo, null);
+        public void insKP_InsertInstallerImagesAsync(string CSID, byte[] installerImage, string RoomNo, string RoomName) {
+            this.insKP_InsertInstallerImagesAsync(CSID, installerImage, RoomNo, RoomName, null);
         }
         
         /// <remarks/>
-        public void insKP_InsertInstallerImagesAsync(string CSID, byte[] installerImage, string RoomNo, object userState) {
+        public void insKP_InsertInstallerImagesAsync(string CSID, byte[] installerImage, string RoomNo, string RoomName, object userState) {
             if ((this.insKP_InsertInstallerImagesOperationCompleted == null)) {
                 this.insKP_InsertInstallerImagesOperationCompleted = new System.Threading.SendOrPostCallback(this.OninsKP_InsertInstallerImagesOperationCompleted);
             }
             this.InvokeAsync("insKP_InsertInstallerImages", new object[] {
                         CSID,
                         installerImage,
-                        RoomNo}, this.insKP_InsertInstallerImagesOperationCompleted, userState);
+                        RoomNo,
+                        RoomName}, this.insKP_InsertInstallerImagesOperationCompleted, userState);
         }
         
         private void OninsKP_InsertInstallerImagesOperationCompleted(object arg) {

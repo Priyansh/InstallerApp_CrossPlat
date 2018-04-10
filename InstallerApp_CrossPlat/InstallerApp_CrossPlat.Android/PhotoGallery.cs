@@ -36,7 +36,7 @@ namespace InstallerApp_CrossPlat.Droid
         byte[] imageBytes;
         FrendelWebService.phonegap serviceInstaller = new FrendelWebService.phonegap();
         ProgressDialog progressDialog;
-        int alertDialog = 0;
+        int alertDialog = 0, installerId;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -44,7 +44,8 @@ namespace InstallerApp_CrossPlat.Droid
             SetContentView(Resource.Layout.PhotoGallery);
             getstringRooms = Intent.GetStringArrayExtra("keyRoomInfo");
             getSelectedInstaller = Intent.GetStringArrayExtra("keySelectedInstaller");
-            
+            installerId = int.Parse(Intent.GetStringExtra("getInstallerId"));
+
             //Adding Loading bar
             progressDialog = ProgressDialog.Show(this, "Loading...", "Please wait!!", true);
             progressDialog.SetProgressStyle(ProgressDialogStyle.Spinner);
@@ -67,7 +68,12 @@ namespace InstallerApp_CrossPlat.Droid
             csHeaderGeneralInfo headerGeneralInfo = new csHeaderGeneralInfo(this);
             headerGeneralInfo.imgbtnBack.Click += delegate
             {
-                var intent = new Android.Content.Intent(this, typeof(IndividualRoom)).SetFlags(ActivityFlags.ReorderToFront);
+                Bundle b = new Bundle();
+                b.PutStringArray("keyRoomInfo", getstringRooms);
+                b.PutStringArray("keySelectedInstaller", getSelectedInstaller);
+                var intent = new Android.Content.Intent(this, typeof(IndividualRoom));
+                intent.PutExtra("getInstallerId", installerId.ToString());
+                intent.PutExtras(b);
                 StartActivity(intent);
             };
             headerGeneralInfo.textViewGeneral.Text = "Job Number: " + getSelectedInstaller[3];
@@ -139,7 +145,7 @@ namespace InstallerApp_CrossPlat.Droid
                     //Insert photos in DB and fetch info from DB at same time
                     //Store images in bitmap array, then upload to Grid
                     lstByteArryImages = new List<byte[]>();
-                    lstByteArryImages = serviceInstaller.insKP_InsertInstallerImages(getstringRooms[1], imageBytes, getstringRooms[0]).ToList<byte[]>();
+                    lstByteArryImages = serviceInstaller.insKP_InsertInstallerImages(getstringRooms[1], imageBytes, getstringRooms[0], textViewRoomInfo.Text).ToList<byte[]>();
 
                     RunOnUiThread(() =>
                     {
