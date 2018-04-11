@@ -131,6 +131,8 @@ namespace InstallerApp_CrossPlat.Droid.FrendelWebService {
         
         private System.Threading.SendOrPostCallback InsKP_GetPartOrderIssuesCountOperationCompleted;
         
+        private System.Threading.SendOrPostCallback InsKP_GetInstallerCompanyOperationCompleted;
+        
         private System.Threading.SendOrPostCallback ServerTimeOperationCompleted;
         
         private System.Threading.SendOrPostCallback ServerTimeJsonOperationCompleted;
@@ -325,6 +327,9 @@ namespace InstallerApp_CrossPlat.Droid.FrendelWebService {
         
         /// <remarks/>
         public event InsKP_GetPartOrderIssuesCountCompletedEventHandler InsKP_GetPartOrderIssuesCountCompleted;
+        
+        /// <remarks/>
+        public event InsKP_GetInstallerCompanyCompletedEventHandler InsKP_GetInstallerCompanyCompleted;
         
         /// <remarks/>
         public event ServerTimeCompletedEventHandler ServerTimeCompleted;
@@ -1859,6 +1864,35 @@ namespace InstallerApp_CrossPlat.Droid.FrendelWebService {
             if ((this.InsKP_GetPartOrderIssuesCountCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.InsKP_GetPartOrderIssuesCountCompleted(this, new InsKP_GetPartOrderIssuesCountCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/InsKP_GetInstallerCompany", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string InsKP_GetInstallerCompany(int installerID) {
+            object[] results = this.Invoke("InsKP_GetInstallerCompany", new object[] {
+                        installerID});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void InsKP_GetInstallerCompanyAsync(int installerID) {
+            this.InsKP_GetInstallerCompanyAsync(installerID, null);
+        }
+        
+        /// <remarks/>
+        public void InsKP_GetInstallerCompanyAsync(int installerID, object userState) {
+            if ((this.InsKP_GetInstallerCompanyOperationCompleted == null)) {
+                this.InsKP_GetInstallerCompanyOperationCompleted = new System.Threading.SendOrPostCallback(this.OnInsKP_GetInstallerCompanyOperationCompleted);
+            }
+            this.InvokeAsync("InsKP_GetInstallerCompany", new object[] {
+                        installerID}, this.InsKP_GetInstallerCompanyOperationCompleted, userState);
+        }
+        
+        private void OnInsKP_GetInstallerCompanyOperationCompleted(object arg) {
+            if ((this.InsKP_GetInstallerCompanyCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.InsKP_GetInstallerCompanyCompleted(this, new InsKP_GetInstallerCompanyCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -6425,6 +6459,32 @@ namespace InstallerApp_CrossPlat.Droid.FrendelWebService {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    public delegate void InsKP_GetInstallerCompanyCompletedEventHandler(object sender, InsKP_GetInstallerCompanyCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class InsKP_GetInstallerCompanyCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal InsKP_GetInstallerCompanyCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
             }
         }
     }

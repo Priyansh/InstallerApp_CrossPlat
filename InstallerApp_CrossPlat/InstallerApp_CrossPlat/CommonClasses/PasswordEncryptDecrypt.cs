@@ -4,7 +4,7 @@ using System.Text;
 using System.Security.Cryptography;
 using System.IO;
 
-namespace InstallerApp_CrossPlat.Droid
+namespace InstallerApp_CrossPlat
 {
     static internal class PasswordEncryptDecrypt
     {

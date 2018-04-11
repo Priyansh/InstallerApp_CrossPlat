@@ -19,14 +19,17 @@ namespace InstallerApp_CrossPlat.Droid
     [Activity(Label = "", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : Activity
     {
-        ImageButton imgbtnJobs;
+        ImageButton imgbtnJobs, imgbtnLogOut;
         public byte[] GetFile { get; private set; }
         int installerId;
+        FrendelWebService.phonegap serviceInstaller = new FrendelWebService.phonegap();
+        TextView txtInstallerName;
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
+            installerId = int.Parse(Intent.GetStringExtra("getInstallerId"));
             //TODO Call REST API
             getAllInstallers("http://192.168.3.135:9810/");
             
@@ -42,11 +45,21 @@ namespace InstallerApp_CrossPlat.Droid
             imgbtnJobs = FindViewById<ImageButton>(Resource.Id.imgbtnJobs);
             imgbtnJobs.Click += delegate {
                 var intent = new Android.Content.Intent(this, typeof(JobScreen));
-                installerId = int.Parse(Intent.GetStringExtra("getInstallerId"));
                 intent.PutExtra("getInstallerId", installerId.ToString());
                 StartActivity(intent);
                 Finish();
             };
+            imgbtnLogOut = FindViewById<ImageButton>(Resource.Id.imgbtnLogOut);
+            imgbtnLogOut.Click += ImgbtnLogOut_Click;
+            serviceInstaller.Url = "http://ws.frendel.com/mobile/phonegap.asmx";
+            txtInstallerName = FindViewById<TextView>(Resource.Id.txtInstallerName);
+            txtInstallerName.Text = serviceInstaller.InsKP_GetInstallerCompany(installerId);
+        }
+
+        private void ImgbtnLogOut_Click(object sender, EventArgs e)
+        {
+            Intent intent = new Android.Content.Intent(this, typeof(Login));
+            StartActivity(intent);
         }
 
         public async Task<bool> getAllInstallers(string url)

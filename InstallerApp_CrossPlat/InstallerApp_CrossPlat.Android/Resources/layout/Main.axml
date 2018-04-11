@@ -25,7 +25,7 @@
                 <TextView
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:id="@+id/txtInstallerName"
-                    android:text="Stellato Installations and Services"
+                    android:text=""
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:padding="8dp" />
