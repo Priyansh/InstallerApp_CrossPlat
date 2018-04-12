@@ -30,9 +30,11 @@ namespace InstallerApp_CrossPlat.Droid
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
             installerId = int.Parse(Intent.GetStringExtra("getInstallerId"));
-            //TODO Call REST API
-            getAllInstallers("http://192.168.3.135:9810/");
-            
+
+            //Working REST-API Url using conveyor AND/OR using own local port 9810
+            getAllInstallers("https://installerwebapi.conveyor.cloud/");
+            //getAllInstallers("http://192.168.3.135:9810/");
+
             var toolbar = FindViewById<Toolbar>(Resource.Id.HeaderToolbar);
             SetActionBar(toolbar);
             ActionBar.Title = "";
@@ -70,16 +72,13 @@ namespace InstallerApp_CrossPlat.Droid
                 httpClient.BaseAddress = new Uri(url);
                 httpClient.DefaultRequestHeaders.Clear();
                 httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                HttpResponseMessage resMsg = await httpClient.GetAsync("api/installers?installerID=47");
+                HttpResponseMessage resMsg = await httpClient.GetAsync("api/installers?installerID=" + installerId);
                 //Checking the response is successful or not which is sent using HttpClient
                 if (resMsg.IsSuccessStatusCode)
                 {
-                    //Storing the response details recieved from web api
-                    var resp = resMsg.Content.ReadAsStringAsync().Result;
-                    List<InstallerInfoList> lst = await Task.Run(() => JsonConvert.DeserializeObject<List<InstallerInfoList>>(resp));
+                    var response = resMsg.Content.ReadAsStringAsync().Result;                    
+                    List<InstallerInfoList> lst = JsonConvert.DeserializeObject<List<InstallerInfoList>>(response);
                 }
-                var response = await httpClient.GetStringAsync(url);
-                //List<InstallerInfoList> lst = JsonConvert.DeserializeObject<List<InstallerInfoList>>(response);
             }
             catch (Exception ex)
             {
