@@ -96,15 +96,15 @@ namespace InstallerApp_CrossPlat.Droid
 
             for (int i = 0; i < serviceListRoomsInfo.Length; i++)
             {
-                if (surfaceOrientation == SurfaceOrientation.Rotation0 || surfaceOrientation == SurfaceOrientation.Rotation180)
-                {
-                    if (i % 3 == 0 && i != 0)
-                    {
-                        tblMainLayout.AddView(tblRow);
-                        tblRow = new TableRow(this);
-                        column = 0;
-                    }
-                }
+                //if (surfaceOrientation == SurfaceOrientation.Rotation0 || surfaceOrientation == SurfaceOrientation.Rotation180)
+                //{
+                //    if (i % 3 == 0 && i != 0)
+                //    {
+                //        tblMainLayout.AddView(tblRow);
+                //        tblRow = new TableRow(this);
+                //        column = 0;
+                //    }
+                //}
                 //else if (surfaceOrientation == SurfaceOrientation.Rotation270 || surfaceOrientation == SurfaceOrientation.Rotation90)
                 //{
                 //    if (i % 5 == 0 && i != 0)
@@ -119,8 +119,7 @@ namespace InstallerApp_CrossPlat.Droid
                 btn.Text = serviceListRoomsInfo[i].Rooms;
 
                 //Check any room has missing pictures, if no pictures, then 'hasRoomImage = true'
-                var lstInstallerImages = serviceInstaller.insKP_getInstallerImages(serviceListRoomsInfo[i].RSNo).ToList<byte[]>();
-                int countRoomImage = lstInstallerImages.Count;
+                int countRoomImage = serviceInstaller.InsKP_CountInstallerImages(serviceListRoomsInfo[i].RSNo);
                 if (countRoomImage == 0)
                     btnJobCompleted.Enabled = false;
 

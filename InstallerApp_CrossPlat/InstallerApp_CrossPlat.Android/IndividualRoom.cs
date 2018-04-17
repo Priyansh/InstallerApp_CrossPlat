@@ -74,8 +74,8 @@ namespace InstallerApp_CrossPlat.Droid
                     serviceInstaller.Url = "http://ws.frendel.com/mobile/phonegap.asmx";
                     var partsInfoList = serviceInstaller.InsKP_GetPartInfo(getSelectedInstaller[4].ToString(), getstringRooms[2].ToString());
                     PartsCount = partsInfoList.Length;
-                    var lstInstallerImages = serviceInstaller.insKP_getInstallerImages(getstringRooms[0]).ToList<byte[]>();
-                    installationPhoto = lstInstallerImages.Count;
+                    int countRoomImage = serviceInstaller.InsKP_CountInstallerImages(getstringRooms[0]);
+                    installationPhoto = countRoomImage;
                     displayFetchedRoomInfo();
                     progressDialog.Dismiss();
                 });
