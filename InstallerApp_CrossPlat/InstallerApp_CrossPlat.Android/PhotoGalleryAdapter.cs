@@ -44,7 +44,7 @@ namespace InstallerApp_CrossPlat.Droid
             {
                 imageView = new ImageView(context);
                 // Grid Images
-                imageView.LayoutParameters = new GridView.LayoutParams(300, 300);
+                imageView.LayoutParameters = new GridView.LayoutParams(350, 350);
                 imageView.SetScaleType(ImageView.ScaleType.FitXy);
                 imageView.SetPadding(10, 10, 10, 10);
             }
