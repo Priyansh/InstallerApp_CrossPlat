@@ -121,7 +121,7 @@ namespace InstallerApp_CrossPlat.Droid
                 camProgressDialog.SetProgressStyle(ProgressDialogStyle.Spinner);
                 new Thread(new ThreadStart(async delegate
                 {
-                    await Task.Delay(50);
+                    await Task.Delay(5);
                     base.OnActivityResult(requestCode, resultCode, data);
                     //Make it available in the gallery
                     Intent mediaScanIntent = new Intent(Intent.ActionMediaScannerScanFile);
@@ -246,7 +246,7 @@ namespace InstallerApp_CrossPlat.Droid
 
             new Thread(new ThreadStart(async delegate
             {
-                await Task.Delay(50);
+                await Task.Delay(5);
                 RunOnUiThread(() =>
                 {
                     //Populate Installer Images based on Room i.e. Kitchen / Main / Ensuit
