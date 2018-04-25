@@ -10,5 +10,7 @@ namespace InstallerApp_CrossPlat.Droid
     interface IBitmapImageImages
     {
         Bitmap bitmapImage { get; set; }
+        int widthInDp { get; set; }
+        int heightInDp { get; set; }
     }
 }
