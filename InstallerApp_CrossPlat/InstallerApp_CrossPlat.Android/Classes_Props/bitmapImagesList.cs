@@ -18,5 +18,7 @@ namespace InstallerApp_CrossPlat.Droid
             get { return this._bitmapImage; }
             set { this._bitmapImage = value; }
         }
+        public int widthInDp { get; set; }
+        public int heightInDp { get; set; }
     }
 }

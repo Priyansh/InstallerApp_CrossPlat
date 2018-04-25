@@ -38,13 +38,22 @@ namespace InstallerApp_CrossPlat.Droid
         public override View GetView(int position, View convertView, ViewGroup parent)
         {
             var bitmapImage = lstBitmapImages[position].bitmapImage;
+            var widthInDp = lstBitmapImages[position].widthInDp;
+            var heightInDp = lstBitmapImages[position].heightInDp;
             ImageView imageView;
 
             if (convertView == null)
             {
                 imageView = new ImageView(context);
                 // Grid Images
-                imageView.LayoutParameters = new GridView.LayoutParams(350, 350);
+                if (widthInDp == 360 && heightInDp == 640) //Samsung J3
+                {
+                    imageView.LayoutParameters = new GridView.LayoutParams(350, 350);
+                }
+                else //Bigger Devices
+                {
+                    imageView.LayoutParameters = new GridView.LayoutParams(490, 490);
+                }
                 imageView.SetScaleType(ImageView.ScaleType.FitXy);
                 imageView.SetPadding(10, 10, 10, 10);
             }

@@ -161,17 +161,28 @@ namespace InstallerApp_CrossPlat.Droid
             }
 
         }
+        private int ConvertPixelsToDp(float pixelValue)
+        {
+            var dp = (int)((pixelValue) / Resources.DisplayMetrics.Density);
+            return dp;
+        }
 
         public void uploadImagesGrid()
         {
             //Grid Images code
             var gridPhotoGallery = FindViewById<GridView>(Resource.Id.gridPhotoGallery);
             lstBitmapImagesClass = new List<BitmapImagesList>();
+            //Adjust GridView Image based on Screen Resolution
+            var metrics = Resources.DisplayMetrics;
+            var localWidthInDp = ConvertPixelsToDp(metrics.WidthPixels);
+            var localHeightInDp = ConvertPixelsToDp(metrics.HeightPixels);
             foreach (var imageData in lstByteArryImages)
             {
                 var bmp = new BitmapImagesList
                 {
-                    bitmapImage = BitmapFactory.DecodeByteArray(imageData, 0, imageData.Length)
+                    bitmapImage = BitmapFactory.DecodeByteArray(imageData, 0, imageData.Length),
+                    widthInDp = localWidthInDp,
+                    heightInDp = localHeightInDp
                 };
                 lstBitmapImagesClass.Add(bmp);
             }
