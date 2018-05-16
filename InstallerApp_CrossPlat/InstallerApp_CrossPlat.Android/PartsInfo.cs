@@ -6,6 +6,7 @@ using Android.OS;
 using Android.Widget;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Text;
 
 namespace InstallerApp_CrossPlat.Droid
 {
@@ -20,6 +21,7 @@ namespace InstallerApp_CrossPlat.Droid
         FrendelWebService.phonegap serviceInstaller = new FrendelWebService.phonegap();
         ProgressDialog progressDialog;
         Button btnSubmitOrder;
+        private PartsInfoAdapter partsInfoAdapter;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -45,17 +47,34 @@ namespace InstallerApp_CrossPlat.Droid
 
         private void BtnSubmitOrder_Click(object sender, System.EventArgs e)
         {
-            Intent email = new Intent(Intent.ActionSend);
+            var checkedItems = partsInfoAdapter.GetCheckedItems();
+            if(checkedItems.Count > 0)
+            {
+                var emailText = new StringBuilder();
+                emailText.AppendLine("--- Installer Company ---");
+                emailText.AppendLine("");
+                emailText.AppendFormat("{0}, {1} \n", lstInstallerInfoClass[0].Company, lstInstallerInfoClass[0].Project);
+                emailText.AppendFormat("{0}, {1} \n", lstInstallerInfoClass[0].Lot, lstInstallerInfoClass[0].JobNum);
+                emailText.AppendLine("");
+                foreach (var items in checkedItems)
+                {
+                    emailText.AppendFormat("Cabinet : {0} \n", items.CabinetName);
+                    emailText.AppendFormat("LFinish : {0}, RFinish : {1} \n", items.LFinish, items.RFinish);
+                    emailText.AppendLine("");
+                }
+                
+                Intent email = new Intent(Intent.ActionSend);
 
-            email.PutExtra(Intent.ExtraEmail, new string[] { "kevinl@frendel.com", "priyanshs@frendel.com" });
+                email.PutExtra(Intent.ExtraEmail, new string[] { "installerparts@frendel.com" });
 
-            email.PutExtra(Intent.ExtraSubject, "");
+                email.PutExtra(Intent.ExtraSubject, "Cabinet and Issues");
 
-            email.PutExtra(Intent.ExtraText, "");
+                email.PutExtra(Intent.ExtraText, emailText.ToString());
 
-            email.SetType("message/rfc822");
+                email.SetType("message/rfc822");
 
-            StartActivity(email);
+                StartActivity(email);
+            }
         }
 
         public void displayHeaderInfo()
@@ -113,13 +132,15 @@ namespace InstallerApp_CrossPlat.Droid
                     PartType = partsInfoList[i].PartType,
                     LabelNo = partsInfoList[i].LabelNo,
                     CSID = partsInfoList[i].CSID,
-                    OrderPartsStatus = countOrderPartIssues
+                    OrderPartsStatus = countOrderPartIssues,
+                    IsCbSelected = false
                 };
                 lstPartsInfoClass.Add(fillPartsInfoProperties);
             }
             listViewPartsInfo = FindViewById<ListView>(Resource.Id.listPartInfo);
             // populate the listview with data
-            listViewPartsInfo.Adapter = new PartsInfoAdapter(this, lstPartsInfoClass);
+            partsInfoAdapter = new PartsInfoAdapter(this, lstPartsInfoClass);
+            listViewPartsInfo.Adapter = partsInfoAdapter;
             listViewPartsInfo.ItemClick += ListViewPartsInfo_ItemClick;
         }
 

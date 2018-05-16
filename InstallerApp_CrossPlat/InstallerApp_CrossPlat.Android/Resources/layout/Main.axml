@@ -42,15 +42,15 @@
                     android:layout_width="70dp"
                     android:layout_gravity="left"
                     android:paddingRight="30dp"
-                    android:layout_marginRight="100dp" />
-                <ImageButton
+                    android:layout_marginRight="30.5dp" />
+            <!--<ImageButton
                     android:id="@+id/imgbtnMessages"
                     android:background="@drawable/memo256"
                     android:layout_height="wrap_content"
                     android:layout_width="70dp"
                     android:layout_gravity="right"
                     android:paddingRight="30dp"
-                    android:layout_marginRight="45dp" />
+                    android:layout_marginRight="45dp" />-->
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -65,29 +65,29 @@
                     android:text="Jobs"
                     android:padding="8dp"
                     android:layout_gravity="left"
-                    android:layout_marginRight="80dp" />
-                <TextView
+                    android:layout_marginRight="33.5dp" />
+            <!--<TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:id="@+id/textView2"
                     android:text="Messages"
                     android:padding="8dp"
-                    android:layout_marginRight="20dp" />
+                    android:layout_marginRight="20dp" />-->
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:id="@+id/linearLayout4"
                 android:gravity="center"
                 android:layout_height="50dp">
-                <ImageButton
+            <!--<ImageButton
                     android:id="@+id/imgbtnPayments"
                     android:background="@drawable/moneybagusdollar256"
                     android:layout_height="wrap_content"
                     android:layout_width="70dp"
                     android:layout_gravity="left"
                     android:paddingRight="30dp"
-                    android:layout_marginRight="100dp" />
+                    android:layout_marginRight="100dp" />-->
                 <ImageButton
                     android:id="@+id/imgbtnSettings"
                     android:background="@drawable/settings"
@@ -102,7 +102,7 @@
                 android:id="@+id/linearLayout5"
                 android:gravity="center"
                 android:layout_height="55dp">
-                <TextView
+            <!--<TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:textAppearance="?android:attr/textAppearanceLarge"
@@ -110,7 +110,7 @@
                     android:text="Payments"
                     android:padding="8dp"
                     android:layout_gravity="left"
-                    android:layout_marginRight="60dp" />
+                    android:layout_marginRight="60dp" />-->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"

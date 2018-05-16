@@ -43,5 +43,7 @@ namespace InstallerApp_CrossPlat
         }
 
         public int OrderPartsStatus { get; set; }
+
+        public bool IsCbSelected { get; set; }
     }
 }
