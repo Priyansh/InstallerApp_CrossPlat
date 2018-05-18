@@ -51,6 +51,7 @@ namespace InstallerApp_CrossPlat.Droid
             if(checkedItems.Count > 0)
             {
                 var emailText = new StringBuilder();
+                string[] subject = new string[] {"FK #" + lstInstallerInfoClass[0].JobNum, lstInstallerInfoClass[0].Company, lstInstallerInfoClass[0].Project, lstInstallerInfoClass[0].Lot };
                 emailText.AppendLine("--- Installer Company ---");
                 emailText.AppendLine("");
                 emailText.AppendFormat("{0}, {1} \n", lstInstallerInfoClass[0].Company, lstInstallerInfoClass[0].Project);
@@ -66,8 +67,8 @@ namespace InstallerApp_CrossPlat.Droid
                 Intent email = new Intent(Intent.ActionSend);
 
                 email.PutExtra(Intent.ExtraEmail, new string[] { "installerparts@frendel.com" });
-
-                email.PutExtra(Intent.ExtraSubject, "Cabinet and Issues");
+                
+                email.PutExtra(Intent.ExtraSubject, string.Join(" / ", subject) );
 
                 email.PutExtra(Intent.ExtraText, emailText.ToString());
 
